@@ -180,7 +180,8 @@ function LessonDetailPage() {
   const { lessonId } = Route.useParams();
   const info = useMemo(() => getLessonStaticInfo(lessonId), [lessonId]);
 
-  // State for mock PDF viewer
+  // State for PDF viewer
+  const [viewMode, setViewMode] = useState<"pdf" | "summary">("pdf");
   const [currentPage, setCurrentPage] = useState(1);
   const [zoom, setZoom] = useState(100);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -327,176 +328,223 @@ function LessonDetailPage() {
             <Card className="p-0 border-2 border-border/80 rounded-3xl bg-card shadow-soft overflow-hidden">
               {/* PDF Viewer Header Toolbar */}
               <div className="bg-muted/40 border-b border-border/60 px-4 py-3 flex flex-wrap items-center justify-between gap-3">
-                <div className="flex items-center gap-2">
-                  <BookOpen className="size-4.5 text-primary shrink-0" />
-                  <span className="font-display font-bold text-sm text-foreground">
-                    Sách giáo khoa (PDF)
-                  </span>
+                {/* Mode Selector Tabs */}
+                <div className="flex items-center gap-1.5 bg-background/60 p-1 rounded-xl border border-border/60">
+                  <button
+                    onClick={() => setViewMode("pdf")}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 cursor-pointer ${
+                      viewMode === "pdf"
+                        ? "bg-primary text-primary-foreground shadow-soft"
+                        : "hover:bg-muted text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <BookOpen className="size-3.5" />
+                    <span>Sách giáo khoa PDF</span>
+                  </button>
+                  <button
+                    onClick={() => setViewMode("summary")}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1 cursor-pointer ${
+                      viewMode === "summary"
+                        ? "bg-primary text-primary-foreground shadow-soft"
+                        : "hover:bg-muted text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <FileText className="size-3.5" />
+                    <span>Tóm tắt bài học</span>
+                  </button>
                 </div>
 
-                {/* PDF Controls */}
-                <div className="flex items-center gap-1.5 md:gap-2.5">
-                  <button
-                    onClick={handleZoomOut}
-                    className="p-1.5 rounded-lg hover:bg-muted hover:text-foreground text-muted-foreground transition-all cursor-pointer"
-                    title="Thu nhỏ"
-                  >
-                    <ZoomOut className="size-4" />
-                  </button>
-                  <span className="text-[10px] md:text-xs font-bold text-foreground min-w-[35px] text-center">
-                    {zoom}%
-                  </span>
-                  <button
-                    onClick={handleZoomIn}
-                    className="p-1.5 rounded-lg hover:bg-muted hover:text-foreground text-muted-foreground transition-all cursor-pointer"
-                    title="Phóng to"
-                  >
-                    <ZoomIn className="size-4" />
-                  </button>
+                {/* PDF Controls (Only visible in Summary mode) */}
+                {viewMode === "summary" ? (
+                  <div className="flex items-center gap-1.5 md:gap-2.5">
+                    <button
+                      onClick={handleZoomOut}
+                      className="p-1.5 rounded-lg hover:bg-muted hover:text-foreground text-muted-foreground transition-all cursor-pointer"
+                      title="Thu nhỏ"
+                    >
+                      <ZoomOut className="size-4" />
+                    </button>
+                    <span className="text-[10px] md:text-xs font-bold text-foreground min-w-[35px] text-center">
+                      {zoom}%
+                    </span>
+                    <button
+                      onClick={handleZoomIn}
+                      className="p-1.5 rounded-lg hover:bg-muted hover:text-foreground text-muted-foreground transition-all cursor-pointer"
+                      title="Phóng to"
+                    >
+                      <ZoomIn className="size-4" />
+                    </button>
 
-                  <div className="w-px h-4 bg-border/60 mx-1 hidden sm:block" />
+                    <div className="w-px h-4 bg-border/60 mx-1 hidden sm:block" />
 
-                  <button
-                    className="p-1.5 rounded-lg hover:bg-muted hover:text-foreground text-muted-foreground transition-all cursor-pointer hidden sm:block"
-                    title="Xoay trang"
-                  >
-                    <RotateCw className="size-4" />
-                  </button>
+                    <button
+                      className="p-1.5 rounded-lg hover:bg-muted hover:text-foreground text-muted-foreground transition-all cursor-pointer hidden sm:block"
+                      title="Xoay trang"
+                    >
+                      <RotateCw className="size-4" />
+                    </button>
 
-                  <button
-                    className="p-1.5 rounded-lg hover:bg-muted hover:text-foreground text-muted-foreground transition-all cursor-pointer"
-                    title="Toàn màn hình"
-                    onClick={() => setIsFullscreen(!isFullscreen)}
-                  >
-                    <Maximize2 className="size-4" />
-                  </button>
+                    <button
+                      className="p-1.5 rounded-lg hover:bg-muted hover:text-foreground text-muted-foreground transition-all cursor-pointer"
+                      title="Toàn màn hình"
+                      onClick={() => setIsFullscreen(!isFullscreen)}
+                    >
+                      <Maximize2 className="size-4" />
+                    </button>
 
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      alert(
-                        "Tính năng tải PDF đang được thiết lập riêng tư cho học sinh có tài khoản học tập chính thức!",
-                      );
-                    }}
-                    className="p-1.5 rounded-lg hover:bg-muted hover:text-foreground text-muted-foreground transition-all cursor-pointer"
-                    title="Tải tệp PDF xuống"
-                  >
-                    <Download className="size-4" />
-                  </a>
-                </div>
+                    <a
+                      href="/Bai_08_Xu_li_bat_hoa_voi_ban_be.pdf"
+                      download
+                      className="p-1.5 rounded-lg hover:bg-muted hover:text-foreground text-muted-foreground transition-all cursor-pointer"
+                      title="Tải tệp PDF xuống"
+                    >
+                      <Download className="size-4" />
+                    </a>
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <a
+                      href="/Bai_08_Xu_li_bat_hoa_voi_ban_be.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-[11px] font-bold text-primary hover:underline px-2.5 py-1.5 rounded-lg bg-primary/10 transition-all"
+                    >
+                      <Eye className="size-3.5" /> Mở trong tab mới
+                    </a>
+                    <a
+                      href="/Bai_08_Xu_li_bat_hoa_voi_ban_be.pdf"
+                      download
+                      className="p-1.5 rounded-lg hover:bg-muted hover:text-foreground text-muted-foreground transition-all cursor-pointer"
+                      title="Tải tệp PDF xuống"
+                    >
+                      <Download className="size-4" />
+                    </a>
+                  </div>
+                )}
               </div>
 
-              {/* Realistic Paper Viewer Body */}
-              <div
-                className={`bg-slate-100 p-6 md:p-8 flex items-center justify-center transition-all ${
-                  isFullscreen
-                    ? "fixed inset-0 z-50 overflow-y-auto"
-                    : "min-h-[420px]"
-                }`}
-                style={{
-                  transform: isFullscreen ? "none" : `scale(${zoom / 100})`,
-                  transformOrigin: "top center",
-                  marginBottom: isFullscreen
-                    ? "0"
-                    : `${zoom - 100 > 0 ? (zoom - 100) * 3 : 0}px`,
-                }}
-              >
-                {/* Fullscreen close helper */}
-                {isFullscreen && (
-                  <button
-                    onClick={() => setIsFullscreen(false)}
-                    className="absolute top-4 right-4 z-50 bg-black/70 hover:bg-black text-white px-4 py-2 rounded-xl text-xs font-bold shadow-soft cursor-pointer"
+              {/* Realistic Paper Viewer Body or PDF iframe */}
+              {viewMode === "pdf" ? (
+                <div className="bg-slate-100 p-0 flex items-center justify-center min-h-[600px]">
+                  <iframe
+                    src="/Bai_08_Xu_li_bat_hoa_voi_ban_be.pdf"
+                    className="w-full h-[650px] border-0 bg-white"
+                    title="Sách Giáo Khoa PDF"
+                  />
+                </div>
+              ) : (
+                <>
+                  <div
+                    className={`bg-slate-100 p-6 md:p-8 flex items-center justify-center transition-all ${
+                      isFullscreen
+                        ? "fixed inset-0 z-50 overflow-y-auto"
+                        : "min-h-[420px]"
+                    }`}
+                    style={{
+                      transform: isFullscreen ? "none" : `scale(${zoom / 100})`,
+                      transformOrigin: "top center",
+                      marginBottom: isFullscreen
+                        ? "0"
+                        : `${zoom - 100 > 0 ? (zoom - 100) * 3 : 0}px`,
+                    }}
                   >
-                    Đóng Toàn Màn Hình [Esc]
-                  </button>
-                )}
+                    {/* Fullscreen close helper */}
+                    {isFullscreen && (
+                      <button
+                        onClick={() => setIsFullscreen(false)}
+                        className="absolute top-4 right-4 z-50 bg-black/70 hover:bg-black text-white px-4 py-2 rounded-xl text-xs font-bold shadow-soft cursor-pointer"
+                      >
+                        Đóng Toàn Màn Hình [Esc]
+                      </button>
+                    )}
 
-                {/* The Paper Sheet */}
-                <Card
-                  className={`w-full max-w-2xl bg-[#FCFAF2] border-2 border-amber-900/10 shadow-card p-6 md:p-10 rounded-2xl relative select-none text-foreground/90 transition-all ${
-                    isFullscreen ? "my-12 animate-pop-in" : ""
-                  }`}
-                  style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
-                >
-                  {/* Spine Shadow Effect */}
-                  <div className="absolute top-0 bottom-0 left-0 w-4 bg-gradient-to-r from-black/5 to-transparent rounded-l-2xl pointer-events-none" />
+                    {/* The Paper Sheet */}
+                    <Card
+                      className={`w-full max-w-2xl bg-[#FCFAF2] border-2 border-amber-900/10 shadow-card p-6 md:p-10 rounded-2xl relative select-none text-foreground/90 transition-all ${
+                        isFullscreen ? "my-12 animate-pop-in" : ""
+                      }`}
+                      style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
+                    >
+                      {/* Spine Shadow Effect */}
+                      <div className="absolute top-0 bottom-0 left-0 w-4 bg-gradient-to-r from-black/5 to-transparent rounded-l-2xl pointer-events-none" />
 
-                  {/* Dynamic PDF content rendered beautifully */}
-                  <div className="space-y-5">
-                    {/* Chapter Header */}
-                    <div className="border-b border-amber-900/10 pb-3 flex justify-between items-center text-[10px] md:text-xs font-bold uppercase tracking-wider text-amber-800/80">
-                      <span>
-                        BỘ SÁCH GIÁO KHOA KẾT NỐI TRI THỨC VỚI CUỘC SỐNG
-                      </span>
-                      <span>Trang {currentPage + 5}</span>
-                    </div>
+                      {/* Dynamic PDF content rendered beautifully */}
+                      <div className="space-y-5">
+                        {/* Chapter Header */}
+                        <div className="border-b border-amber-900/10 pb-3 flex justify-between items-center text-[10px] md:text-xs font-bold uppercase tracking-wider text-amber-800/80">
+                          <span>
+                            BỘ SÁCH GIÁO KHOA KẾT NỐI TRI THỨC VỚI CUỘC SỐNG
+                          </span>
+                          <span>Trang {currentPage + 5}</span>
+                        </div>
 
-                    {/* Lesson Header Title */}
-                    <h3 className="font-display font-black text-lg md:text-xl text-amber-950 border-l-4 border-amber-700 pl-3 leading-snug py-1">
-                      {currentPageContent.header}
-                    </h3>
+                        {/* Lesson Header Title */}
+                        <h3 className="font-display font-black text-lg md:text-xl text-amber-950 border-l-4 border-amber-700 pl-3 leading-snug py-1">
+                          {currentPageContent.header}
+                        </h3>
 
-                    {/* Lesson Content paragraphs */}
-                    <div className="space-y-4 text-xs md:text-sm leading-relaxed text-amber-950/80">
-                      {currentPageContent.paragraphs.map((p, idx) => (
-                        <p key={idx}>{p}</p>
-                      ))}
-                    </div>
+                        {/* Lesson Content paragraphs */}
+                        <div className="space-y-4 text-xs md:text-sm leading-relaxed text-amber-950/80">
+                          {currentPageContent.paragraphs.map((p, idx) => (
+                            <p key={idx}>{p}</p>
+                          ))}
+                        </div>
 
-                    {/* Exercise block */}
-                    <div className="mt-5 p-4 rounded-xl bg-amber-50 border border-amber-200/60 shadow-inner">
-                      <h4 className="font-display font-bold text-xs text-amber-900 flex items-center gap-1.5 mb-1.5">
-                        <FileText className="size-4 text-amber-700" />
-                        Hoạt động Luyện tập trong SGK:
-                      </h4>
-                      <p className="text-xs text-amber-900/85 leading-relaxed">
-                        {currentPageContent.exercise}
-                      </p>
-                    </div>
+                        {/* Exercise block */}
+                        <div className="mt-5 p-4 rounded-xl bg-amber-50 border border-amber-200/60 shadow-inner">
+                          <h4 className="font-display font-bold text-xs text-amber-900 flex items-center gap-1.5 mb-1.5">
+                            <FileText className="size-4 text-amber-700" />
+                            Hoạt động Luyện tập trong SGK:
+                          </h4>
+                          <p className="text-xs text-amber-900/85 leading-relaxed">
+                            {currentPageContent.exercise}
+                          </p>
+                        </div>
 
-                    {/* Interactive highlight/hint in PDF */}
-                    <div className="mt-4 p-4 rounded-xl bg-orange-100/50 border border-orange-200/50">
-                      <p className="text-xs text-orange-950 font-medium leading-relaxed italic">
-                        {currentPageContent.tip}
-                      </p>
+                        {/* Interactive highlight/hint in PDF */}
+                        <div className="mt-4 p-4 rounded-xl bg-orange-100/50 border border-orange-200/50">
+                          <p className="text-xs text-orange-950 font-medium leading-relaxed italic">
+                            {currentPageContent.tip}
+                          </p>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+
+                  {/* PDF Footer Toolbar (Pagination controls) */}
+                  <div className="bg-card border-t border-border/60 px-4 py-3.5 flex items-center justify-between gap-4">
+                    <span className="text-xs font-bold text-muted-foreground">
+                      Trang {currentPage} / {info.pdfPages.length}
+                    </span>
+
+                    {/* Back / Next buttons */}
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={handlePrevPage}
+                        disabled={currentPage === 1}
+                        className={`px-3 py-1.5 rounded-xl border border-border text-xs font-bold flex items-center gap-1 transition-all ${
+                          currentPage === 1
+                            ? "opacity-40 cursor-not-allowed text-muted-foreground"
+                            : "hover:bg-muted text-foreground cursor-pointer"
+                        }`}
+                      >
+                        <ChevronLeft className="size-3.5" /> Trang trước
+                      </button>
+                      <button
+                        onClick={handleNextPage}
+                        disabled={currentPage === info.pdfPages.length}
+                        className={`px-3 py-1.5 rounded-xl border border-border text-xs font-bold flex items-center gap-1 transition-all ${
+                          currentPage === info.pdfPages.length
+                            ? "opacity-40 cursor-not-allowed text-muted-foreground"
+                            : "hover:bg-muted text-foreground cursor-pointer"
+                        }`}
+                      >
+                        Trang sau <ChevronRight className="size-3.5" />
+                      </button>
                     </div>
                   </div>
-                </Card>
-              </div>
-
-              {/* PDF Footer Toolbar (Pagination controls) */}
-              <div className="bg-card border-t border-border/60 px-4 py-3.5 flex items-center justify-between gap-4">
-                <span className="text-xs font-bold text-muted-foreground">
-                  Trang {currentPage} / {info.pdfPages.length}
-                </span>
-
-                {/* Back / Next buttons */}
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={handlePrevPage}
-                    disabled={currentPage === 1}
-                    className={`px-3 py-1.5 rounded-xl border border-border text-xs font-bold flex items-center gap-1 transition-all ${
-                      currentPage === 1
-                        ? "opacity-40 cursor-not-allowed text-muted-foreground"
-                        : "hover:bg-muted text-foreground cursor-pointer"
-                    }`}
-                  >
-                    <ChevronLeft className="size-3.5" /> Trang trước
-                  </button>
-                  <button
-                    onClick={handleNextPage}
-                    disabled={currentPage === info.pdfPages.length}
-                    className={`px-3 py-1.5 rounded-xl border border-border text-xs font-bold flex items-center gap-1 transition-all ${
-                      currentPage === info.pdfPages.length
-                        ? "opacity-40 cursor-not-allowed text-muted-foreground"
-                        : "hover:bg-muted text-foreground cursor-pointer"
-                    }`}
-                  >
-                    Trang sau <ChevronRight className="size-3.5" />
-                  </button>
-                </div>
-              </div>
+                </>
+              )}
             </Card>
 
             {/* Hub 2: BÀI TẬP SỐ TƯƠNG TÁC (Home learning homework) */}
