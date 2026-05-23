@@ -188,6 +188,25 @@ const FEATURES = [
   },
 ];
 
+function getLessonSlug(title: string) {
+  if (title.includes("100 000") && !title.includes("phép tính"))
+    return "toan-bai-1";
+  if (title.includes("Biểu thức chứa chữ")) return "toan-bai-4";
+  if (title.includes("Đo góc")) return "toan-bai-11";
+
+  return (
+    "toan-" +
+    title
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[đĐ]/g, "d")
+      .replace(/[^a-z0-9\s-]/g, "")
+      .trim()
+      .replace(/\s+/g, "-")
+  );
+}
+
 function BookIntroPage() {
   const totalLessons = TOPICS.reduce((s, t) => s + t.lessons.length, 0);
 
@@ -390,20 +409,27 @@ function BookIntroPage() {
                 </div>
               </div>
               <ol className="divide-y">
-                {topic.lessons.map((lesson, idx) => (
-                  <li
-                    key={lesson}
-                    className="flex items-center gap-3 px-5 py-3 hover:bg-muted/50 transition-colors"
-                  >
-                    <div
-                      className={`size-7 rounded-lg ${topic.bg} ${topic.text} flex items-center justify-center text-xs font-bold shrink-0`}
+                {topic.lessons.map((lesson, idx) => {
+                  const lessonSlug = getLessonSlug(lesson);
+                  return (
+                    <Link
+                      key={lesson}
+                      to="/sach/bai-hoc/$lessonId"
+                      params={{ lessonId: lessonSlug }}
+                      className="flex items-center gap-3 px-5 py-3 hover:bg-muted/50 transition-colors cursor-pointer"
                     >
-                      {idx + 1}
-                    </div>
-                    <div className="text-sm font-medium flex-1">{lesson}</div>
-                    <ChevronRight className="size-4 text-muted-foreground" />
-                  </li>
-                ))}
+                      <div
+                        className={`size-7 rounded-lg ${topic.bg} ${topic.text} flex items-center justify-center text-xs font-bold shrink-0`}
+                      >
+                        {idx + 1}
+                      </div>
+                      <div className="text-sm font-medium flex-1 text-foreground">
+                        {lesson}
+                      </div>
+                      <ChevronRight className="size-4 text-muted-foreground" />
+                    </Link>
+                  );
+                })}
               </ol>
             </Card>
           ))}

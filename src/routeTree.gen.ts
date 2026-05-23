@@ -42,6 +42,7 @@ import { Route as AdminEngineRouteImport } from './routes/admin/engine'
 import { Route as AdminContentRouteImport } from './routes/admin/content'
 import { Route as AdminAiRouteImport } from './routes/admin/ai'
 import { Route as StudentLessonLessonIdRouteImport } from './routes/student/lesson.$lessonId'
+import { Route as SachBaiHocLessonIdRouteImport } from './routes/sach/bai-hoc.$lessonId'
 import { Route as ApiAiJsonRouteImport } from './routes/api/ai.json'
 import { Route as ApiAiChatRouteImport } from './routes/api/ai.chat'
 
@@ -210,6 +211,11 @@ const StudentLessonLessonIdRoute = StudentLessonLessonIdRouteImport.update({
   path: '/student/lesson/$lessonId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SachBaiHocLessonIdRoute = SachBaiHocLessonIdRouteImport.update({
+  id: '/sach/bai-hoc/$lessonId',
+  path: '/sach/bai-hoc/$lessonId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiAiJsonRoute = ApiAiJsonRouteImport.update({
   id: '/api/ai/json',
   path: '/api/ai/json',
@@ -256,6 +262,7 @@ export interface FileRoutesByFullPath {
   '/teacher/': typeof TeacherIndexRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/json': typeof ApiAiJsonRoute
+  '/sach/bai-hoc/$lessonId': typeof SachBaiHocLessonIdRoute
   '/student/lesson/$lessonId': typeof StudentLessonLessonIdRoute
 }
 export interface FileRoutesByTo {
@@ -293,6 +300,7 @@ export interface FileRoutesByTo {
   '/teacher': typeof TeacherIndexRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/json': typeof ApiAiJsonRoute
+  '/sach/bai-hoc/$lessonId': typeof SachBaiHocLessonIdRoute
   '/student/lesson/$lessonId': typeof StudentLessonLessonIdRoute
 }
 export interface FileRoutesById {
@@ -331,6 +339,7 @@ export interface FileRoutesById {
   '/teacher/': typeof TeacherIndexRoute
   '/api/ai/chat': typeof ApiAiChatRoute
   '/api/ai/json': typeof ApiAiJsonRoute
+  '/sach/bai-hoc/$lessonId': typeof SachBaiHocLessonIdRoute
   '/student/lesson/$lessonId': typeof StudentLessonLessonIdRoute
 }
 export interface FileRouteTypes {
@@ -370,6 +379,7 @@ export interface FileRouteTypes {
     | '/teacher/'
     | '/api/ai/chat'
     | '/api/ai/json'
+    | '/sach/bai-hoc/$lessonId'
     | '/student/lesson/$lessonId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -407,6 +417,7 @@ export interface FileRouteTypes {
     | '/teacher'
     | '/api/ai/chat'
     | '/api/ai/json'
+    | '/sach/bai-hoc/$lessonId'
     | '/student/lesson/$lessonId'
   id:
     | '__root__'
@@ -444,6 +455,7 @@ export interface FileRouteTypes {
     | '/teacher/'
     | '/api/ai/chat'
     | '/api/ai/json'
+    | '/sach/bai-hoc/$lessonId'
     | '/student/lesson/$lessonId'
   fileRoutesById: FileRoutesById
 }
@@ -482,6 +494,7 @@ export interface RootRouteChildren {
   TeacherIndexRoute: typeof TeacherIndexRoute
   ApiAiChatRoute: typeof ApiAiChatRoute
   ApiAiJsonRoute: typeof ApiAiJsonRoute
+  SachBaiHocLessonIdRoute: typeof SachBaiHocLessonIdRoute
   StudentLessonLessonIdRoute: typeof StudentLessonLessonIdRoute
 }
 
@@ -718,6 +731,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudentLessonLessonIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sach/bai-hoc/$lessonId': {
+      id: '/sach/bai-hoc/$lessonId'
+      path: '/sach/bai-hoc/$lessonId'
+      fullPath: '/sach/bai-hoc/$lessonId'
+      preLoaderRoute: typeof SachBaiHocLessonIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/ai/json': {
       id: '/api/ai/json'
       path: '/api/ai/json'
@@ -770,6 +790,7 @@ const rootRouteChildren: RootRouteChildren = {
   TeacherIndexRoute: TeacherIndexRoute,
   ApiAiChatRoute: ApiAiChatRoute,
   ApiAiJsonRoute: ApiAiJsonRoute,
+  SachBaiHocLessonIdRoute: SachBaiHocLessonIdRoute,
   StudentLessonLessonIdRoute: StudentLessonLessonIdRoute,
 }
 export const routeTree = rootRouteImport
