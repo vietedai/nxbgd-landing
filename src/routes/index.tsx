@@ -630,52 +630,30 @@ function Landing() {
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="max-w-7xl mx-auto px-4 pt-12 pb-12 w-full">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-          <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-warning/20 text-warning-foreground font-bold text-xs mb-4">
-              <Sparkles className="size-4" /> 72.000+ câu hỏi · 23 kiểu tương
-              tác · AI feedback
+      {/* Hero Banner */}
+      <section className="max-w-7xl mx-auto px-4 pt-8 pb-8 w-full">
+        <div className="relative w-full rounded-3xl overflow-hidden border-2 border-border/80 shadow-soft group aspect-[16/6] md:aspect-[3/1] lg:aspect-[128/45] bg-gradient-to-r from-amber-100 via-orange-50 to-sky-100">
+          <img
+            src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1280&q=80"
+            alt="NXBGDVN - Sách bài tập số"
+            className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent flex items-center px-8 md:px-16">
+            <div className="max-w-xl text-white drop-shadow-md">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-warning text-warning-foreground text-[10px] font-bold uppercase tracking-wider mb-3 shadow-soft">
+                🎯 Hệ thống học tập số quốc gia
+              </span>
+              <h1 className="font-display text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-white">
+                Sách Bài Tập Số <br />
+                <span className="text-amber-300">NXB Giáo Dục Việt Nam</span>
+              </h1>
+              <p className="mt-2 md:mt-3 text-xs md:text-sm text-white/90 font-medium leading-relaxed hidden sm:block">
+                Học vui hơn, hiệu quả hơn cùng Ong Chăm Chỉ và trợ lý AI thông
+                minh — tích hợp 23 kiểu tương tác, adaptive learning và ngân
+                hàng 72.000+ câu hỏi bám sát SGK.
+              </p>
             </div>
-            <h1 className="font-display text-4xl md:text-6xl font-bold tracking-tight">
-              Sách bài tập số <span className="text-primary">cho học sinh</span>{" "}
-              Việt Nam
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl lg:mx-0 mx-auto">
-              Học vui hơn, hiệu quả hơn cùng Ong Chăm Chỉ và trợ lý AI thông
-              minh — từ trắc nghiệm, kéo thả tới quiz Kahoot, adaptive AI, ghép
-              hình…
-            </p>
-
-            <div className="mt-7 flex flex-wrap gap-3 justify-center lg:justify-start">
-              <Link
-                to="/student"
-                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-soft transition hover:opacity-90"
-              >
-                <PlayCircle className="size-4" /> Vào học ngay
-              </Link>
-              <a
-                href="#sach-nang-cao"
-                className="inline-flex items-center gap-2 rounded-xl border-2 border-border bg-card px-5 py-3 text-sm font-bold text-foreground transition hover:border-primary"
-              >
-                Xem sách bài tập <ArrowRight className="size-4" />
-              </a>
-            </div>
-
-            <div
-              id="tinh-nang"
-              className="mt-8 flex flex-wrap justify-center lg:justify-start gap-3 text-sm"
-            >
-              <Badge icon={BookOpen} text="Bám sát SGK" />
-              <Badge icon={Brain} text="AI chấm tự luận" />
-              <Badge icon={Trophy} text="Gamification" />
-              <Badge icon={Sparkles} text="Adaptive learning" />
-            </div>
-          </div>
-
-          <div className="hidden lg:block">
-            <HeroPreview />
           </div>
         </div>
       </section>
@@ -962,57 +940,6 @@ function Badge({
     <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-card border-2 border-border">
       <Icon className="size-4 text-primary" />
       <span className="font-medium">{text}</span>
-    </div>
-  );
-}
-
-function HeroPreview() {
-  return (
-    <div className="relative">
-      <div className="absolute -inset-6 -z-10 rounded-3xl bg-gradient-to-br from-primary/20 via-fun/20 to-warning/20 blur-2xl" />
-      <div className="rotate-2 rounded-2xl border-2 border-border bg-card p-5 shadow-card">
-        <div className="flex items-center justify-between">
-          <span className="rounded-full bg-primary text-primary-foreground px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide">
-            Câu 5 / 12
-          </span>
-          <span className="text-xs text-muted-foreground font-bold">
-            🧩 Kéo thả
-          </span>
-        </div>
-        <p className="mt-3 text-sm font-bold">
-          Kéo từng trạng thái nước vào đúng vị trí trong vòng tuần hoàn.
-        </p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {["Hơi nước", "Mưa", "Băng"].map((t) => (
-            <span
-              key={t}
-              className="rounded-lg border-2 border-primary bg-primary/10 px-3 py-1 text-xs font-bold text-primary"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-        <div className="mt-3 grid gap-2">
-          {[
-            { l: "Bay hơi từ biển", t: "Hơi nước" },
-            { l: "Rơi xuống mặt đất", t: "Mưa" },
-            { l: "Đỉnh núi cao", t: "Băng" },
-          ].map((z) => (
-            <div
-              key={z.l}
-              className="flex items-center justify-between rounded-lg border-2 border-success bg-success/10 px-3 py-2 text-xs"
-            >
-              <span className="text-muted-foreground">{z.l}</span>
-              <span className="rounded-md bg-success px-2 py-0.5 text-[10px] font-bold text-success-foreground">
-                ✓ {z.t}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="-rotate-3 mt-3 ml-8 inline-block rounded-xl border-2 border-warning bg-warning/20 px-4 py-2 text-xs font-bold text-warning-foreground shadow-soft">
-        🎉 Chính xác! +10 XP · 🔥 Streak 12
-      </div>
     </div>
   );
 }
