@@ -32,6 +32,10 @@ import {
   ShoppingCart,
   LogIn,
   Search,
+  MapPin,
+  Phone,
+  Mail,
+  Globe,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -919,10 +923,153 @@ function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t-2 bg-card mt-auto">
-        <div className="max-w-7xl mx-auto px-4 py-6 text-center text-xs text-muted-foreground">
-          © NXBGDVNVN · Hệ thống sách giáo khoa bài tập (Tích hợp AI hỗ trợ phát
-          triển năng lực số)
+      <footer className="border-t-2 border-border bg-card mt-auto pt-12 pb-6">
+        <div className="max-w-7xl mx-auto px-4 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-border/60">
+            {/* Cột 1: Thông tin NXBGDVN */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-fun flex items-center justify-center text-white text-xs font-extrabold shadow-soft">
+                  GD
+                </div>
+                <h4 className="font-display font-bold text-sm tracking-tight text-foreground uppercase">
+                  NXB Giáo Dục Việt Nam
+                </h4>
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Nhà xuất bản hàng đầu phục vụ sự nghiệp giáo dục, nâng cao dân
+                trí và phát triển nhân lực tại Việt Nam.
+              </p>
+              <div className="space-y-2.5 text-xs text-foreground/80">
+                <div className="flex items-start gap-2">
+                  <MapPin className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>Số 81 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="size-4 text-primary shrink-0" />
+                  <span>024.3822.0801 - Fax: 024.3942.2012</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="size-4 text-primary shrink-0" />
+                  <a
+                    href="mailto:lienhe@nxbgd.vn"
+                    className="hover:text-primary transition-colors"
+                  >
+                    lienhe@nxbgd.vn
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Globe className="size-4 text-primary shrink-0" />
+                  <a
+                    href="https://www.nxbgd.vn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    www.nxbgd.vn
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Cột 2: Đơn vị phát hành Miền Bắc */}
+            <div className="space-y-4">
+              <h4 className="font-display font-bold text-sm tracking-tight text-primary uppercase pb-1 border-b border-border/40">
+                Phát hành Miền Bắc
+              </h4>
+              <div className="space-y-3">
+                <h5 className="font-bold text-xs text-foreground/90">
+                  Công ty CP Sách & Thiết bị Giáo dục Miền Bắc
+                </h5>
+                <div className="space-y-2 text-xs text-muted-foreground">
+                  <div className="flex items-start gap-2">
+                    <MapPin className="size-3.5 text-muted-foreground/60 shrink-0 mt-0.5" />
+                    <span>232 Tây Sơn, Đống Đa, Hà Nội</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="size-3.5 text-muted-foreground/60 shrink-0" />
+                    <span>024.3852.1706</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="size-3.5 text-muted-foreground/60 shrink-0" />
+                    <a
+                      href="mailto:mienbac@nxbgd.vn"
+                      className="hover:text-primary transition-colors"
+                    >
+                      mienbac@nxbgd.vn
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Cột 3: Đơn vị phát hành Miền Trung */}
+            <div className="space-y-4">
+              <h4 className="font-display font-bold text-sm tracking-tight text-primary uppercase pb-1 border-b border-border/40">
+                Phát hành Miền Trung
+              </h4>
+              <div className="space-y-3">
+                <h5 className="font-bold text-xs text-foreground/90">
+                  Công ty CP Sách & Thiết bị Giáo dục Miền Trung
+                </h5>
+                <div className="space-y-2 text-xs text-muted-foreground">
+                  <div className="flex items-start gap-2">
+                    <MapPin className="size-3.5 text-muted-foreground/60 shrink-0 mt-0.5" />
+                    <span>78 Pasteur, Hải Châu, Đà Nẵng</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="size-3.5 text-muted-foreground/60 shrink-0" />
+                    <span>0236.382.1157</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="size-3.5 text-muted-foreground/60 shrink-0" />
+                    <a
+                      href="mailto:mientrung@nxbgd.vn"
+                      className="hover:text-primary transition-colors"
+                    >
+                      mientrung@nxbgd.vn
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Cột 4: Đơn vị phát hành Miền Nam */}
+            <div className="space-y-4">
+              <h4 className="font-display font-bold text-sm tracking-tight text-primary uppercase pb-1 border-b border-border/40">
+                Phát hành Miền Nam
+              </h4>
+              <div className="space-y-3">
+                <h5 className="font-bold text-xs text-foreground/90">
+                  Công ty CP Sách & Thiết bị Giáo dục Miền Nam
+                </h5>
+                <div className="space-y-2 text-xs text-muted-foreground">
+                  <div className="flex items-start gap-2">
+                    <MapPin className="size-3.5 text-muted-foreground/60 shrink-0 mt-0.5" />
+                    <span>240 Trần Bình Trọng, Quận 5, TP. Hồ Chí Minh</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="size-3.5 text-muted-foreground/60 shrink-0" />
+                    <span>028.3835.3448</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="size-3.5 text-muted-foreground/60 shrink-0" />
+                    <a
+                      href="mailto:miennam@nxbgd.vn"
+                      className="hover:text-primary transition-colors"
+                    >
+                      miennam@nxbgd.vn
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-6 text-center text-xs text-muted-foreground leading-relaxed">
+            © NXBGDVNVN · Hệ thống sách giáo khoa bài tập tích hợp AI hỗ trợ
+            phát triển năng lực số
+          </div>
         </div>
       </footer>
     </div>
