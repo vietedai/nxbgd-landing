@@ -313,18 +313,105 @@ function LessonDetailPage() {
                   Hướng dẫn học hiệu quả
                 </h4>
                 <p className="text-[11px] text-muted-foreground leading-relaxed">
-                  Em nên kết hợp đọc kỹ nội dung lý thuyết trong **Sách Giáo
-                  Khoa (bên phải)** trước, sau đó click vào **Làm bài tập số**
-                  để kiểm tra mức độ thấu hiểu của mình. Trợ lý AI Ong Chăm Chỉ
-                  sẽ đồng hành cùng em từng bước!
+                  Em nên click vào **Vào làm bài tập số (phên trên)** để kiểm
+                  tra và củng cố kiến thức trước, sau đó có thể tham khảo hoặc
+                  tra cứu lý thuyết trực tiếp trong **Sách Giáo Khoa PDF (bên
+                  dưới)**. Trợ lý AI Ong Chăm Chỉ sẽ đồng hành cùng em!
                 </p>
               </div>
             </Card>
           </div>
 
-          {/* Right Column: PDF Viewer + Practice Hub (size 8/12) */}
+          {/* Right Column: Practice Hub + PDF Viewer (size 8/12) */}
           <div className="lg:col-span-8 space-y-6">
-            {/* Hub 1: SÁCH GIÁO KHOA PDF (Mock Premium PDF Viewer) */}
+            {/* Hub 1: BÀI TẬP SỐ TƯƠNG TÁC (Home learning homework) -- NOW ON TOP! */}
+            <Card className="p-6 md:p-8 border-2 border-primary/20 rounded-3xl bg-gradient-to-br from-card via-card to-primary/5 shadow-soft space-y-6 relative overflow-hidden">
+              {/* Sparkle background elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-fun/10 rounded-full blur-2xl pointer-events-none" />
+
+              <div className="flex items-start gap-4">
+                {/* Visual Icon Shield */}
+                <div className="size-14 rounded-2xl bg-gradient-to-br from-primary to-fun flex items-center justify-center text-white shadow-soft shrink-0">
+                  <BookOpenCheck className="size-7" />
+                </div>
+
+                <div className="space-y-1.5 flex-1 min-w-0">
+                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-primary block">
+                    Bản quyền tích hợp AI độc quyền
+                  </span>
+                  <h3 className="font-display font-extrabold text-lg md:text-xl text-foreground">
+                    Vở Bài Tập Số Tương Tác
+                  </h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    Hệ thống bài tập số bám sát chuẩn kiến thức, tích hợp công
+                    nghệ trí tuệ nhân tạo (AI) giúp chấm điểm tự động và hướng
+                    dẫn chi tiết từng câu.
+                  </p>
+                </div>
+              </div>
+
+              {/* Core Features bullets */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 border-t border-border/40 pt-5">
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="size-4.5 text-success shrink-0 mt-0.5" />
+                  <div className="text-xs">
+                    <span className="font-bold text-foreground">
+                      Chấm điểm tự động:
+                    </span>{" "}
+                    Biết ngay kết quả đúng/sai sau mỗi câu trả lời.
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="size-4.5 text-success shrink-0 mt-0.5" />
+                  <div className="text-xs">
+                    <span className="font-bold text-foreground">
+                      Phân tích AI Feedback:
+                    </span>{" "}
+                    Gợi ý lời giải chi tiết và nhắc lại kiến thức SGK.
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="size-4.5 text-success shrink-0 mt-0.5" />
+                  <div className="text-xs">
+                    <span className="font-bold text-foreground">
+                      Đa dạng tương tác:
+                    </span>{" "}
+                    Kéo thả, trắc nghiệm, ghép nối hình ảnh sinh động.
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="size-4.5 text-success shrink-0 mt-0.5" />
+                  <div className="text-xs">
+                    <span className="font-bold text-foreground">
+                      Học tập Gamification:
+                    </span>{" "}
+                    Tích lũy điểm XP, Streak và vinh danh bảng xếp hạng.
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Action button area */}
+              <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border/40 pt-5">
+                <div className="text-xs text-muted-foreground flex items-center gap-1.5">
+                  <Info className="size-4 text-primary shrink-0" />
+                  <span>
+                    Bài tập gồm các câu hỏi từ dễ đến khó phù hợp mọi đối tượng
+                    học sinh.
+                  </span>
+                </div>
+
+                <Link
+                  to="/student/lesson/$lessonId"
+                  params={{ lessonId: info.interactiveLessonId }}
+                  className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-primary to-fun px-6 py-3.5 text-xs font-bold text-white shadow-soft transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                >
+                  <PlayCircle className="size-4.5" /> Vào làm bài tập số
+                </Link>
+              </div>
+            </Card>
+
+            {/* Hub 2: SÁCH GIÁO KHOA PDF (Mock Premium PDF Viewer) -- NOW ON BOTTOM! */}
             <Card className="p-0 border-2 border-border/80 rounded-3xl bg-card shadow-soft overflow-hidden">
               {/* PDF Viewer Header Toolbar */}
               <div className="bg-muted/40 border-b border-border/60 px-4 py-3 flex flex-wrap items-center justify-between gap-3">
@@ -545,93 +632,6 @@ function LessonDetailPage() {
                   </div>
                 </>
               )}
-            </Card>
-
-            {/* Hub 2: BÀI TẬP SỐ TƯƠNG TÁC (Home learning homework) */}
-            <Card className="p-6 md:p-8 border-2 border-primary/20 rounded-3xl bg-gradient-to-br from-card via-card to-primary/5 shadow-soft space-y-6 relative overflow-hidden">
-              {/* Sparkle background elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-fun/10 rounded-full blur-2xl pointer-events-none" />
-
-              <div className="flex items-start gap-4">
-                {/* Visual Icon Shield */}
-                <div className="size-14 rounded-2xl bg-gradient-to-br from-primary to-fun flex items-center justify-center text-white shadow-soft shrink-0">
-                  <BookOpenCheck className="size-7" />
-                </div>
-
-                <div className="space-y-1.5 flex-1 min-w-0">
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-primary block">
-                    Bản quyền tích hợp AI độc quyền
-                  </span>
-                  <h3 className="font-display font-extrabold text-lg md:text-xl text-foreground">
-                    Vở Bài Tập Số Tương Tác
-                  </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    Hệ thống bài tập số bám sát chuẩn kiến thức, tích hợp công
-                    nghệ trí tuệ nhân tạo (AI) giúp chấm điểm tự động và hướng
-                    dẫn chi tiết từng câu.
-                  </p>
-                </div>
-              </div>
-
-              {/* Core Features bullets */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 border-t border-border/40 pt-5">
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="size-4.5 text-success shrink-0 mt-0.5" />
-                  <div className="text-xs">
-                    <span className="font-bold text-foreground">
-                      Chấm điểm tự động:
-                    </span>{" "}
-                    Biết ngay kết quả đúng/sai sau mỗi câu trả lời.
-                  </div>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="size-4.5 text-success shrink-0 mt-0.5" />
-                  <div className="text-xs">
-                    <span className="font-bold text-foreground">
-                      Phân tích AI Feedback:
-                    </span>{" "}
-                    Gợi ý lời giải chi tiết và nhắc lại kiến thức SGK.
-                  </div>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="size-4.5 text-success shrink-0 mt-0.5" />
-                  <div className="text-xs">
-                    <span className="font-bold text-foreground">
-                      Đa dạng tương tác:
-                    </span>{" "}
-                    Kéo thả, trắc nghiệm, ghép nối hình ảnh sinh động.
-                  </div>
-                </div>
-                <div className="flex items-start gap-2.5">
-                  <CheckCircle2 className="size-4.5 text-success shrink-0 mt-0.5" />
-                  <div className="text-xs">
-                    <span className="font-bold text-foreground">
-                      Học tập Gamification:
-                    </span>{" "}
-                    Tích lũy điểm XP, Streak và vinh danh bảng xếp hạng.
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA Action button area */}
-              <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border/40 pt-5">
-                <div className="text-xs text-muted-foreground flex items-center gap-1.5">
-                  <Info className="size-4 text-primary shrink-0" />
-                  <span>
-                    Bài tập gồm các câu hỏi từ dễ đến khó phù hợp mọi đối tượng
-                    học sinh.
-                  </span>
-                </div>
-
-                <Link
-                  to="/student/lesson/$lessonId"
-                  params={{ lessonId: info.interactiveLessonId }}
-                  className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-primary to-fun px-6 py-3.5 text-xs font-bold text-white shadow-soft transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-                >
-                  <PlayCircle className="size-4.5" /> Vào làm bài tập số
-                </Link>
-              </div>
             </Card>
           </div>
         </div>
