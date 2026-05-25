@@ -1,8 +1,6 @@
 import { useState, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
-import coverToan from "@/assets/bia-sach/lop-4-toan-tap-1.webp";
-import coverKH from "@/assets/bia-sach/lop-4-khoa-hoc.webp";
 import {
   ArrowLeft,
   BookOpen,
@@ -25,6 +23,7 @@ import {
   Globe,
 } from "lucide-react";
 import { LESSONS } from "@/lib/mock-data";
+import { EXTRACTED_CONTENTS } from "@/lib/extracted-contents";
 
 export const Route = createFileRoute("/sach/bai-hoc/$lessonId")({
   head: ({ params }) => {
@@ -44,138 +43,330 @@ export const Route = createFileRoute("/sach/bai-hoc/$lessonId")({
   component: LessonDetailPage,
 });
 
-// Utility to get metadata and mock PDF content for any lesson slug
-function getLessonStaticInfo(lessonId: string) {
-  const isMath = lessonId.startsWith("toan");
+// Glob WebP covers
+const BIA_SACH = import.meta.glob("../../assets/bia-sach/*.webp", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
 
-  // Find matching interactive lesson from LESSONS mock data
+function parsePdfKey(pdfKey: string) {
+  const specialReverseMappings: Record<string, { grade: number; subjectSlug: string; tap: number | null }> = {
+    "tnxh-1-full.pdf": { grade: 1, subjectSlug: "tu-nhien-xa-hoi", tap: null },
+    "tnxh-2-full.pdf": { grade: 2, subjectSlug: "tu-nhien-xa-hoi", tap: null },
+    "tnxh-3-full.pdf": { grade: 3, subjectSlug: "tu-nhien-xa-hoi", tap: null },
+    "vo-tap-viet-lop2-tap1-filein-full.pdf": { grade: 2, subjectSlug: "tap-viet", tap: 1 },
+    "vo-tap-viet-lop2-tap2-filein-full.pdf": { grade: 2, subjectSlug: "tap-viet", tap: 2 },
+    "vo-tap-viet-3-tap-1.pdf": { grade: 3, subjectSlug: "tap-viet", tap: 1 },
+    "vo-tap-viet-lop3-tap2-filein-full.pdf": { grade: 3, subjectSlug: "tap-viet", tap: 2 },
+    "vbt-lich-su-dia-li-4filein-2026.pdf": { grade: 4, subjectSlug: "lich-su-dia-li", tap: null },
+    "vbt-lich-su-dia-li-5filein-2026.pdf": { grade: 5, subjectSlug: "lich-su-dia-li", tap: null },
+    "vo-tap-viet-1-tap-1.pdf": { grade: 1, subjectSlug: "tap-viet", tap: 1 },
+    "vo-tap-viet-1-tap-2.pdf": { grade: 1, subjectSlug: "tap-viet", tap: 2 },
+    "vbt-tieng-viet-1-1.pdf": { grade: 1, subjectSlug: "tieng-viet", tap: 1 },
+    "vbt-tieng-viet-1-tap2.pdf": { grade: 1, subjectSlug: "tieng-viet", tap: 2 },
+    "vbt-tieng-viet-2-1.pdf": { grade: 2, subjectSlug: "tieng-viet", tap: 1 },
+    "vbt-tieng-viet-2-2.pdf": { grade: 2, subjectSlug: "tieng-viet", tap: 2 },
+    "vbt-tieng-viet-3-1.pdf": { grade: 3, subjectSlug: "tieng-viet", tap: 1 },
+    "vbt-tieng-viet-3-2.pdf": { grade: 3, subjectSlug: "tieng-viet", tap: 2 },
+    "vbt-tieng-viet-4-1.pdf": { grade: 4, subjectSlug: "tieng-viet", tap: 1 },
+    "vbt-tieng-viet-4-2.pdf": { grade: 4, subjectSlug: "tieng-viet", tap: 2 },
+    "vbt-tieng-viet-5-tap-1-full.pdf": { grade: 5, subjectSlug: "tieng-viet", tap: 1 },
+    "vbt-tieng-viet-5-2.pdf": { grade: 5, subjectSlug: "tieng-viet", tap: 2 },
+    "vbt-toan-1-tap-1.pdf": { grade: 1, subjectSlug: "toan", tap: 1 },
+    "vbt-toan-1-tap-2.pdf": { grade: 1, subjectSlug: "toan", tap: 2 },
+    "vbt-toan-2-tap-1.pdf": { grade: 2, subjectSlug: "toan", tap: 1 },
+    "vbt-toan-2-tap-2.pdf": { grade: 2, subjectSlug: "toan", tap: 2 },
+    "vbt-toan-3-tap-1-full.pdf": { grade: 3, subjectSlug: "toan", tap: 1 },
+    "vbt-toan-3-tap-2-full.pdf": { grade: 3, subjectSlug: "toan", tap: 2 },
+    "vbt-toan-4-tap-1-full.pdf": { grade: 4, subjectSlug: "toan", tap: 1 },
+    "vbt-toan-4-tap-2-full.pdf": { grade: 4, subjectSlug: "toan", tap: 2 },
+    "vbt-toan-5-tap-1-full.pdf": { grade: 5, subjectSlug: "toan", tap: 1 },
+    "vbt-toan-5-tap-2-full.pdf": { grade: 5, subjectSlug: "toan", tap: 2 },
+  };
+
+  if (specialReverseMappings[pdfKey]) {
+    return specialReverseMappings[pdfKey];
+  }
+
+  let grade = 4;
+  let subjectSlug = "toan";
+  let tap: number | null = null;
+
+  if (pdfKey.startsWith("vbt-hdtn-")) {
+    const match = pdfKey.match(/^vbt-hdtn-(\d+)/);
+    grade = match ? parseInt(match[1], 10) : 1;
+    subjectSlug = "hoat-dong-trai-nghiem";
+  } else {
+    const match = pdfKey.match(/^vbt-([a-z0-9-]+)-(\d+)/);
+    if (match) {
+      subjectSlug = match[1];
+      grade = parseInt(match[2], 10);
+    }
+  }
+  return { grade, subjectSlug, tap };
+}
+
+function getCoverImage(grade: number, subjectSlug: string, tap: number | null): string {
+  if (subjectSlug === "toan" || subjectSlug === "tieng-viet" || subjectSlug === "tap-viet") {
+    const path = `../../assets/bia-sach/lop-${grade}-${subjectSlug}-tap-${tap || 1}.webp`;
+    if (BIA_SACH[path]) return BIA_SACH[path];
+  }
+
+  if (subjectSlug === "khoa-hoc" || subjectSlug === "lich-su-dia-li") {
+    const path = `../../assets/bia-sach/lop-${grade}-${subjectSlug}.webp`;
+    if (BIA_SACH[path]) return BIA_SACH[path];
+
+    const fallbackPath = `../../assets/bia-sach/lop-${grade}-tu-nhien-xa-hoi.webp`;
+    if (BIA_SACH[fallbackPath]) return BIA_SACH[fallbackPath];
+  }
+
+  const directPath = `../../assets/bia-sach/lop-${grade}-${subjectSlug}.webp`;
+  if (BIA_SACH[directPath]) return BIA_SACH[directPath];
+
+  return "";
+}
+
+function getBookAuthors(grade: number, subjectSlug: string): string {
+  if (subjectSlug === "toan") {
+    return "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh";
+  }
+  if (subjectSlug === "khoa-hoc") {
+    return "Lý Vương Ngọc Minh (Chủ biên) - Phan Thanh Hà - Nguyễn Thị Thanh Phúc";
+  }
+  if (subjectSlug === "tieng-viet") {
+    return "Nguyễn Minh Thuyết (Chủ biên) - Chu Thị Thủy An - Nguyễn Thị Hạnh - Đỗ Hải Hiên";
+  }
+  if (subjectSlug === "tin-hoc") {
+    return "Nguyễn Chí Công (Chủ biên) - Hoàng Thị Mai - Nguyễn Huy Khắc - Phùng Anh Tuấn";
+  }
+  if (subjectSlug === "lich-su-dia-li") {
+    return "Nghiêm Đình Vỳ (Chủ biên) - Đinh Ngọc Bảo - Lê Mỹ Phong - Vũ Văn Quân";
+  }
+  if (subjectSlug === "hoat-dong-trai-nghiem") {
+    return "Phó Đức Hòa (Chủ biên) - Nguyễn Hữu Hợp - Bùi Ngọc Diệp - Nguyễn Hà My";
+  }
+  if (subjectSlug === "dao-duc") {
+    return "Trần Văn Thắng (Chủ biên) - Lâm Thị Thanh Quỳnh - Nguyễn Thị Hồng - Đặng Ngọc Tú";
+  }
+  if (subjectSlug === "am-nhac") {
+    return "Đỗ Thanh Hiên (Chủ biên) - Nguyễn Đăng Bửu - Lương Diệu Linh - Trịnh Hoài Thu";
+  }
+  if (subjectSlug === "mi-thuat") {
+    return "Nguyễn Xuân Tiên (Chủ biên) - Nguyễn Hữu Hạnh - Trần Huy Thắng - Phan Minh Trí";
+  }
+  if (subjectSlug === "cong-nghe") {
+    return "Nguyễn Thị Mai Hoa (Chủ biên) - Hoàng Xuân Khang - Vũ Thị Thu Hằng - Lê Thị Hồng";
+  }
+  if (subjectSlug === "tieng-anh") {
+    return "Hoàng Văn Vân (Chủ biên) - Phan Hà - Nguyễn Thị Chi - Lương Quỳnh Trang";
+  }
+  return "Đội ngũ tác giả chuyên môn của Nhà xuất bản Giáo dục Việt Nam";
+}
+
+function getSubjectInfo(subjectSlug: string) {
+  let name = "";
+  let emoji = "📚";
+  let color = "success";
+  let themeColor = "text-success bg-success/15 border-success/20";
+  let keywordColor = "text-success";
+
+  switch (subjectSlug) {
+    case "toan":
+      name = "Toán"; emoji = "➗"; color = "primary";
+      themeColor = "text-sky-600 bg-sky-50 border-sky-100"; keywordColor = "text-sky-500";
+      break;
+    case "tieng-viet":
+      name = "Tiếng Việt"; emoji = "📖"; color = "destructive";
+      themeColor = "text-rose-600 bg-rose-50 border-rose-100"; keywordColor = "text-rose-500";
+      break;
+    case "tap-viet":
+      name = "Tập viết"; emoji = "✍️"; color = "warning";
+      themeColor = "text-amber-600 bg-amber-50 border-amber-100"; keywordColor = "text-amber-500";
+      break;
+    case "khoa-hoc":
+      name = "Khoa học"; emoji = "🔬"; color = "success";
+      themeColor = "text-emerald-600 bg-emerald-50 border-emerald-100"; keywordColor = "text-emerald-500";
+      break;
+    case "tu-nhien-xa-hoi":
+      name = "Tự nhiên và Xã hội"; emoji = "🌱"; color = "success";
+      themeColor = "text-emerald-600 bg-emerald-50 border-emerald-100"; keywordColor = "text-emerald-500";
+      break;
+    case "lich-su-dia-li":
+      name = "Lịch sử và Địa lí"; emoji = "🗺️"; color = "warning";
+      themeColor = "text-amber-600 bg-amber-50 border-amber-100"; keywordColor = "text-amber-600";
+      break;
+    case "tin-hoc":
+      name = "Tin học"; emoji = "💻"; color = "info";
+      themeColor = "text-cyan-600 bg-cyan-50 border-cyan-100"; keywordColor = "text-cyan-500";
+      break;
+    case "tieng-anh":
+      name = "Tiếng Anh"; emoji = "🌐"; color = "info";
+      themeColor = "text-indigo-600 bg-indigo-50 border-indigo-100"; keywordColor = "text-indigo-600";
+      break;
+    case "am-nhac":
+      name = "Âm nhạc"; emoji = "🎵"; color = "fun";
+      themeColor = "text-pink-600 bg-pink-50 border-pink-100"; keywordColor = "text-pink-500";
+      break;
+    case "dao-duc":
+      name = "Đạo đức"; emoji = "🤝"; color = "success";
+      themeColor = "text-teal-600 bg-teal-50 border-teal-100"; keywordColor = "text-teal-600";
+      break;
+    case "mi-thuat":
+      name = "Mĩ thuật"; emoji = "🎨"; color = "fun";
+      themeColor = "text-purple-600 bg-purple-50 border-purple-100"; keywordColor = "text-purple-500";
+      break;
+    case "cong-nghe":
+      name = "Công nghệ"; emoji = "🛠️"; color = "warning";
+      themeColor = "text-orange-600 bg-orange-50 border-orange-100"; keywordColor = "text-orange-600";
+      break;
+    case "hoat-dong-trai-nghiem":
+      name = "Hoạt động trải nghiệm"; emoji = "🏕️"; color = "info";
+      themeColor = "text-sky-600 bg-sky-50 border-sky-100"; keywordColor = "text-sky-600";
+      break;
+    default:
+      name = subjectSlug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+      break;
+  }
+  return { name, emoji, color, themeColor, keywordColor };
+}
+
+function getLessonSlug(subjectSlug: string, title: string) {
+  if (subjectSlug === "toan") {
+    if (title.includes("100 000") && !title.includes("phép tính")) return "toan-bai-1";
+    if (title.includes("Biểu thức chứa chữ")) return "toan-bai-4";
+    if (title.includes("Đo góc")) return "toan-bai-11";
+  }
+  if (subjectSlug === "khoa-hoc") {
+    if (title.includes("Tính chất của nước")) return "khoahoc-bai-1";
+    if (title.includes("Sự chuyển thể của nước")) return "khoahoc-bai-2";
+    if (title.includes("Bảo vệ nguồn nước")) return "khoahoc-bai-3";
+    if (title.includes("Không khí có ở đâu")) return "khoahoc-bai-4";
+    if (title.includes("Gió, bão")) return "khoahoc-bai-6";
+    if (title.includes("Vai trò của ánh sáng")) return "khoahoc-bai-9";
+  }
+
+  let slug = title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[đĐ]/g, "d")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+
+  if (slug.length > 50) {
+    slug = slug.substring(0, 50);
+  }
+  return `${subjectSlug}-${slug}`;
+}
+
+function getLessonStaticInfo(lessonId: string) {
+  let matchedPdfKey = "";
+  let matchedLessonItem: { chapter: string; title: string; page: string } | null = null;
+  let topicName = "";
+
+  for (const [pdfKey, content] of Object.entries(EXTRACTED_CONTENTS)) {
+    const { subjectSlug } = parsePdfKey(pdfKey);
+    let currentHeader = "";
+    for (const item of content.toc) {
+      if (item.chapter === "" && item.page === "") {
+        currentHeader = item.title;
+      }
+      const slug = getLessonSlug(subjectSlug, item.title);
+      if (slug === lessonId) {
+        matchedPdfKey = pdfKey;
+        matchedLessonItem = item;
+        topicName = currentHeader || "Bài học";
+        break;
+      }
+    }
+    if (matchedPdfKey) break;
+  }
+
+  let grade = 4;
+  let subjectSlug = "toan";
+  let tap: number | null = null;
+  let title = "Bài học";
+  let isMath = false;
+
+  if (matchedPdfKey && matchedLessonItem) {
+    const parsed = parsePdfKey(matchedPdfKey);
+    grade = parsed.grade;
+    subjectSlug = parsed.subjectSlug;
+    tap = parsed.tap;
+    title = matchedLessonItem.title;
+    isMath = (subjectSlug === "toan");
+  } else {
+    isMath = lessonId.startsWith("toan") || lessonId.startsWith("toan-");
+    grade = 4;
+    subjectSlug = isMath ? "toan" : "khoa-hoc";
+    tap = 1;
+    const cleanSlug = lessonId.replace(/^(toan|khoahoc|khoa-hoc)-/, "").replace(/-/g, " ");
+    title = cleanSlug.charAt(0).toUpperCase() + cleanSlug.slice(1);
+    topicName = isMath ? "Chủ đề 1: Ôn tập và thực hành" : "Chủ đề 1: Nhập môn";
+  }
+
+  const { name: subjectName } = getSubjectInfo(subjectSlug);
+  const bookName = tap !== null
+    ? `Vở bài tập ${subjectName} Lớp ${grade} - Tập ${tap}`
+    : `Vở bài tập ${subjectName} Lớp ${grade}`;
+
+  const cover = getCoverImage(grade, subjectSlug, tap);
+  const authors = getBookAuthors(grade, subjectSlug);
+  const bookId = tap !== null ? `dynamic-${grade}-${subjectSlug}-tap-${tap}` : `dynamic-${grade}-${subjectSlug}`;
+
   let interactiveLessonId = "all-23";
   if (isMath) {
-    if (lessonId.includes("100-000") || lessonId.includes("bai-1")) {
-      interactiveLessonId = "toan-bai-1";
-    } else if (lessonId.includes("bieu-thuc") || lessonId.includes("bai-4")) {
-      interactiveLessonId = "toan-bai-4";
-    } else if (lessonId.includes("do-goc") || lessonId.includes("bai-11")) {
-      interactiveLessonId = "toan-bai-11";
-    } else {
-      interactiveLessonId = "toan-bai-1"; // Math fallback
-    }
+    if (lessonId.includes("100-000") || lessonId.includes("bai-1")) interactiveLessonId = "toan-bai-1";
+    else if (lessonId.includes("bieu-thuc") || lessonId.includes("bai-4")) interactiveLessonId = "toan-bai-4";
+    else if (lessonId.includes("do-goc") || lessonId.includes("bai-11")) interactiveLessonId = "toan-bai-11";
+    else interactiveLessonId = "toan-bai-1";
   } else {
-    if (lessonId.includes("tinh-chat-cua-nuoc") || lessonId.includes("bai-1")) {
-      interactiveLessonId = "bai-1";
-    } else if (
-      lessonId.includes("su-chuyen-the") ||
-      lessonId.includes("bai-2")
-    ) {
-      interactiveLessonId = "bai-2";
-    } else if (
-      lessonId.includes("bao-ve-nguon-nuoc") ||
-      lessonId.includes("bai-3")
-    ) {
-      interactiveLessonId = "bai-3";
-    } else if (lessonId.includes("khong-khi") || lessonId.includes("bai-4")) {
-      interactiveLessonId = "bai-4";
-    } else if (lessonId.includes("gio-bao") || lessonId.includes("bai-6")) {
-      interactiveLessonId = "bai-6";
-    } else if (
-      lessonId.includes("vai-tro-cua-anh-sang") ||
-      lessonId.includes("bai-9")
-    ) {
-      interactiveLessonId = "bai-9";
-    } else {
-      interactiveLessonId = "bai-1"; // Science fallback
-    }
+    if (lessonId.includes("tinh-chat-cua-nuoc") || lessonId.includes("bai-1")) interactiveLessonId = "bai-1";
+    else if (lessonId.includes("su-chuyen-the") || lessonId.includes("bai-2")) interactiveLessonId = "bai-2";
+    else if (lessonId.includes("bao-ve-nguon-nuoc") || lessonId.includes("bai-3")) interactiveLessonId = "bai-3";
+    else if (lessonId.includes("khong-khi") || lessonId.includes("bai-4")) interactiveLessonId = "bai-4";
+    else if (lessonId.includes("gio-bao") || lessonId.includes("bai-6")) interactiveLessonId = "bai-6";
+    else if (lessonId.includes("vai-tro-cua-anh-sang") || lessonId.includes("bai-9")) interactiveLessonId = "bai-9";
+    else interactiveLessonId = "bai-1";
   }
 
-  const matchedInteractive = LESSONS.find((l) => l.id === interactiveLessonId);
-
-  // Clean dynamic title from lesson ID if no exact match
-  let title = matchedInteractive
-    ? matchedInteractive.title.replace(/^Bài \d+:\s*/, "")
-    : "Bài học ";
-  if (!matchedInteractive) {
-    // Humanize slug
-    const cleanSlug = lessonId
-      .replace(/^(toan|khoahoc)-/, "")
-      .replace(/-/g, " ");
-    title = cleanSlug.charAt(0).toUpperCase() + cleanSlug.slice(1);
-  }
-
-  const topicName = isMath ? "Chủ đề 1: Ôn tập và bổ sung" : "Chủ đề 1: Chất";
-  const bookName = isMath
-    ? "Vở bài tập Toán 4 - Tập một"
-    : "Vở bài tập Khoa học 4";
-  const cover = isMath ? coverToan : coverKH;
-  const authors = isMath
-    ? "Lê Anh Vinh (Chủ biên) · Hoàng Quế Hường · Vũ Văn Luân · Nguyễn Minh Hải"
-    : "Lý Vương Ngọc Minh (Chủ biên) · Phan Thanh Hà · Nguyễn Thị Thanh Phúc";
-
-  // Rich textbook PDF Mock Content
-  const pdfPages = isMath
-    ? [
-        {
-          pageNum: 1,
-          header: "1. ÔN TẬP CÁC SỐ ĐẾN 100 000 (Tiếp theo)",
-          paragraphs: [
-            "Để đọc số trong phạm vi 100 000, ta đọc từ trái sang phải, tương ứng từ hàng cao nhất đến hàng thấp nhất. Mỗi chữ số biểu diễn số lượng của hàng đó.",
-            "Ví dụ: Số 45 236 gồm 4 chục nghìn, 5 nghìn, 2 trăm, 3 chục và 6 đơn vị. Đọc là: Bốn mươi lăm nghìn hai trăm ba mươi sáu.",
-            "Ví dụ 2: Số 79 999 đọc là Bảy mươi chín nghìn chín trăm chín mươi chín. Số liền sau của số này là 80 000 (đạt được bằng cách cộng thêm 1 đơn vị).",
-          ],
-          exercise:
-            "Khám phá: Dãy số tròn nghìn tăng dần: 12 000; 13 000; 14 000; 15 000; 16 000... Hãy viết số liền sau và số liền trước của các số này.",
-          tip: "💡 Mẹo nhỏ của Ong Chăm Chỉ: Số tròn nghìn luôn có ít nhất ba chữ số 0 ở cuối cùng. Hàng trăm, hàng chục và hàng đơn vị đều bằng 0.",
-        },
-        {
-          pageNum: 2,
-          header: "Luyện tập & Thực hành",
-          paragraphs: [
-            "Bài tập 1: Viết theo mẫu:",
-            "a) Số gồm 4 chục nghìn, 7 nghìn, 2 trăm và 5 đơn vị là số: 47 205.",
-            "b) Số gồm 2 chục nghìn, 5 trăm và 7 chục là số: 20 570.",
-            "Bài tập 2: So sánh các số sau:",
-            "- Số 32 145 nhỏ hơn số 32 154 (vì hàng chục 4 bé hơn hàng chục 5).",
-          ],
-          exercise:
-            "Câu đố vui: Tìm số lớn nhất có 5 chữ số khác nhau. (Gợi ý: Chọn các chữ số lớn nhất có thể xếp lần lượt từ hàng chục nghìn về hàng đơn vị: 9, 8, 7, 6, 5).",
-          tip: "🎯 Thử thách AI: Click nút 'Làm bài tập số' bên cạnh để thử sức với 8 câu hỏi trắc nghiệm và điền số do AI tự động chấm điểm và phản hồi!",
-        },
-      ]
-    : [
-        {
-          pageNum: 1,
-          header: "BÀI 1: TÍNH CHẤT CỦA NƯỚC VÀ NƯỚC VỚI CUỘC SỐNG",
-          paragraphs: [
-            "Mục tiêu: Nhận biết được nước là chất lỏng không màu, không mùi, không vị, không có hình dạng cố định nhưng có hình dạng của vật chứa.",
-            "Hoạt động 1: Quan sát một cốc nước lọc trong suốt và một cốc sữa. Hãy rút ra nhận xét về màu sắc, mùi và vị của nước.",
-            "Nước chảy từ trên cao xuống thấp và lan ra mọi phía. Nước có thể thấm qua một số vật xốp như giấy, vải nhưng không thấm qua nhựa, cao su.",
-            "Nước có khả năng hòa tan một số chất như muối ăn, đường tinh luyện nhưng không hòa tan dầu mỡ, cát đá.",
-          ],
-          exercise:
-            "Thực hành tại nhà: Đổ nước lên mặt một tấm kính đặt nghiêng. Quan sát hướng chảy của dòng nước và rút ra nhận xét.",
-          tip: "💡 Em có biết: Nhờ nước có tính chất chảy từ cao xuống thấp, người ta đã làm mái nhà có độ dốc nhất định để nước mưa tự động thoát nhanh mà không bị đọng lại gây thấm dột!",
-        },
-        {
-          pageNum: 2,
-          header: "Vận dụng thực tiễn & Năng lực số",
-          paragraphs: [
-            "Nước rửa bát được hòa tan hoàn toàn vào nước giúp làm loãng và tăng diện tích tiếp xúc tẩy rửa vết dầu mỡ. Đây chính là vận dụng tính chất hòa tan một số chất của nước.",
-            "Khi dùng bọt biển lau bàn, nước ngấm vào các lỗ nhỏ của bọt biển (tính chất thấm qua một số vật). Găng tay cao su giúp giữ cho tay khô ráo vì nước không thấm qua cao su.",
-          ],
-          exercise:
-            "Suy ngẫm: Vì sao sau khi rửa sạch mặt bằng nước và sữa rửa mặt, da mặt lại không còn cảm giác trơn dầu?",
-          tip: "🎯 Trải nghiệm tương tác: Bài học này tích hợp 5 câu hỏi thông minh (đúng sai, nối chéo, điền từ vào chỗ trống). Hãy ấn nút làm bài tập số ở bên để tham gia làm bài ngay nhé!",
-        },
-      ];
+  const pdfPages = [
+    {
+      pageNum: 1,
+      header: title.toUpperCase(),
+      paragraphs: [
+        `Tài liệu học tập số tích hợp đa tương tác bám sát nội dung Sách Giáo Khoa chuẩn của Bộ Giáo dục và Đào tạo cho bài học: "${title}".`,
+        "Mục tiêu bài học: Giúp học sinh chủ động nắm vững kiến thức lý thuyết trọng tâm, thực hành các kỹ năng giải quyết vấn đề và vận dụng kiến thức lý thuyết vào các tình huống thực tế đời sóng hàng ngày.",
+        "Thông qua các câu hỏi thông minh, sơ đồ tư duy sinh động và video bài giảng tương tác, các em học sinh sẽ tiếp thu bài học một cách tự nhiên, trực quan và hào hứng.",
+      ],
+      exercise: `Hoạt động luyện tập gợi ý: Hãy mở vở bài tập và thực hành trả lời các câu hỏi trắc nghiệm, các câu đố vui và bài tập thực hành liên quan đến chủ đề: "${title}".`,
+      tip: `💡 Mẹo nhỏ của Ong Chăm Chỉ: Sau khi làm bài tập, các em hãy ấn nút 'Vào làm bài tập số' để nhận ngay phản hồi phân tích chi tiết từ AI nhé!`,
+    },
+    {
+      pageNum: 2,
+      header: "Vận dụng thực tiễn & Năng lực số",
+      paragraphs: [
+        `Mỗi bài học được thiết kế nhằm khơi dậy tư duy sáng tạo của các em học sinh. Việc tự học kết hợp công nghệ giúp các em hình thành thói quen tự nghiên cứu, tìm tòi và phát triển kỹ năng số ngay từ khi còn ngồi trên ghế nhà trường.`,
+        "Phụ huynh và giáo viên có thể hỗ trợ các em học tập, đồng hành cùng sự tiến bộ của con thông qua mã QR dẫn đến hệ thống học liệu số với các bài tương tác trực tiếp sinh động và phong phú.",
+      ],
+      exercise: `Thử thách mở rộng: Thảo luận cùng bạn bè hoặc người thân về ứng dụng thực tế của bài học "${title}" trong cuộc sống xung quanh em.`,
+      tip: `🎯 Trải nghiệm tương tác: Hãy ấn nút làm bài tập số ở phía trên để khám phá hệ thống câu hỏi chấm điểm thông minh tích hợp trí tuệ nhân tạo (AI)!`,
+    },
+  ];
 
   return {
     title,
-    topicName,
+    topicName: topicName || (isMath ? "Chủ đề 1: Ôn tập và thực hành" : "Chủ đề 1: Nhập môn"),
     bookName,
     cover,
     authors,
     isMath,
     pdfPages,
     interactiveLessonId,
+    bookId,
+    grade,
+    subjectName,
   };
 }
 
@@ -220,11 +411,12 @@ function LessonDetailPage() {
       <header className="border-b-2 bg-card/85 backdrop-blur sticky top-0 z-40 h-16 flex-shrink-0">
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between gap-4">
           <Link
-            to={info.isMath ? "/sach/toan-4" : "/sach/khoa-hoc-4"}
+            to="/sach/$bookId"
+            params={{ bookId: info.bookId }}
             className="inline-flex items-center gap-2 text-sm md:text-base font-bold text-muted-foreground hover:text-foreground cursor-pointer"
           >
             <ArrowLeft className="size-4" /> Quay lại sách{" "}
-            {info.isMath ? "Toán" : "Khoa học"}
+            {info.subjectName} Lớp {info.grade}
           </Link>
           <div className="flex items-center gap-2">
             <span className="text-xs md:text-sm font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary">
@@ -282,14 +474,14 @@ function LessonDetailPage() {
                   <span className="text-muted-foreground font-medium">
                     Khối lớp:
                   </span>
-                  <span className="font-bold text-foreground">Lớp 4</span>
+                  <span className="font-bold text-foreground">Lớp {info.grade}</span>
                 </div>
                 <div className="flex justify-between items-center gap-2">
                   <span className="text-muted-foreground font-medium">
                     Môn học:
                   </span>
                   <span className="font-bold text-foreground">
-                    {info.isMath ? "Toán học" : "Khoa học tự nhiên"}
+                    {info.subjectName}
                   </span>
                 </div>
                 <div className="flex justify-between items-start gap-2">
