@@ -64,7 +64,7 @@ function parseBookId(bookId: string) {
 
 // Resolver for WebP cover image
 function getCoverImage(grade: number, subjectSlug: string, tap: number | null): string {
-  if (subjectSlug === "toan" || subjectSlug === "tieng-viet") {
+  if (subjectSlug === "toan" || subjectSlug === "tieng-viet" || subjectSlug === "tap-viet") {
     const path = `../../assets/bia-sach/lop-${grade}-${subjectSlug}-tap-${tap || 1}.webp`;
     if (BIA_SACH[path]) return BIA_SACH[path];
   }

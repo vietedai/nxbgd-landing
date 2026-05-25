@@ -36,6 +36,12 @@ function getCoverImage(grade: number, subject: string, isTap2: boolean): string 
     if (BIA_SACH[path]) return BIA_SACH[path];
   }
 
+  if (subSlug === "tap-viet") {
+    const tap = isTap2 ? 2 : 1;
+    const path = `../assets/bia-sach/lop-${grade}-tap-viet-tap-${tap}.webp`;
+    if (BIA_SACH[path]) return BIA_SACH[path];
+  }
+
   if (subSlug === "khoa-hoc" || subSlug === "khoa-hoc-tu-nhien") {
     const path = `../assets/bia-sach/lop-${grade}-khoa-hoc.webp`;
     if (BIA_SACH[path]) return BIA_SACH[path];
