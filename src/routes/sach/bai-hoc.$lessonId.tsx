@@ -49,6 +49,68 @@ const BIA_SACH = import.meta.glob("../../assets/bia-sach/*.webp", {
   import: "default",
 }) as Record<string, string>;
 
+const BOOK_AUTHORS: Record<string, string> = {
+  "tnxh-1-full.pdf": "Nguyễn Thị Thu Hằng (Chủ biên) - Lương Việt Thái - Phương Thảo",
+  "tnxh-2-full.pdf": "Nguyễn Thị Thu Hằng (Chủ biên) - Lương Việt Thái - Phương Thảo",
+  "tnxh-3-full.pdf": "Nguyễn Thị Thu Hằng (Chủ biên) - Lương Việt Thái - Phương Thảo",
+  "vbt-am-nhac-1.pdf": "Đặng Khánh Nhật (Chủ biên) - Trần Ngọc Tú - Mai Linh Chi - Vũ Thanh Thuỷ",
+  "vbt-am-nhac-2.pdf": "Đặng Khánh Nhật (Chủ biên) - Trần Ngọc Tú - Mai Linh Chi - Vũ Thanh Thuỷ",
+  "vbt-am-nhac-3.pdf": "Đặng Khánh Nhật (Chủ biên) - Trần Ngọc Tú - Mai Linh Chi - Vũ Thanh Thuỷ",
+  "vbt-am-nhac-4.pdf": "Đặng Khánh Nhật (Chủ biên) - Trần Ngọc Tú - Mai Linh Chi - Vũ Thanh Thuỷ",
+  "vbt-am-nhac-5.pdf": "Đặng Khánh Nhật (Chủ biên) - Trần Ngọc Tú - Mai Linh Chi - Vũ Thanh Thuỷ",
+  "vbt-cong-nghe-3.pdf": "Vũ Thị Ngọc Thuý (Chủ biên) - Đặng Minh Đức - Nguyễn Thị Hoa",
+  "vbt-cong-nghe-4.pdf": "Vũ Thị Ngọc Thuý (Chủ biên) - Đặng Minh Đức - Nguyễn Thị Hoa",
+  "vbt-cong-nghe-5.pdf": "Vũ Thị Ngọc Thuý (Chủ biên) - Đặng Minh Đức - Nguyễn Thị Hoa",
+  "vbt-dao-duc-1.pdf": "Nguyễn Thị Toan (Chủ biên) - Nguyễn Thị Hoàng Anh - Nguyễn Ngọc Dung - Đặng Xuân Điều",
+  "vbt-dao-duc-2.pdf": "Nguyễn Thị Toan (Chủ biên) - Nguyễn Thị Hoàng Anh - Nguyễn Ngọc Dung - Đặng Xuân Điều",
+  "vbt-dao-duc-3.pdf": "Nguyễn Thị Toan (Chủ biên) - Nguyễn Thị Hoàng Anh - Nguyễn Ngọc Dung - Đặng Xuân Điều",
+  "vbt-dao-duc-4.pdf": "Nguyễn Thị Toan (Chủ biên) - Nguyễn Thị Hoàng Anh - Nguyễn Ngọc Dung - Đặng Xuân Điều",
+  "vbt-dao-duc-5.pdf": "Nguyễn Thị Toan (Chủ biên) - Nguyễn Thị Hoàng Anh - Nguyễn Ngọc Dung - Đặng Xuân Điều",
+  "vbt-hdtn-1.pdf": "Đinh Thị Kim Thoa (Chủ biên) - Đặng Xuân Điều - Vũ Phương Liên - Lại Thị Yến Ngọc - Phương Thảo",
+  "vbt-hdtn-2.pdf": "Đinh Thị Kim Thoa (Chủ biên) - Đặng Xuân Điều - Nguyễn Hồng Kiên - Trần Thị Quỳnh Trang - Phương Thảo",
+  "vbt-hdtn-3.pdf": "Đinh Thị Kim Thoa (Chủ biên) - Nguyễn Thị Bích Liên - Vũ Phương Liên - Trần Thị Quỳnh Trang - Phương Thảo",
+  "vbt-hdtn-4.pdf": "Đinh Thị Kim Thoa (Chủ biên) - Vũ Phương Liên - Lại Thị Yến Ngọc - Trần Thị Quỳnh Trang - Phương Thảo",
+  "vbt-hdtn-5.pdf": "Đinh Thị Kim Thoa (Chủ biên) - Nguyễn Hồng Kiên - Nguyễn Thị Bích Liên - Lại Thị Yến Ngọc - Phương Thảo",
+  "vbt-khoa-hoc-4.pdf": "Lý Vương Ngọc Minh (Chủ biên) - Phan Thanh Hà - Nguyễn Thị Thanh Phúc",
+  "vbt-khoa-hoc-5.pdf": "Lý Vương Ngọc Minh (Chủ biên) - Phan Thanh Hà - Nguyễn Thị Thanh Phúc",
+  "vbt-lich-su-dia-li-4filein-2026.pdf": "Dương Thị Oanh (Chủ biên) - Nguyễn Tú Linh - Đặng Thị Phương - Trần Thị Lan",
+  "vbt-lich-su-dia-li-5filein-2026.pdf": "Dương Thị Oanh (Chủ biên) - Nguyễn Tú Linh - Đặng Thị Phương - Trần Thị Lan",
+  "vbt-mi-thuat-1.pdf": "Nguyễn Xuân Tiên (Chủ biên) - Nguyễn Hữu Hạnh - Trần Huy Thắng - Phan Minh Trí",
+  "vbt-mi-thuat-2.pdf": "Nguyễn Xuân Tiên (Chủ biên) - Nguyễn Hữu Hạnh - Trần Huy Thắng - Phan Minh Trí",
+  "vbt-mi-thuat-3.pdf": "Nguyễn Xuân Tiên (Chủ biên) - Nguyễn Hữu Hạnh - Trần Huy Thắng - Phan Minh Trí",
+  "vbt-mi-thuat-4.pdf": "Nguyễn Xuân Tiên (Chủ biên) - Nguyễn Hữu Hạnh - Trần Huy Thắng - Phan Minh Trí",
+  "vbt-mi-thuat-5.pdf": "Nguyễn Xuân Tiên (Chủ biên) - Nguyễn Hữu Hạnh - Trần Huy Thắng - Phan Minh Trí",
+  "vbt-tieng-viet-1-1.pdf": "Trần Minh Hương (Chủ biên) - Trần Thị Quỳnh Nga - Vũ Thị Lan - Lương Thị Hiền - Thạch Thị Lan Anh",
+  "vbt-tieng-viet-1-tap2.pdf": "Trần Minh Hương (Chủ biên) - Trần Thị Quỳnh Nga - Vũ Thị Lan - Lương Thị Hiền - Thạch Thị Lan Anh",
+  "vbt-tieng-viet-2-1.pdf": "Trần Minh Hương (Chủ biên) - Vũ Thị Lan - Trần Thị Quỳnh Nga - Lương Thị Hiền - Thạch Thị Lan Anh",
+  "vbt-tieng-viet-2-2.pdf": "Trần Minh Hương (Chủ biên) - Vũ Thị Lan - Trần Thị Quỳnh Nga - Lương Thị Hiền - Thạch Thị Lan Anh",
+  "vbt-tieng-viet-3-1.pdf": "Trần Minh Hương (Chủ biên) - Thạch Thị Lan Anh - Trần Thị Quỳnh Nga - Vũ Thị Lan - Lương Thị Hiền",
+  "vbt-tieng-viet-3-2.pdf": "Trần Minh Hương (Chủ biên) - Thạch Thị Lan Anh - Trần Thị Quỳnh Nga - Vũ Thị Lan - Lương Thị Hiền",
+  "vbt-tieng-viet-4-1.pdf": "Trần Minh Hương (Chủ biên) - Lương Thị Hiền - Trần Thị Quỳnh Nga - Vũ Thị Lan - Thạch Thị Lan Anh",
+  "vbt-tieng-viet-4-2.pdf": "Trần Minh Hương (Chủ biên) - Lương Thị Hiền - Trần Thị Quỳnh Nga - Vũ Thị Lan - Thạch Thị Lan Anh",
+  "vbt-tieng-viet-5-2.pdf": "Trần Minh Hương (Chủ biên) - Trần Thị Quỳnh Nga - Vũ Thị Lan - Lương Thị Hiền - Thạch Thị Lan Anh",
+  "vbt-tieng-viet-5-tap-1-full.pdf": "Trần Minh Hương (Chủ biên) - Trần Thị Quỳnh Nga - Vũ Thị Lan - Lương Thị Hiền - Thạch Thị Lan Anh",
+  "vbt-tin-hoc-3.pdf": "Hoàng Thị Mai (Chủ biên) - Hà Đặng Cao Tùng",
+  "vbt-tin-hoc-4.pdf": "Hoàng Thị Mai (Chủ biên) - Hà Đặng Cao Tùng",
+  "vbt-tin-hoc-5.pdf": "Hoàng Thị Mai (Chủ biên) - Hà Đặng Cao Tùng",
+  "vbt-toan-1-tap-1.pdf": "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh",
+  "vbt-toan-1-tap-2.pdf": "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh",
+  "vbt-toan-2-tap-1.pdf": "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh",
+  "vbt-toan-2-tap-2.pdf": "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh",
+  "vbt-toan-3-tap-1-full.pdf": "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh",
+  "vbt-toan-3-tap-2-full.pdf": "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh",
+  "vbt-toan-4-tap-1-full.pdf": "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh",
+  "vbt-toan-4-tap-2-full.pdf": "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh",
+  "vbt-toan-5-tap-1-full.pdf": "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh",
+  "vbt-toan-5-tap-2-full.pdf": "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh",
+  "vo-tap-viet-1-tap-1.pdf": "Trần Minh Hương (Chủ biên) - Thạch Thị Lan Anh - Trần Thị Quỳnh Nga",
+  "vo-tap-viet-1-tap-2.pdf": "Trần Minh Hương (Chủ biên) - Thạch Thị Lan Anh - Trần Thị Quỳnh Nga",
+  "vo-tap-viet-3-tap-1.pdf": "Trần Minh Hương (Chủ biên) - Lương Thị Hiền - Trần Thị Quỳnh Nga",
+  "vo-tap-viet-lop2-tap1-filein-full.pdf": "Trần Minh Hương (Chủ biên) - Thạch Thị Lan Anh - Trần Thị Quỳnh Nga - Vũ Thị Lan - Lương Thị Hiền",
+  "vo-tap-viet-lop2-tap2-filein-full.pdf": "Trần Minh Hương (Chủ biên) - Thạch Thị Lan Anh - Trần Thị Quỳnh Nga - Vũ Thị Lan - Lương Thị Hiền",
+  "vo-tap-viet-lop3-tap2-filein-full.pdf": "Trần Minh Hương (Chủ biên) - Lương Thị Hiền - Trần Thị Quỳnh Nga"
+};
+
 function parsePdfKey(pdfKey: string) {
   const specialReverseMappings: Record<string, { grade: number; subjectSlug: string; tap: number | null }> = {
     "tnxh-1-full.pdf": { grade: 1, subjectSlug: "tu-nhien-xa-hoi", tap: null },
@@ -324,7 +386,7 @@ function getLessonStaticInfo(lessonId: string) {
     : `Vở bài tập ${subjectName} Lớp ${grade}`;
 
   const cover = getCoverImage(grade, subjectSlug, tap);
-  const authors = getBookAuthors(grade, subjectSlug);
+  const authors = (matchedPdfKey && BOOK_AUTHORS[matchedPdfKey]) || getBookAuthors(grade, subjectSlug);
   const bookId = tap !== null ? `dynamic-${grade}-${subjectSlug}-tap-${tap}` : `dynamic-${grade}-${subjectSlug}`;
 
   let interactiveLessonId = "all-23";
