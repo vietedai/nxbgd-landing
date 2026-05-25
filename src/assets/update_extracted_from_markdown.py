@@ -142,7 +142,7 @@ def main():
     
     # Parse all markdown files
     md_books = {}
-    for path in sorted(glob.glob('src/assets/muc-luc/muc-luc-lop-*.md')):
+    for path in sorted(glob.glob('src/assets/muc-luc-loi-noi-dau/muc-luc-lop-*.md')):
         print(f"Parsing {path}...")
         parsed = parse_md_file(path)
         md_books.update(parsed)
