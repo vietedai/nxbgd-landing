@@ -92,8 +92,8 @@ def parse_md_file(path):
                 if line == '---' or line.startswith('#'):
                     continue
                 
-                # Format bullets as standard bullet character
-                if line.startswith('*') or line.startswith('-') or line.startswith('•'):
+                # Format bullets as standard bullet character (only if followed by space, to avoid matching *italics* or **bold**)
+                if re.match(r'^[\*\-\•]\s+', line):
                     line_content = re.sub(r'^[\*\-\•]\s*', '', line)
                     line_content = clean_markdown_bold(line_content)
                     preface_paras.append("• " + line_content)

@@ -8,11 +8,11 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "tnxh-1-full.pdf": {
     preface: [
       "Các em học sinh yêu quý!",
-      "• Vở bài tập Tự nhiên và Xã hội 1 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em học tập tốt hơn thông qua những hoạt động gần gũi, phù hợp với lứa tuổi. Trong sách, các em sẽ được đọc, viết, quan sát, vẽ và thực hành qua nhiều bài tập sinh động, giúp củng cố và vận dụng kiến thức đã học vào thực tiễn cuộc sống.",
+      "Vở bài tập Tự nhiên và Xã hội 1 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em học tập tốt hơn thông qua những hoạt động gần gũi, phù hợp với lứa tuổi. Trong sách, các em sẽ được đọc, viết, quan sát, vẽ và thực hành qua nhiều bài tập sinh động, giúp củng cố và vận dụng kiến thức đã học vào thực tiễn cuộc sống.",
       "Bên cạnh các hoạt động trên giấy, cuốn sách còn bước đầu mở ra cơ hội để các em làm quen với việc học qua hình ảnh, video và học liệu số phù hợp, từ đó sử dụng công nghệ một cách an toàn và đúng mục đích.",
       "Mỗi bài học được thiết kế rõ ràng, dễ hiểu, giúp các em hình thành thói quen học tập tích cực, phát triển tư duy và thêm yêu thích việc học.",
       "Hi vọng cuốn sách sẽ là người bạn đồng hành thân thiết của các em trong những giờ học vui vẻ và bổ ích.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. GIA ĐÌNH", page: "" },
@@ -54,12 +54,12 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "tnxh-2-full.pdf": {
     preface: [
       "Các em học sinh yêu quý!",
-      "• Vở bài tập Tự nhiên và Xã hội 2 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em học tập tốt hơn thông qua những hoạt động gần gũi, phù hợp với lứa tuổi.",
+      "Vở bài tập Tự nhiên và Xã hội 2 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em học tập tốt hơn thông qua những hoạt động gần gũi, phù hợp với lứa tuổi.",
       "Trong sách, các em sẽ được đọc, viết, quan sát, vẽ và thực hành qua nhiều bài tập sinh động, giúp củng cố và vận dụng kiến thức đã học vào thực tiễn cuộc sống.",
       "Bên cạnh các hoạt động trên giấy, cuốn sách còn mở ra cơ hội để các em tìm hiểu, học tập qua hình ảnh, video và học liệu số phù hợp, từ đó sử dụng công nghệ một cách an toàn, đúng mục đích.",
       "Mỗi bài học được thiết kế rõ ràng, dễ hiểu, giúp các em hình thành thói quen học tập tích cực, phát triển tư duy và thêm yêu thích việc học.",
       "Hi vọng cuốn sách sẽ là người bạn đồng hành thân thiết của các em trong những giờ học vui vẻ và bổ ích.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. GIA ĐÌNH", page: "" },
@@ -104,10 +104,10 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "tnxh-3-full.pdf": {
     preface: [
       "Các em học sinh yêu quý!",
-      "• Vở bài tập Tự nhiên và Xã hội 3 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em học tập tốt hơn thông qua những hoạt động gần gũi, phù hợp với lứa tuổi. Trong sách, các em sẽ được đọc, viết, quan sát, vẽ và thực hành qua nhiều bài tập sinh động, giúp củng cố và vận dụng kiến thức đã học vào thực tiễn cuộc sống.",
+      "Vở bài tập Tự nhiên và Xã hội 3 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em học tập tốt hơn thông qua những hoạt động gần gũi, phù hợp với lứa tuổi. Trong sách, các em sẽ được đọc, viết, quan sát, vẽ và thực hành qua nhiều bài tập sinh động, giúp củng cố và vận dụng kiến thức đã học vào thực tiễn cuộc sống.",
       "Bên cạnh các hoạt động trên giấy, cuốn sách còn mở ra cơ hội để các em tìm hiểu, học tập qua hình ảnh, video và học liệu số phù hợp, từ đó sử dụng công nghệ một cách an toàn, đúng mục đích.",
       "Mỗi bài học được thiết kế rõ ràng, dễ hiểu, giúp các em hình thành thói quen học tập tích cực, phát triển tư duy và thêm yêu thích việc học. Hi vọng cuốn sách sẽ là người bạn đồng hành thân thiết của các em trong những giờ học vui vẻ và bổ ích.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. GIA ĐÌNH", page: "" },
@@ -153,7 +153,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Cuốn Vở bài tập Âm nhạc 1 (Tích hợp phát triển năng lực số) được biên soạn nhằm hỗ trợ các em trong quá trình học tập môn Âm nhạc một cách nhẹ nhàng và hứng thú. Nội dung sách được thiết kế theo các chủ đề gần gũi, phù hợp với lứa tuổi, giúp các em củng cố kiến thức đã học, rèn luyện kĩ năng âm nhạc và phát triển khả năng cảm thụ thông qua các hoạt động thực hành đa dạng, dễ hiểu.",
       "Trong mỗi bài học, các em có thể sử dụng mã QR để nghe âm thanh mẫu, xem video minh họa và tiếp cận học liệu điện tử mọi lúc, mọi nơi. Việc ứng dụng công nghệ và trí tuệ nhân tạo (AI) góp phần làm cho việc học môn Âm nhạc trở nên sinh động, thuận tiện và hấp dẫn hơn.",
       "Chúng tôi hi vọng cuốn sách sẽ giúp các em thêm yêu thích và học tập tốt môn Âm nhạc.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Lời nói đầu", page: "3" },
@@ -172,7 +172,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Cuốn Vở bài tập Âm nhạc 2 (Tích hợp phát triển năng lực số) được biên soạn nhằm hỗ trợ các em trong quá trình học tập môn Âm nhạc một cách nhẹ nhàng và hứng thú. Nội dung sách được thiết kế theo các chủ đề gần gũi, phù hợp với lứa tuổi, giúp các em củng cố kiến thức đã học, rèn luyện kĩ năng âm nhạc và phát triển khả năng cảm thụ thông qua các hoạt động thực hành đa dạng, dễ hiểu.",
       "Trong mỗi bài học, các em có thể sử dụng mã QR để nghe âm thanh mẫu, xem video minh họa và tiếp cận học liệu điện tử mọi lúc, mọi nơi. Việc ứng dụng công nghệ và trí tuệ nhân tạo (AI) góp phần làm cho việc học môn Âm nhạc trở nên sinh động, thuận tiện và hấp dẫn hơn.",
       "Chúng tôi hi vọng cuốn sách sẽ giúp các em thêm yêu thích và học tập tốt môn Âm nhạc.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Lời nói đầu", page: "3" },
@@ -191,7 +191,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Cuốn Vở bài tập Âm nhạc 3 (Tích hợp phát triển năng lực số) được biên soạn nhằm hỗ trợ các em trong quá trình học tập môn Âm nhạc một cách nhẹ nhàng và hứng thú. Nội dung sách được thiết kế theo các chủ đề gần gũi, phù hợp với lứa tuổi, giúp các em củng cố kiến thức đã học, rèn luyện kĩ năng âm nhạc và phát triển khả năng cảm thụ thông qua các hoạt động thực hành đa dạng, dễ hiểu.",
       "Trong mỗi bài học, các em có thể sử dụng mã QR để nghe âm thanh mẫu, xem video minh họa và tiếp cận học liệu điện tử mọi lúc, mọi nơi. Việc ứng dụng công nghệ và trí tuệ nhân tạo (AI) góp phần làm cho việc học môn Âm nhạc trở nên sinh động, thuận tiện và hấp dẫn hơn.",
       "Chúng tôi hi vọng cuốn sách sẽ giúp các em thêm yêu thích và học tập tốt môn Âm nhạc.",
-      "• Các tác giả",
+      "Các tác giả",
       "• Mở đầu",
       "• Hát",
       "• Đọc nhạc",
@@ -217,7 +217,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Cuốn Vở bài tập Âm nhạc 4 (Tích hợp phát triển năng lực số) được biên soạn nhằm hỗ trợ các em trong quá trình học tập môn Âm nhạc một cách nhẹ nhàng và hứng thú. Nội dung sách được thiết kế theo các chủ đề gần gũi, phù hợp với lứa tuổi, giúp các em củng cố kiến thức đã học, rèn luyện kĩ năng âm nhạc và phát triển khả năng cảm thụ thông qua các hoạt động thực hành đa dạng, dễ hiểu.",
       "Trong mỗi bài học, các em có thể sử dụng mã QR để nghe âm thanh mẫu, xem video minh hoạ và tiếp cận học liệu điện tử mọi lúc, mọi nơi. Việc ứng dụng công nghệ và trí tuệ nhân tạo (AI) góp phần làm cho việc học môn Âm nhạc trở nên sinh động, thuận tiện và hấp dẫn hơn.",
       "Chúng tôi hi vọng cuốn sách sẽ giúp các em thêm yêu thích và học tập tốt môn Âm nhạc.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Lời nói đầu", page: "3" },
@@ -236,7 +236,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Cuốn Vở bài tập Âm nhạc 5 (Tích hợp phát triển năng lực số) được biên soạn nhằm hỗ trợ các em trong quá trình học tập môn Âm nhạc một cách nhẹ nhàng và hứng thú. Nội dung sách được thiết kế theo các chủ đề gần gũi, phù hợp với lứa tuổi, giúp các em củng cố kiến thức đã học, rèn luyện kĩ năng âm nhạc và phát triển khả năng cảm thụ thông qua các hoạt động thực hành đa dạng, dễ hiểu.",
       "Trong mỗi bài học, các em có thể sử dụng mã QR để nghe âm thanh mẫu, xem video minh hoạ và tiếp cận học liệu điện tử mọi lúc, mọi nơi. Việc ứng dụng công nghệ và trí tuệ nhân tạo (AI) góp phần làm cho việc học môn Âm nhạc trở nên sinh động, thuận tiện và hấp dẫn hơn.",
       "Chúng tôi hi vọng cuốn sách sẽ giúp các em thêm yêu thích và học tập tốt môn Âm nhạc.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Lời nói đầu", page: "3" },
@@ -254,7 +254,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
     preface: [
       "Các em học sinh thân mến!",
       "Công nghệ là môn học giúp các em khám phá cách con người tạo ra sản phẩm, sử dụng công cụ, máy móc và ứng dụng khoa học vào đời sống hằng ngày. Từ việc chăm sóc cây trồng, lắp ráp mô hình, tìm hiểu về điện, năng lượng đến thực hành thiết kế và sáng tạo sản phẩm – tất cả đều giúp các em hình thành tư duy logic, khả năng giải quyết vấn đề và niềm say mê khám phá.",
-      "• Vở bài tập Công nghệ 3 được biên soạn nhằm hỗ trợ các em:",
+      "Vở bài tập Công nghệ 3 được biên soạn nhằm hỗ trợ các em:",
       "• Củng cố kiến thức đã học trong sách giáo khoa.",
       "• Rèn luyện kĩ năng thực hành, quan sát và thiết kế.",
       "• Phát triển năng lực công nghệ, tư duy sáng tạo và năng lực giải quyết vấn đề.",
@@ -267,7 +267,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "• Giữ gìn vở sạch đẹp để theo dõi sự tiến bộ của mình qua từng bài học.",
       "Hi vọng rằng cuốn vở này sẽ trở thành người bạn đồng hành giúp các em thêm yêu thích môn Công nghệ, phát triển tư duy sáng tạo và hình thành những kĩ năng cần thiết cho tương lai.",
       "Chúc các em học tập thật vui và đạt nhiều thành công!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "PHẦN MỘT. CÔNG NGHỆ VÀ ĐỜI SỐNG", page: "" },
@@ -288,7 +288,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
     preface: [
       "Các em học sinh thân mến!",
       "Công nghệ là môn học giúp các em khám phá cách con người tạo ra sản phẩm, sử dụng công cụ, máy móc và ứng dụng khoa học vào đời sống hằng ngày. Từ việc chăm sóc cây trồng, lắp ráp mô hình, tìm hiểu về điện, năng lượng đến thực hành thiết kế và sáng tạo sản phẩm – tất cả đều giúp các em hình thành tư duy logic, khả năng giải quyết vấn đề và niềm say mê khám phá.",
-      "• Vở bài tập Công nghệ 4 được biên soạn nhằm hỗ trợ các em:",
+      "Vở bài tập Công nghệ 4 được biên soạn nhằm hỗ trợ các em:",
       "• Củng cố kiến thức đã học trong sách giáo khoa.",
       "• Rèn luyện kĩ năng thực hành, quan sát và thiết kế.",
       "• Phát triển năng lực công nghệ, tư duy sáng tạo và năng lực giải quyết vấn đề.",
@@ -301,7 +301,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "• Giữ gìn vở sạch đẹp để theo dõi sự tiến bộ của mình qua từng bài học.",
       "Hi vọng rằng cuốn vở này sẽ trở thành người bạn đồng hành giúp các em thêm yêu thích môn Công nghệ, phát triển tư duy sáng tạo và hình thành những kĩ năng cần thiết cho tương lai.",
       "Chúc các em học tập thật vui và đạt nhiều thành công!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "PHẦN MỘT. CÔNG NGHỆ VÀ ĐỜI SỐNG", page: "" },
@@ -324,7 +324,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
     preface: [
       "Các em học sinh thân mến!",
       "Công nghệ là môn học giúp các em khám phá cách con người tạo ra sản phẩm, sử dụng công cụ, máy móc và ứng dụng khoa học vào đời sống hằng ngày. Từ việc chăm sóc cây trồng, lắp ráp mô hình, tìm hiểu về điện, năng lượng đến thực hành thiết kế và sáng tạo sản phẩm – tất cả đều giúp các em hình thành tư duy logic, khả năng giải quyết vấn đề và niềm say mê khám phá.",
-      "• Vở bài tập Công nghệ được biên soạn nhằm hỗ trợ các em:",
+      "Vở bài tập Công nghệ được biên soạn nhằm hỗ trợ các em:",
       "• Củng cố kiến thức đã học trong sách giáo khoa.",
       "• Rèn luyện kĩ năng thực hành, quan sát và thiết kế.",
       "• Phát triển năng lực công nghệ, tư duy sáng tạo và năng lực giải quyết vấn đề.",
@@ -336,7 +336,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "• Mạnh dạn trao đổi, thảo luận cùng bạn bè và thầy cô.",
       "• Giữ gìn vở sạch đẹp để theo dõi sự tiến bộ của mình qua từng bài học.",
       "Hi vọng rằng cuốn vở này sẽ trở thành người bạn đồng hành giúp các em thêm yêu thích môn Công nghệ, phát triển tư duy sáng tạo và hình thành những kĩ năng cần thiết cho tương lai.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "PHẦN MỘT. CÔNG NGHỆ VÀ ĐỜI SỐNG", page: "" },
@@ -355,11 +355,11 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "vbt-dao-duc-1.pdf": {
     preface: [
       "Các em học sinh thân mến!",
-      "• Vở bài tập Đạo đức 1 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất theo các yêu cầu cần đạt của chương trình môn Đạo đức lớp 1.",
+      "Vở bài tập Đạo đức 1 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất theo các yêu cầu cần đạt của chương trình môn Đạo đức lớp 1.",
       "Nội dung cuốn vở gồm 8 chủ đề với 30 bài học theo sát sách giáo khoa Đạo đức lớp 1, hướng tới giáo dục đạo đức và kĩ năng sống cho các em. Các bài tập được thiết kế phong phú, đa dạng như: khoanh tròn hoặc đánh dấu vào câu trả lời đúng, nối hình với chữ, điền vào chỗ trống, trả lời ngắn,… Khi thực hiện bài tập, các em có thể tham gia các hoạt động như: chơi trò chơi, tô màu, vẽ tranh, xử lí tình huống gần gũi với cuộc sống.",
       "Bên cạnh đó, với sự hỗ trợ của giáo viên và người thân, các em có thể sử dụng mã QR ở mỗi bài để truy cập học liệu điện tử và tham gia các hoạt động bổ sung, bước đầu làm quen với việc sử dụng công nghệ trong học tập.",
       "Hi vọng cuốn sách sẽ là người bạn đồng hành gắn bó với các em trong suốt năm học.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "CHỦ ĐỀ 1. TỰ CHĂM SÓC BẢN THÂN", page: "" },
@@ -405,11 +405,11 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "vbt-dao-duc-2.pdf": {
     preface: [
       "Các em học sinh thân mến!",
-      "• Vở bài tập Đạo đức 2 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất theo các yêu cầu cần đạt của chương trình môn Đạo đức lớp 2.",
+      "Vở bài tập Đạo đức 2 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất theo các yêu cầu cần đạt của chương trình môn Đạo đức lớp 2.",
       "Nội dung cuốn vở gồm 8 chủ đề với 15 bài học bám sát sách giáo khoa Đạo đức lớp 2, hướng tới giáo dục đạo đức, kĩ năng sống và pháp luật cho các em.",
       "Các bài tập được thiết kế phong phú, đa dạng như: khoanh tròn hoặc đánh dấu vào câu trả lời đúng, nối hình với chữ, điền vào chỗ trống, trả lời ngắn,… Khi thực hiện bài tập, các em có thể tham gia các hoạt động như: chơi trò chơi, tô màu, vẽ tranh, xử lí các tình huống gần gũi với cuộc sống.",
       "Hi vọng cuốn sách sẽ là người bạn đồng hành gắn bó với các em trong suốt năm học.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "CHỦ ĐỀ 1. QUÊ HƯƠNG EM", page: "" },
@@ -440,13 +440,13 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "vbt-dao-duc-3.pdf": {
     preface: [
       "Các em học sinh thân mến!",
-      "• Vở bài tập Đạo đức 3 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất theo các yêu cầu cần đạt của chương trình môn Đạo đức lớp 3.",
+      "Vở bài tập Đạo đức 3 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất theo các yêu cầu cần đạt của chương trình môn Đạo đức lớp 3.",
       "Nội dung cuốn vở bài tập gồm 8 chủ đề với 10 bài học theo sát sách giáo khoa Đạo đức lớp 3, hướng tới giáo dục đạo đức, giáo dục kĩ năng sống và giáo dục pháp luật cho các em.",
       "Các bài tập được thiết kế phong phú, đa dạng như: khoanh tròn hoặc đánh dấu vào câu trả lời đúng, nối hình với chữ, điền vào chỗ trống, trả lời ngắn,… Khi thực hiện bài tập, các em có thể tham gia các hoạt động như: chơi trò chơi, tô màu, vẽ tranh, xử lí tình huống gần gũi với cuộc sống.",
       "Qua đó, các em rèn luyện khả năng tự học, theo dõi, tự đánh giá hoạt động hằng ngày của mình, giúp việc học môn Đạo đức trở nên thú vị và hiệu quả hơn.",
       "Bên cạnh đó, với sự hỗ trợ của giáo viên và người thân, các em có thể sử dụng mã QR ở mỗi bài để truy cập học liệu điện tử và tham gia các hoạt động bổ sung, bước đầu làm quen với việc sử dụng công nghệ trong học tập.",
       "Hi vọng Vở bài tập Đạo đức 3 (Tích hợp phát triển năng lực số) sẽ là người bạn đồng hành gắn bó với các em trong suốt năm học. Chúc các em có những giờ học vui và bổ ích!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "CHỦ ĐỀ 1. EM YÊU TỔ QUỐC VIỆT NAM", page: "" },
@@ -472,14 +472,14 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "vbt-dao-duc-4.pdf": {
     preface: [
       "Các em học sinh thân mến!",
-      "• Vở bài tập Đạo đức 4 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất của người học sinh theo các yêu cầu cần đạt của chương trình môn Đạo đức lớp 4.",
+      "Vở bài tập Đạo đức 4 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất của người học sinh theo các yêu cầu cần đạt của chương trình môn Đạo đức lớp 4.",
       "Nội dung vở bài tập bám sát 8 chủ đề với 9 bài học trong sách giáo khoa Đạo đức lớp 4. Các bài tập hướng tới giáo dục đạo đức, giáo dục kĩ năng sống, giáo dục kinh tế và giáo dục pháp luật cho các em.",
       "Hình thức bài tập được thiết kế phong phú, đa dạng như: khoanh tròn/đánh dấu vào câu trả lời đúng, nối hình với chữ, điền vào chỗ trống, trả lời ngắn,… Để thực hiện các bài tập, các em có thể tham gia các hoạt động như: chơi trò chơi, tô màu, vẽ tranh, đóng vai đưa ra cách xử lí tình huống đạo đức gần gũi với cuộc sống.",
       "Đồng thời các em có thể rèn luyện theo chỉ dẫn, tự theo dõi, đánh giá hoạt động hằng ngày của mình, từ đó giúp cho việc học tập môn Đạo đức trở nên thú vị và hiệu quả hơn.",
       "Bên cạnh bản sách giấy, thông qua mã QR ở mỗi bài, các em có thể truy cập học liệu điện tử, tìm kiếm thông tin; sử dụng các nền tảng trực tuyến để làm việc nhóm, trao đổi ý tưởng và phản hồi lẫn nhau; đồng thời phân tích và xử lí một số tình huống đạo đức. Qua đó, các em từng bước hình thành kĩ năng sử dụng công nghệ trong môi trường học tập hiện đại.",
       "Hi vọng Vở bài tập Đạo đức 4 (Tích hợp phát triển năng lực số) sẽ là người bạn đồng hành gắn bó với các em trong suốt năm học.",
       "Chúc các em có những giờ học vui và bổ ích!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "CHỦ ĐỀ 1. BIẾT ƠN NGƯỜI LAO ĐỘNG", page: "" },
@@ -504,13 +504,13 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "vbt-dao-duc-5.pdf": {
     preface: [
       "Các em học sinh thân mến!",
-      "• Vở bài tập Đạo đức 5 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất của người học sinh theo các yêu cầu cần đạt của chương trình môn Đạo đức lớp 5.",
+      "Vở bài tập Đạo đức 5 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất của người học sinh theo các yêu cầu cần đạt của chương trình môn Đạo đức lớp 5.",
       "Nội dung vở bài tập bám sát 8 chủ đề/bài học trong sách giáo khoa Đạo đức lớp 5. Các bài tập hướng tới giáo dục đạo đức, giáo dục kĩ năng sống, giáo dục kinh tế và giáo dục pháp luật cho các em. Hình thức bài tập được thiết kế phong phú, đa dạng như: khoanh tròn/đánh dấu vào câu trả lời đúng, nối hình với chữ, điền vào chỗ trống, trả lời ngắn,…",
       "Để thực hiện các bài tập, các em có thể tham gia nhiều hoạt động như: chơi trò chơi, tô màu, vẽ tranh, đóng vai xử lí các tình huống đạo đức gần gũi với cuộc sống. Đồng thời, các em có thể rèn luyện theo chỉ dẫn, tự theo dõi, đánh giá hoạt động hằng ngày của mình, từ đó giúp cho việc học tập môn Đạo đức trở nên thú vị và hiệu quả hơn.",
       "Bên cạnh bản sách giấy, thông qua mã QR ở mỗi bài, các em có thể truy cập học liệu điện tử, tìm kiếm thông tin; sử dụng các nền tảng trực tuyến để làm việc nhóm, trao đổi ý tưởng và phản hồi lẫn nhau; đồng thời phân tích và xử lí một số tình huống đạo đức. Qua đó, các em từng bước hình thành kĩ năng sử dụng công nghệ trong môi trường học tập hiện đại.",
       "Hi vọng Vở bài tập Đạo đức 5 (Tích hợp phát triển năng lực số) sẽ là người bạn đồng hành gắn bó với các em trong suốt năm học.",
       "Chúc các em có những giờ học vui và bổ ích!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "CHỦ ĐỀ 1", title: "BIẾT ƠN NHỮNG NGƯỜI CÓ CÔNG VỚI QUÊ HƯƠNG, ĐẤT NƯỚC", page: "4" },
@@ -538,7 +538,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Cuốn vở được xây dựng theo các chủ đề và bài học của chương trình Hoạt động trải nghiệm và sách giáo khoa, giúp các em thực hiện các nhiệm vụ hoạt động ngay trong giờ học trên lớp. Thông qua các hoạt động như quan sát, chia sẻ, vẽ tranh hoặc thực hành những việc làm đơn giản, các em sẽ có cơ hội tham gia hoạt động trải nghiệm một cách vui vẻ và tự nhiên.",
       "Các bài tập được thiết kế ngắn gọn, sinh động và gần gũi, giúp việc tham gia hoạt động trở nên nhẹ nhàng và hứng thú hơn.",
       "Bên cạnh đó, cuốn vở còn có mã QR để các em và phụ huynh truy cập học liệu điện tử, tham khảo phiên bản số của bài học và tham gia một số hoạt động tương tác.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "1", title: "CHÀO NĂM HỌC MỚI", page: "4" },
@@ -559,7 +559,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Cuốn vở được xây dựng theo các chủ đề và bài học của chương trình Hoạt động trải nghiệm và sách giáo khoa. Qua đó, giúp các em thực hiện các nhiệm vụ rèn luyện ngay trong giờ học.",
       "Thông qua các hoạt động quan sát, thảo luận, chia sẻ và thực hành, các em sẽ có cơ hội tham gia nhiều hoạt động trải nghiệm và khám phá những điều thú vị trong cuộc sống.",
       "Chúc các em có nhiều trải nghiệm vui và bổ ích!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. KHÁM PHÁ BẢN THÂN", page: "" },
@@ -617,7 +617,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Các bài tập được thiết kế đa dạng và gần gũi với cuộc sống, giúp việc tham gia hoạt động thêm hứng thú và hiệu quả. Sau mỗi bài học, các em có thể tự xem lại kết quả hoạt động của mình bằng cách thực hiện các bài tập đánh giá.",
       "Bên cạnh đó, thông qua mã QR trong từng bài học, các em có thể truy cập học liệu điện tử, tham gia các hoạt động bổ sung và từng bước phát triển năng lực học tập trong môi trường số.",
       "Chúc các em học tập vui và có nhiều trải nghiệm ý nghĩa!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. TỰ GIỚI THIỆU VỀ MÌNH", page: "" },
@@ -669,12 +669,12 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "vbt-hdtn-4.pdf": {
     preface: [
       "Các em học sinh thân mến!",
-      "• Vở bài tập Hoạt động trải nghiệm 4 (Tích hợp phát triển năng lực số) được biên soạn để hỗ trợ các em trong quá trình tham gia các hoạt động giáo dục và rèn luyện ở trường.",
+      "Vở bài tập Hoạt động trải nghiệm 4 (Tích hợp phát triển năng lực số) được biên soạn để hỗ trợ các em trong quá trình tham gia các hoạt động giáo dục và rèn luyện ở trường.",
       "Cuốn vở được xây dựng theo các chủ đề và bài học của chương trình Hoạt động trải nghiệm và sách giáo khoa, giúp các em thực hiện các nhiệm vụ giáo dục ngay trong giờ học. Thông qua các hoạt động quan sát, chia sẻ, thảo luận và thực hành, các em sẽ có cơ hội tìm hiểu bản thân, mở rộng hiểu biết về cuộc sống và tích cực tham gia các hoạt động của tập thể.",
       "Các bài tập được thiết kế đa dạng, sinh động và gắn với thực tiễn, giúp việc tham gia hoạt động trở nên thú vị và hiệu quả. Sau mỗi bài học, các em có thể tự đánh giá kết quả tham gia hoạt động của mình.",
       "Ngoài ra, thông qua mã QR trong sách, các em có thể truy cập học liệu điện tử và tham gia các hoạt động học tập bổ sung, qua đó tăng cường năng lực số trong học tập.",
       "Chúc các em học tập tốt và có nhiều trải nghiệm bổ ích!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. NHẬN DIỆN BẢN THÂN", page: "" },
@@ -726,12 +726,12 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "vbt-hdtn-5.pdf": {
     preface: [
       "Các em học sinh thân mến!",
-      "• Vở bài tập Hoạt động trải nghiệm 5 (Tích hợp phát triển năng lực số) được biên soạn để đồng hành cùng các em trong các hoạt động học tập và rèn luyện ở trường.",
+      "Vở bài tập Hoạt động trải nghiệm 5 (Tích hợp phát triển năng lực số) được biên soạn để đồng hành cùng các em trong các hoạt động học tập và rèn luyện ở trường.",
       "Cuốn vở được xây dựng theo các chủ đề và bài học của chương trình Hoạt động trải nghiệm và sách giáo khoa, giúp các em thực hiện các nhiệm vụ giáo dục ngay trong giờ học trên lớp. Thông qua các hoạt động quan sát, chia sẻ, thảo luận và thực hành, các em sẽ có cơ hội hiểu rõ hơn về bản thân, về mọi người xung quanh và môi trường sống.",
       "Các bài tập được thiết kế đa dạng và gần gũi với thực tiễn, giúp các em tham gia hoạt động một cách tích cực và chủ động. Sau mỗi bài học, các em có thể tự nhìn lại quá trình tham gia hoạt động và đánh giá kết quả của mình.",
       "Bên cạnh đó, các em có thể truy cập học liệu điện tử thông qua mã QR trong sách, tham gia thêm các hoạt động tương tác và phát triển năng lực học tập trong môi trường số.",
       "Chúc các em học tập vui và có nhiều trải nghiệm ý nghĩa!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. EM LỚN LÊN MỖI NGÀY", page: "" },
@@ -789,7 +789,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Một điểm đặc biệt của Vở bài tập Khoa học là giúp các em từng bước phát triển năng lực số. Phụ huynh có thể hỗ trợ các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách phiên bản số và thực hiện các bài tập tương tác từ cơ bản đến nâng cao, gắn kiến thức khoa học vào thực tiễn.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học tập môn Khoa học đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1: CHẤT", page: "" },
@@ -840,7 +840,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Một điểm đặc biệt của Vở bài tập Khoa học là giúp các em từng bước phát triển năng lực số. Phụ huynh có thể hỗ trợ các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách phiên bản số và thực hiện các câu hỏi bài tập tương tác từ cơ bản đến nâng cao, gắn kiến thức khoa học vào thực tiễn.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học tập môn Khoa học đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1: CHẤT", page: "" },
@@ -884,7 +884,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "vbt-lich-su-dia-li-4filein-2026.pdf": {
     preface: [
       "Các em học sinh thân mến!",
-      "• Vở bài tập Lịch sử và Địa lí 4 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất theo các yêu cầu cần đạt của chương trình môn Lịch sử và Địa lí lớp 4 trong Chương trình giáo dục phổ thông 2018.",
+      "Vở bài tập Lịch sử và Địa lí 4 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất theo các yêu cầu cần đạt của chương trình môn Lịch sử và Địa lí lớp 4 trong Chương trình giáo dục phổ thông 2018.",
       "Nội dung vở bài tập gồm 27 bài với hệ thống bài tập đa dạng như trắc nghiệm, điền khuyết, ghép nối, đúng – sai, tự luận,… góp phần rèn luyện cho học sinh các kĩ năng như quan sát, nhận xét, trình bày, giải thích; đồng thời, vở bài tập cũng chú trọng gắn với thực tiễn đời sống và đặc điểm địa phương, góp phần bồi dưỡng tình yêu quê hương, đất nước, ý thức giữ gìn và phát huy các giá trị lịch sử, văn hoá.",
       "Để sử dụng Vở bài tập Lịch sử và Địa lí 4 (Tích hợp phát triển năng lực số) hiệu quả:",
       "• Học sinh xem vở này như một cuốn “nhật kí học tập”, làm bài đầy đủ, trình bày cẩn thận và mạnh dạn chia sẻ ý kiến.",
@@ -893,7 +893,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Cùng với phiên bản in, cuốn vở còn được phát hành dưới dạng bản điện tử. Không chỉ cung cấp thêm phần đáp án và gợi ý trả lời, phiên bản điện tử còn tích hợp hệ thống học liệu số phong phú, giúp các em có thể làm bài tập trực tiếp và kiểm tra kết quả nhanh chóng.",
       "Thông qua mã QR ở đầu mỗi bài, các em có thể dễ dàng truy cập vào các hoạt động học tập tương tác, sinh động và hấp dẫn, từ đó vừa củng cố kiến thức, vừa rèn luyện kĩ năng một cách hiệu quả.",
       "Nhóm tác giả rất mong nhận được ý kiến đóng góp của quý thầy cô giáo, các bậc phụ huynh và các em học sinh để cuốn vở bài tập ngày càng hoàn thiện hơn.",
-      "• NHÓM TÁC GIẢ",
+      "NHÓM TÁC GIẢ",
     ],
     toc: [
       { chapter: "", title: "MỞ ĐẦU", page: "" },
@@ -934,7 +934,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "vbt-lich-su-dia-li-5filein-2026.pdf": {
     preface: [
       "Các em học sinh thân mến!",
-      "• Vở bài tập Lịch sử và Địa lí 5 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất theo các yêu cầu cần đạt của chương trình môn Lịch sử và Địa lí lớp 5 trong Chương trình giáo dục phổ thông 2018.",
+      "Vở bài tập Lịch sử và Địa lí 5 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em củng cố kiến thức, rèn luyện kĩ năng, hình thành và phát triển năng lực, phẩm chất theo các yêu cầu cần đạt của chương trình môn Lịch sử và Địa lí lớp 5 trong Chương trình giáo dục phổ thông 2018.",
       "Mỗi bài trong vở bài tập tương ứng với một bài học trong sách giáo khoa, các em có thể sử dụng ngay trong giờ học trên lớp hoặc khi ôn tập ở nhà. Hệ thống bài tập đa dạng được thiết kế theo mức độ từ củng cố cơ bản với những dạng quen thuộc như: trắc nghiệm, điền, nối, điền khuyết, đúng – sai, hoàn thành bảng,… đến mức độ vận dụng, mở rộng là những bài tập gắn với thực tiễn cuộc sống, giúp các em phát triển năng lực và kĩ năng học tập.",
       "Để sử dụng Vở bài tập Lịch sử và Địa lí 5 (Tích hợp phát triển năng lực số) hiệu quả:",
       "• Học sinh xem vở này như một cuốn “nhật kí học tập”, làm bài đầy đủ, trình bày cẩn thận và mạnh dạn chia sẻ ý kiến.",
@@ -942,7 +942,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "• Phụ huynh học sinh có thể tham khảo để đồng hành cùng con, nắm bắt việc học và hỗ trợ khi cần.",
       "Cùng với phiên bản in, vở bài tập còn được phát hành dưới dạng bản điện tử. Không chỉ cung cấp đáp án và gợi ý trả lời, phiên bản điện tử còn tích hợp hệ thống học liệu số phong phú, giúp các em làm bài trực tiếp và kiểm tra kết quả nhanh chóng. Thông qua mã QR ở đầu mỗi bài, các em có thể dễ dàng truy cập vào các hoạt động học tập tương tác, sinh động và hấp dẫn, từ đó vừa củng cố kiến thức, vừa rèn luyện kĩ năng một cách hiệu quả.",
       "Mặc dù đã có nhiều cố gắng trong quá trình biên soạn, tuy nhiên khó tránh khỏi những hạn chế, thiếu sót. Nhóm tác giả rất mong nhận được ý kiến đóng góp của quý thầy cô giáo, các bậc phụ huynh và các em học sinh để cuốn vở bài tập này ngày càng hoàn thiện hơn.",
-      "• NHÓM TÁC GIẢ",
+      "NHÓM TÁC GIẢ",
     ],
     toc: [
       { chapter: "", title: "CHỦ ĐỀ 1. ĐẤT NƯỚC VÀ CON NGƯỜI VIỆT NAM", page: "" },
@@ -983,11 +983,11 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   },
   "vbt-mi-thuat-1.pdf": {
     preface: [
-      "• Vở bài tập Mĩ thuật 1 (Tích hợp phát triển năng lực số) là tài liệu giúp các em củng cố kiến thức và phát triển năng lực sáng tạo thông qua trải nghiệm học tập sinh động.",
+      "Vở bài tập Mĩ thuật 1 (Tích hợp phát triển năng lực số) là tài liệu giúp các em củng cố kiến thức và phát triển năng lực sáng tạo thông qua trải nghiệm học tập sinh động.",
       "Cuốn sách được biên soạn bám sát các yêu cầu về kiến thức, năng lực và phẩm chất của sách giáo khoa Mĩ thuật 1, cung cấp trải nghiệm đa dạng, khuyến khích sự chủ động và có phản hồi.",
       "Ngoài ra, các bậc phụ huynh cũng dễ dàng theo dõi tiến độ và chất lượng học tập của con thông qua ứng dụng đi kèm.",
       "Chúng tôi mong rằng cuốn sách sẽ là công cụ hiệu quả, truyền cảm hứng để các em khám phá niềm vui sáng tạo.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "1", title: "Mĩ thuật trong nhà trường", page: "4" },
@@ -1003,11 +1003,11 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   },
   "vbt-mi-thuat-2.pdf": {
     preface: [
-      "• Vở bài tập Mĩ thuật 2 (Tích hợp phát triển năng lực số) là tài liệu giúp các em củng cố kiến thức và phát triển năng lực sáng tạo thông qua trải nghiệm học tập sinh động.",
+      "Vở bài tập Mĩ thuật 2 (Tích hợp phát triển năng lực số) là tài liệu giúp các em củng cố kiến thức và phát triển năng lực sáng tạo thông qua trải nghiệm học tập sinh động.",
       "Cuốn sách được biên soạn bám sát các yêu cầu về kiến thức, năng lực và phẩm chất của sách giáo khoa Mĩ thuật 2, cung cấp trải nghiệm đa dạng, khuyến khích sự chủ động và có phản hồi, giúp các em phát triển năng lực tự học theo các mức độ.",
       "Ngoài ra, các bậc phụ huynh cũng dễ dàng theo dõi tiến độ và chất lượng học tập của con thông qua ứng dụng đi kèm.",
       "Chúng tôi mong rằng cuốn Vở bài tập Mĩ thuật 2 (Tích hợp phát triển năng lực số) sẽ là công cụ hiệu quả, truyền cảm hứng để các em khám phá niềm vui sáng tạo.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "1", title: "Mĩ thuật trong cuộc sống", page: "4" },
@@ -1024,14 +1024,14 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   },
   "vbt-mi-thuat-3.pdf": {
     preface: [
-      "• Vở bài tập Mĩ thuật 3 (Tích hợp phát triển năng lực số) là tài liệu giúp các em củng cố kiến thức và phát triển năng lực sáng tạo thông qua trải nghiệm học tập sinh động.",
+      "Vở bài tập Mĩ thuật 3 (Tích hợp phát triển năng lực số) là tài liệu giúp các em củng cố kiến thức và phát triển năng lực sáng tạo thông qua trải nghiệm học tập sinh động.",
       "Cuốn sách được biên soạn bám sát các yêu cầu về kiến thức, năng lực và phẩm chất của sách giáo khoa Mĩ thuật 3, cung cấp trải nghiệm đa dạng, khuyến khích sự chủ động và có phản hồi, giúp các em phát triển năng lực tự học theo các mức độ:",
       "Các nhiệm vụ giúp các em ôn tập và luyện tập thuần thục các kiến thức, kĩ năng cốt lõi đã học trong sách giáo khoa.",
       "Các nhiệm vụ sáng tạo giúp các em vận dụng linh hoạt kiến thức đã học vào việc giải quyết các vấn đề, tình huống thực tế hoặc tạo ra sản phẩm mĩ thuật có tính ứng dụng.",
       "Mã QR ngay trong các chủ đề, giúp các em thuận tiện kết nối tức thời với kho học liệu số (video hướng dẫn, hình ảnh tham khảo, bài học mở rộng), hỗ trợ tối đa việc tự học và tự tìm hiểu.",
       "Ngoài ra, các bậc phụ huynh cũng dễ dàng theo dõi tiến độ và chất lượng học tập của con thông qua ứng dụng đi kèm.",
       "Chúng tôi mong rằng cuốn Vở bài tập Mĩ thuật 3 (Tích hợp phát triển năng lực số) sẽ là công cụ hiệu quả, truyền cảm hứng để các em khám phá niềm vui sáng tạo.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "1", title: "Em yêu mĩ thuật", page: "4" },
@@ -1048,14 +1048,14 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   },
   "vbt-mi-thuat-4.pdf": {
     preface: [
-      "• Vở bài tập Mĩ thuật 4 (Tích hợp phát triển năng lực số) là tài liệu giúp các em củng cố kiến thức và phát triển năng lực sáng tạo thông qua trải nghiệm học tập sinh động.",
+      "Vở bài tập Mĩ thuật 4 (Tích hợp phát triển năng lực số) là tài liệu giúp các em củng cố kiến thức và phát triển năng lực sáng tạo thông qua trải nghiệm học tập sinh động.",
       "Cuốn sách được biên soạn bám sát các yêu cầu về kiến thức, năng lực và phẩm chất của sách giáo khoa Mĩ thuật 4, cung cấp trải nghiệm đa dạng, khuyến khích sự chủ động và có phản hồi, giúp các em phát triển năng lực tự học theo các mức độ:",
       "Các nhiệm vụ giúp các em ôn tập và luyện tập thuần thục các kiến thức, kĩ năng cốt lõi đã học trong sách giáo khoa.",
       "Các nhiệm vụ sáng tạo giúp các em vận dụng linh hoạt kiến thức đã học vào việc giải quyết các vấn đề, tình huống thực tế hoặc tạo ra sản phẩm mĩ thuật có tính ứng dụng.",
       "Mã QR ngay trong các chủ đề giúp các em thuận tiện kết nối tức thời với kho học liệu số (video hướng dẫn, hình ảnh tham khảo,…).",
       "Ngoài ra, các bậc phụ huynh cũng dễ dàng theo dõi tiến độ và chất lượng học tập của con thông qua ứng dụng đi kèm.",
       "Chúng tôi mong rằng cuốn Vở bài tập Mĩ thuật 4 (Tích hợp phát triển năng lực số) sẽ là công cụ hiệu quả, truyền cảm hứng để các em khám phá niềm vui sáng tạo.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "1", title: "Vẻ đẹp trong điêu khắc đình làng Việt Nam", page: "4" },
@@ -1070,14 +1070,14 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   },
   "vbt-mi-thuat-5.pdf": {
     preface: [
-      "• Vở bài tập Mĩ thuật 5 (Tích hợp phát triển năng lực số) là tài liệu giúp các em củng cố kiến thức và phát triển năng lực sáng tạo thông qua trải nghiệm học tập sinh động.",
+      "Vở bài tập Mĩ thuật 5 (Tích hợp phát triển năng lực số) là tài liệu giúp các em củng cố kiến thức và phát triển năng lực sáng tạo thông qua trải nghiệm học tập sinh động.",
       "Cuốn sách được biên soạn bám sát các yêu cầu về kiến thức, năng lực và phẩm chất của sách giáo khoa Mĩ thuật 5, cung cấp trải nghiệm đa dạng, khuyến khích sự chủ động và có phản hồi, giúp các em phát triển năng lực tự học theo các mức độ:",
       "Các nhiệm vụ giúp các em ôn tập và luyện tập thuần thục các kiến thức, kĩ năng cốt lõi đã học trong sách giáo khoa.",
       "Các nhiệm vụ sáng tạo giúp các em vận dụng linh hoạt kiến thức đã học vào việc giải quyết các vấn đề, tình huống thực tế hoặc tạo ra sản phẩm mĩ thuật có tính ứng dụng.",
       "Mã QR ngay trong các chủ đề giúp các em thuận tiện kết nối tức thời với kho học liệu số (video hướng dẫn, hình ảnh tham khảo, bài học mở rộng,…), hỗ trợ tối đa việc tự học và tự tìm hiểu.",
       "Ngoài ra, các bậc phụ huynh cũng dễ dàng theo dõi tiến độ và chất lượng học tập của con thông qua ứng dụng đi kèm.",
       "Chúng tôi mong rằng cuốn Vở bài tập Mĩ thuật 5 (Tích hợp phát triển năng lực số) sẽ là công cụ hiệu quả, truyền cảm hứng để các em khám phá niềm vui sáng tạo.",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "1", title: "Vẻ đẹp trong tranh dân gian Việt Nam", page: "4" },
@@ -1098,7 +1098,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua bộ Vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách với phiên bản số và thực hiện các bài tập tương tác từ cơ bản đến nâng cao với đầy đủ các kĩ năng: Đọc, Viết, Nói và Nghe.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học môn Tiếng Việt đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "1", title: "Bài 1. A a", page: "4" },
@@ -1194,7 +1194,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua bộ Vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách với phiên bản số và thực hiện các bài tập tương tác từ cơ bản đến nâng cao với đầy đủ các kĩ năng: Đọc, Viết, Nói và Nghe.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học môn Tiếng Việt đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "TÔI VÀ CÁC BẠN", page: "" },
@@ -1272,7 +1272,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua bộ Vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách với phiên bản số và thực hiện các bài tập tương tác từ cơ bản đến nâng cao với đầy đủ các kĩ năng: Đọc, Viết, Nói và nghe.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học môn Tiếng Việt đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "EM LỚN LÊN TỪNG NGÀY", page: "" },
@@ -1323,7 +1323,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua bộ Vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách với phiên bản số và thực hiện các bài tập tương tác từ cơ bản đến nâng cao với đầy đủ các kĩ năng: Đọc, Viết, Nói và Nghe.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học môn Tiếng Việt đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "VẺ ĐẸP QUANH EM", page: "" },
@@ -1374,7 +1374,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua bộ Vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách với phiên bản số và thực hiện các bài tập tương tác từ cơ bản đến nâng cao với đầy đủ các kĩ năng: Đọc, Viết, Nói và Nghe.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học môn Tiếng Việt đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
       "• G: Gợi ý",
       "• M: Mẫu",
       "• SGK: Sách giáo khoa",
@@ -1433,7 +1433,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua bộ Vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách với phiên bản số và thực hiện các bài tập tương tác từ cơ bản đến nâng cao với đầy đủ các kĩ năng: Đọc, Viết, Nói và Nghe.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học môn Tiếng Việt đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
       "• G: Gợi ý",
       "• M: Mẫu",
       "• SGK: Sách giáo khoa",
@@ -1490,7 +1490,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua bộ Vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách với phiên bản số và thực hiện các bài tập tương tác từ cơ bản đến nâng cao với đầy đủ các kĩ năng: Đọc, Viết, Nói và Nghe.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học môn Tiếng Việt đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "MỖI NGƯỜI MỘT VẺ", page: "" },
@@ -1542,7 +1542,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua bộ Vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách với phiên bản số và thực hiện các bài tập tương tác từ cơ bản đến nâng cao với đầy đủ các kĩ năng: Đọc, Viết, Nói và Nghe.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học môn Tiếng Việt đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "NGƯỜI TA LÀ HOA ĐẤT", page: "" },
@@ -1592,7 +1592,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua bộ Vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách với phiên bản số và thực hiện các bài tập tương tác từ cơ bản đến nâng cao với đầy đủ các kĩ năng: Đọc, Viết, Nói và Nghe.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học môn Tiếng Việt đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "VÌ CUỘC SỐNG THANH BÌNH", page: "" },
@@ -1642,7 +1642,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua bộ Vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem sách với phiên bản số và thực hiện các bài tập tương tác từ cơ bản đến nâng cao với đầy đủ các kĩ năng: Đọc, Viết, Nói và Nghe.",
       "Các em có thể sử dụng cuốn vở này song hành cùng sách giáo khoa để việc học môn Tiếng Việt đạt hiệu quả cao hơn.",
       "Chúc các em học tập vui và đạt kết quả tốt!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "VIỆT NAM – TỔ QUỐC EM", page: "" },
@@ -1689,12 +1689,12 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
     preface: [
       "Các em học sinh thân mến!",
       "Cuốn Vở bài tập Tin học 3 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em học sinh luyện tập, củng cố và khắc sâu những kiến thức, kĩ năng đã học trong sách giáo khoa Tin học 3.",
-      "• Vở bài tập Tin học 3 (Tích hợp phát triển năng lực số) gồm các câu hỏi, bài tập và bài thực hành có dạng quen thuộc, có mức độ phù hợp với nội dung kiến thức, bài tập trong sách giáo khoa, giúp các em dễ dàng sử dụng trong quá trình luyện tập trên lớp, thực hành hoặc tự học ở nhà.",
+      "Vở bài tập Tin học 3 (Tích hợp phát triển năng lực số) gồm các câu hỏi, bài tập và bài thực hành có dạng quen thuộc, có mức độ phù hợp với nội dung kiến thức, bài tập trong sách giáo khoa, giúp các em dễ dàng sử dụng trong quá trình luyện tập trên lớp, thực hành hoặc tự học ở nhà.",
       "Bên cạnh đó, Vở bài tập Tin học 3 (Tích hợp phát triển năng lực số) còn bổ sung bài tập mới nhằm phát triển năng lực số như: sử dụng thiết bị số an toàn, giải quyết vấn đề đơn giản với sự hỗ trợ của công nghệ, cũng như vận dụng kiến thức môn Tin học vào các tình huống gần gũi trong học tập và đời sống hằng ngày.",
       "Thông qua các bài tập này, các em không chỉ nắm vững kiến thức mà còn hình thành thói quen học tập chủ động, sáng tạo và có trách nhiệm khi sử dụng công nghệ.",
       "Hi vọng rằng cuốn Vở bài tập Tin học 3 (Tích hợp phát triển năng lực số) sẽ là người bạn đồng hành thân thiết, hỗ trợ các em học tập hiệu quả và thêm yêu thích môn Tin học.",
       "Chúc các em chăm ngoan, học tốt và đạt nhiều thành công!",
-      "• Các tác giả",
+      "Các tác giả",
       "Sách sử dụng phần mềm Microsoft PowerPoint, phần mềm do Microsoft phát triển, để minh hoạ. (Bài 11)",
     ],
     toc: [
@@ -1725,7 +1725,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "vbt-tin-hoc-4.pdf": {
     preface: [
       "Các em học sinh thân mến!",
-      "• Vở bài tập Tin học 4 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em luyện tập, củng cố và khắc sâu những kiến thức, kĩ năng đã học trong sách giáo khoa Tin học 4.",
+      "Vở bài tập Tin học 4 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em luyện tập, củng cố và khắc sâu những kiến thức, kĩ năng đã học trong sách giáo khoa Tin học 4.",
       "Nội dung cuốn vở được thiết kế theo các chủ đề của chương trình giáo dục phổ thông mới, bao gồm nhiều dạng bài tập phong phú như: trắc nghiệm, điền khuyết, kéo thả, nối, thực hành thao tác trên máy tính và giải quyết các tình huống thực tiễn.",
       "Thông qua các bài học và hoạt động thực hành, các em sẽ:",
       "• Biết sử dụng máy tính và Internet an toàn, hiệu quả.",
@@ -1735,7 +1735,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Bên cạnh bản sách giấy, cuốn vở còn tích hợp học liệu điện tử thông qua mã QR. Các em có thể truy cập video hướng dẫn, bài tập tương tác và học liệu bổ sung để tự học mọi lúc, mọi nơi.",
       "Hi vọng rằng Vở bài tập Tin học 4 (Tích hợp phát triển năng lực số) sẽ là người bạn đồng hành hữu ích, giúp các em học tập hiệu quả và thêm yêu thích môn Tin học.",
       "Chúc các em chăm ngoan, học tốt và có nhiều trải nghiệm thú vị cùng công nghệ!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "CHỦ ĐỀ 1. MÁY TÍNH VÀ EM", page: "" },
@@ -1765,7 +1765,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   "vbt-tin-hoc-5.pdf": {
     preface: [
       "Các em học sinh thân mến!",
-      "• Vở bài tập Tin học 5 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em luyện tập, củng cố và khắc sâu những kiến thức, kĩ năng đã học trong sách giáo khoa Tin học 5.",
+      "Vở bài tập Tin học 5 (Tích hợp phát triển năng lực số) được biên soạn nhằm giúp các em luyện tập, củng cố và khắc sâu những kiến thức, kĩ năng đã học trong sách giáo khoa Tin học 5.",
       "Nội dung cuốn vở được thiết kế theo các chủ đề của chương trình giáo dục phổ thông mới, bao gồm nhiều dạng bài tập phong phú như: trắc nghiệm, điền khuyết, nối, kéo thả, thực hành thao tác trên máy tính và giải quyết các tình huống thực tiễn.",
       "Thông qua các bài học và hoạt động thực hành, các em sẽ:",
       "• Biết sử dụng máy tính và Internet an toàn, hiệu quả.",
@@ -1775,7 +1775,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Ngoài bản sách giấy, cuốn vở còn tích hợp học liệu điện tử thông qua mã QR. Các em có thể truy cập video hướng dẫn, bài tập tương tác và học liệu bổ sung để tự học mọi lúc, mọi nơi.",
       "Hi vọng rằng Vở bài tập Tin học 5 (Tích hợp phát triển năng lực số) sẽ là người bạn đồng hành hữu ích, giúp các em học tập hiệu quả và thêm yêu thích môn Tin học.",
       "Chúc các em chăm ngoan, học tốt và có nhiều trải nghiệm thú vị cùng công nghệ!",
-      "• Các tác giả",
+      "Các tác giả",
     ],
     toc: [
       { chapter: "", title: "CHỦ ĐỀ 1. MÁY TÍNH VÀ EM", page: "" },
@@ -1809,7 +1809,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Khi làm bài, các em hãy đọc kĩ yêu cầu, suy nghĩ và trình bày cẩn thận cách làm của mình. Nếu gặp bài khó, đừng vội nản lòng. Mỗi lần thử lại và sửa sai là một lần các em tiến bộ hơn. Điều quan trọng không chỉ là đáp án đúng, mà là cách các em suy nghĩ để tìm ra lời giải.",
       "Hi vọng cuốn vở bài tập sẽ trở thành người bạn đồng hành thân thiết, giúp các em thêm tự tin, thêm yêu môn Toán và luôn giữ được niềm vui học tập.",
       "Chúc các em chăm chỉ và đạt nhiều thành công!",
-      "• CÁC TÁC GIẢ",
+      "CÁC TÁC GIẢ",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. Các số từ 0 đến 10", page: "" },
@@ -1841,7 +1841,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   },
   "vbt-toan-1-tap-2.pdf": {
     preface: [
-      "• (Không có trang “Lời nói đầu” trong dữ liệu PDF được cung cấp.)",
+      "(Không có trang “Lời nói đầu” trong dữ liệu PDF được cung cấp.)",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 6. Các số đến 100", page: "" },
@@ -1881,7 +1881,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua cuốn vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem phiên bản số của sách và thực hiện các bài tập tương tác từ cơ bản đến nâng cao.",
       "Hi vọng cuốn vở bài tập sẽ trở thành người bạn đồng hành thân thiết, giúp các em thêm tự tin, thêm yêu môn Toán và luôn giữ được niềm vui học tập.",
       "Chúc các em chăm chỉ và đạt nhiều thành công!",
-      "• CÁC TÁC GIẢ",
+      "CÁC TÁC GIẢ",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. Ôn tập và bổ sung", page: "" },
@@ -1931,7 +1931,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   },
   "vbt-toan-2-tap-2.pdf": {
     preface: [
-      "• (Không có trang “Lời nói đầu” trong dữ liệu PDF được cung cấp.)",
+      "(Không có trang “Lời nói đầu” trong dữ liệu PDF được cung cấp.)",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 8. PHÉP NHÂN, PHÉP CHIA", page: "" },
@@ -1992,7 +1992,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Đặc biệt hơn nữa, thông qua cuốn vở bài tập này, các em còn có cơ hội phát triển năng lực số. Phụ huynh có thể cùng các em truy cập học liệu điện tử thông qua mã QR ở từng bài học để xem phiên bản số của sách và thực hiện các bài tập tương tác từ cơ bản đến nâng cao.",
       "Hi vọng cuốn vở bài tập sẽ trở thành người bạn đồng hành thân thiết, giúp các em thêm tự tin, thêm yêu môn Toán và luôn giữ được niềm vui học tập.",
       "Chúc các em chăm chỉ và đạt nhiều thành công!",
-      "• CÁC TÁC GIẢ",
+      "CÁC TÁC GIẢ",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. Ôn tập và bổ sung", page: "" },
@@ -2050,7 +2050,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   },
   "vbt-toan-3-tap-2-full.pdf": {
     preface: [
-      "• (Không có trang “Lời nói đầu” trong dữ liệu PDF được cung cấp.)",
+      "(Không có trang “Lời nói đầu” trong dữ liệu PDF được cung cấp.)",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 8. Các số đến 10 000", page: "" },
@@ -2110,7 +2110,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Bên cạnh đó, cuốn vở còn tích hợp học liệu số thông qua mã QR để các em có thể xem sách phiên bản điện tử, luyện tập các bài tập tương tác và khám phá thêm nhiều hoạt động học tập thú vị.",
       "Hi vọng cuốn Vở bài tập Toán 4 sẽ trở thành người bạn đồng hành thân thiết, giúp các em thêm yêu thích môn Toán và học tập hiệu quả hơn.",
       "Chúc các em chăm ngoan, học tốt và đạt nhiều thành công!",
-      "• CÁC TÁC GIẢ",
+      "CÁC TÁC GIẢ",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. Ôn tập và bổ sung", page: "" },
@@ -2158,7 +2158,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   },
   "vbt-toan-4-tap-2-full.pdf": {
     preface: [
-      "• (Không có trang “Lời nói đầu” trong dữ liệu PDF được cung cấp.)",
+      "(Không có trang “Lời nói đầu” trong dữ liệu PDF được cung cấp.)",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 7. Phân số", page: "" },
@@ -2214,7 +2214,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
       "Bên cạnh đó, cuốn vở còn tích hợp học liệu số thông qua mã QR để các em có thể xem sách phiên bản điện tử, luyện tập các bài tập tương tác và khám phá thêm nhiều hoạt động học tập thú vị.",
       "Hi vọng cuốn Vở bài tập Toán 5 sẽ trở thành người bạn đồng hành thân thiết, giúp các em thêm yêu thích môn Toán và học tập hiệu quả hơn.",
       "Chúc các em chăm ngoan, học tốt và đạt nhiều thành công!",
-      "• CÁC TÁC GIẢ",
+      "CÁC TÁC GIẢ",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 1. Ôn tập và bổ sung", page: "" },
@@ -2260,7 +2260,7 @@ export const EXTRACTED_CONTENTS: Record<string, BookContent> = {
   },
   "vbt-toan-5-tap-2-full.pdf": {
     preface: [
-      "• (Không có trang “Lời nói đầu” trong dữ liệu PDF được cung cấp.)",
+      "(Không có trang “Lời nói đầu” trong dữ liệu PDF được cung cấp.)",
     ],
     toc: [
       { chapter: "", title: "Chủ đề 7. Tỉ số phần trăm", page: "" },
