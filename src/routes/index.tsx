@@ -785,8 +785,8 @@ function Landing() {
             <LogoSVG />
           </Link>
 
-          {/* Middle: Search Bar */}
-          <div className="flex-1 max-w-md mx-auto relative px-2">
+          {/* Middle: Search Bar (Desktop: Header, Mobile: Hidden) */}
+          <div className="hidden sm:block flex-1 max-w-md mx-auto relative px-2">
             <div className="relative flex items-center">
               <input
                 type="text"
@@ -890,8 +890,33 @@ function Landing() {
           </p>
         </div>
 
-        {/* Mobile Filters (Select boxes - Only visible on mobile/phone) */}
+        {/* Mobile Search & Filters (Select boxes - Only visible on mobile/phone) */}
         <div className="lg:hidden block mb-6 space-y-4 bg-card/80 backdrop-blur p-5 rounded-3xl border-2 border-border/80 shadow-soft animate-pop-in">
+          {/* Mobile Search Box */}
+          <div className="space-y-2">
+            <label className="text-xs font-black text-slate-400 uppercase tracking-widest block leading-none">
+              Tìm kiếm sách
+            </label>
+            <div className="relative flex items-center">
+              <input
+                type="text"
+                placeholder="Tìm kiếm sách, bài tập, trợ lý AI..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full h-11 pl-10 pr-9 rounded-2xl bg-white border-2 border-border focus:border-primary focus:outline-none text-sm font-semibold transition-all text-slate-800 shadow-sm"
+              />
+              <Search className="absolute left-3.5 size-4 text-slate-400 pointer-events-none" />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3.5 text-muted-foreground/80 hover:text-foreground text-[10px] font-bold cursor-pointer bg-muted/40 hover:bg-muted/80 rounded-full size-4 flex items-center justify-center transition-all"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+          </div>
+
           {/* Class Filter (Lọc theo lớp - On top) */}
           <div className="space-y-2">
             <label className="text-xs font-black text-slate-400 uppercase tracking-widest block leading-none">
