@@ -140,3 +140,6 @@ dist/
 dist-ssr/
 .vinxi-ssr/
 .vinxi-client/
+
+# Custom ignored directories
+src/assets/muc-luc/

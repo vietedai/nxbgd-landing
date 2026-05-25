@@ -7,6 +7,70 @@ import coverKH from "@/assets/bia-sbt-khoa-hoc-4.jpeg";
 import coverTA from "@/assets/bia-sbt-tieng-anh-4.jpg";
 import coverTH from "@/assets/bia-sbt-tin-hoc-4.jpg";
 import coverLSDL from "@/assets/bia-sbt-lich-su-dia-ly-4.jpg";
+
+const BIA_SACH = import.meta.glob("../assets/bia-sach/*.webp", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
+function getCoverImage(grade: number, subject: string, isTap2: boolean): string {
+  const subSlug = subject
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[đĐ]/g, "d")
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+
+  if (subSlug === "toan") {
+    const tap = isTap2 ? 2 : 1;
+    const path = `../assets/bia-sach/lop-${grade}-toan-tap-${tap}.webp`;
+    if (BIA_SACH[path]) return BIA_SACH[path];
+  }
+
+  if (subSlug === "tieng-viet") {
+    const tap = isTap2 ? 2 : 1;
+    const path = `../assets/bia-sach/lop-${grade}-tieng-viet-tap-${tap}.webp`;
+    if (BIA_SACH[path]) return BIA_SACH[path];
+  }
+
+  if (subSlug === "khoa-hoc" || subSlug === "khoa-hoc-tu-nhien") {
+    const path = `../assets/bia-sach/lop-${grade}-khoa-hoc.webp`;
+    if (BIA_SACH[path]) return BIA_SACH[path];
+
+    // Fallback for Lớp 1, 2, 3
+    const fallbackPath = `../assets/bia-sach/lop-${grade}-tu-nhien-xa-hoi.webp`;
+    if (BIA_SACH[fallbackPath]) return BIA_SACH[fallbackPath];
+  }
+
+  if (subSlug === "lich-su-and-dia-li" || subSlug === "lich-su-dia-li" || subSlug === "lich-su-va-dia-li") {
+    const path = `../assets/bia-sach/lop-${grade}-lich-su-dia-li.webp`;
+    if (BIA_SACH[path]) return BIA_SACH[path];
+
+    // Fallback for Lớp 1, 2, 3
+    const fallbackPath = `../assets/bia-sach/lop-${grade}-tu-nhien-xa-hoi.webp`;
+    if (BIA_SACH[fallbackPath]) return BIA_SACH[fallbackPath];
+  }
+
+  if (subSlug === "tin-hoc") {
+    const path = `../assets/bia-sach/lop-${grade}-tin-hoc.webp`;
+    if (BIA_SACH[path]) return BIA_SACH[path];
+  }
+
+  // Try direct name match
+  const directPath = `../assets/bia-sach/lop-${grade}-${subSlug}.webp`;
+  if (BIA_SACH[directPath]) return BIA_SACH[directPath];
+
+  // Fallbacks
+  if (subSlug === "tieng-anh") return coverTA;
+  if (subSlug === "tin-hoc") return coverTH;
+  if (subSlug === "khoa-hoc" || subSlug === "khoahoc") return coverKH;
+  if (subSlug === "lich-su-dia-li" || subSlug === "lichsu-dia-ly") return coverLSDL;
+  if (subSlug === "tieng-viet" || subSlug === "tiengviet") return coverTV;
+  return coverToan;
+}
 import { Card } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -200,13 +264,18 @@ const FILTER_SUBJECTS = [
 ] as const;
 
 const SUBJECT_MAPPING: Record<string, string[]> = {
-  "Ngữ văn": ["Tiếng Việt"],
+  "Ngữ văn": ["Tiếng Việt", "Tập viết"],
   Toán: ["Toán"],
-  "Khoa học tự nhiên": ["Khoa học"],
-  "Lịch sử và Địa lí": ["Lịch sử & Địa lí"],
-  "Lịch sử": ["Lịch sử & Địa lí"],
+  "Khoa học tự nhiên": ["Khoa học", "Tự nhiên và Xã hội"],
+  "Lịch sử và Địa lí": ["Lịch sử và Địa lí"],
+  "Lịch sử": ["Lịch sử và Địa lí"],
+  "Công nghệ": ["Công nghệ"],
+  "Âm nhạc": ["Âm nhạc"],
+  "Mĩ thuật": ["Mĩ thuật"],
+  "Giáo dục công dân": ["Đạo đức"],
   "Tin học": ["Tin học"],
   "Tiếng Anh": ["Tiếng Anh"],
+  "Hoạt động trải nghiệm": ["Hoạt động trải nghiệm"],
 };
 
 function formatVND(n: number) {
@@ -540,51 +609,146 @@ function Landing() {
   const [selectedGrade, setSelectedGrade] = useState<number | "all">("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Generate books for all 5 grades
+  // Generate books dynamically from files in assets/bia-sach/
   const allBooks = useMemo(() => {
     const list: (BookData & { cover: string; isAdvanced: boolean })[] = [];
 
-    for (let g = 1; g <= 5; g++) {
-      ADVANCED_BOOKS.forEach((b) => {
-        // 1. Basic book (Sách bài tập)
-        const basicId = `basic-${b.id.replace("4", String(g))}`;
-        const basicTitle = `Sách bài tập ${b.subject} Lớp ${g}`;
-        const basicPrice =
-          30000 + g * 2000 + (b.subject.charCodeAt(0) % 5) * 1000;
-        list.push({
-          id: basicId,
-          title: basicTitle,
-          subject: b.subject,
-          grade: g,
-          price: basicPrice,
-          emoji: b.emoji,
-          pattern: b.pattern,
-          gradient: b.gradient,
-          owned: g === 4 ? b.owned : (basicPrice + g) % 3 === 0,
-          cover: b.cover,
-          isAdvanced: false,
-        });
+    Object.entries(BIA_SACH).forEach(([path, coverUrl]) => {
+      const fileName = path.split("/").pop() || "";
+      const nameWithoutExt = fileName.replace(/\.webp$/, "");
 
-        // 2. Advanced book (Sách bài tập nâng cao)
-        const advId = `adv-${b.id.replace("4", String(g))}`;
-        const advTitle = `${b.subject} nâng cao Lớp ${g}`;
-        const advPrice = b.price + (g - 4) * 2000;
-        list.push({
-          id: advId,
-          title: advTitle,
-          subject: b.subject,
-          grade: g,
-          price: advPrice,
-          emoji: b.emoji,
-          pattern: b.pattern,
-          gradient: b.gradient,
-          owned: g === 4 ? b.owned : (advPrice + g) % 2 === 0,
-          cover: b.cover,
-          isAdvanced: true,
-        });
+      const match = nameWithoutExt.match(/^lop-(\d+)-(.*)$/);
+      if (!match) return;
+
+      const grade = parseInt(match[1], 10);
+      const rest = match[2];
+
+      let tap: number | null = null;
+      let subjectSlug = rest;
+      const tapMatch = rest.match(/^(.*)-tap-(\d+)$/);
+      if (tapMatch) {
+        subjectSlug = tapMatch[1];
+        tap = parseInt(tapMatch[2], 10);
+      }
+
+      let subject = "";
+      let emoji = "📚";
+      let gradient = "from-primary via-primary to-info";
+      let pattern: BookData["pattern"] = "grid";
+
+      switch (subjectSlug) {
+        case "toan":
+          subject = "Toán";
+          emoji = "➗";
+          gradient = "from-primary via-primary to-info";
+          pattern = "grid";
+          break;
+        case "tieng-viet":
+          subject = "Tiếng Việt";
+          emoji = "📖";
+          gradient = "from-destructive via-fun to-warning";
+          pattern = "waves";
+          break;
+        case "tap-viet":
+          subject = "Tập viết";
+          emoji = "✍️";
+          gradient = "from-warning via-destructive to-fun";
+          pattern = "dots";
+          break;
+        case "khoa-hoc":
+          subject = "Khoa học";
+          emoji = "🔬";
+          gradient = "from-success via-info to-primary";
+          pattern = "circles";
+          break;
+        case "tu-nhien-xa-hoi":
+          subject = "Tự nhiên và Xã hội";
+          emoji = "🌱";
+          gradient = "from-emerald-500 to-teal-600";
+          pattern = "dots";
+          break;
+        case "lich-su-dia-li":
+          subject = "Lịch sử và Địa lí";
+          emoji = "🗺️";
+          gradient = "from-amber-600 to-red-600";
+          pattern = "triangles";
+          break;
+        case "tin-hoc":
+          subject = "Tin học";
+          emoji = "💻";
+          gradient = "from-info via-fun to-primary";
+          pattern = "dots";
+          break;
+        case "tieng-anh":
+          subject = "Tiếng Anh";
+          emoji = "🌐";
+          gradient = "from-fun via-primary to-info";
+          pattern = "stars";
+          break;
+        case "am-nhac":
+          subject = "Âm nhạc";
+          emoji = "🎵";
+          gradient = "from-pink-500 via-purple-500 to-indigo-500";
+          pattern = "waves";
+          break;
+        case "dao-duc":
+          subject = "Đạo đức";
+          emoji = "🤝";
+          gradient = "from-teal-400 to-emerald-600";
+          pattern = "circles";
+          break;
+        case "mi-thuat":
+          subject = "Mĩ thuật";
+          emoji = "🎨";
+          gradient = "from-purple-500 via-pink-500 to-red-500";
+          pattern = "stars";
+          break;
+        case "cong-nghe":
+          subject = "Công nghệ";
+          emoji = "🛠️";
+          gradient = "from-amber-500 via-orange-600 to-yellow-500";
+          pattern = "grid";
+          break;
+        case "hoat-dong-trai-nghiem":
+          subject = "Hoạt động trải nghiệm";
+          emoji = "🏕️";
+          gradient = "from-sky-400 via-blue-500 to-indigo-600";
+          pattern = "waves";
+          break;
+        default:
+          subject = subjectSlug
+            .split("-")
+            .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(" ");
+          emoji = "📚";
+          break;
+      }
+
+      let title = `Sách bài tập ${subject} Lớp ${grade}`;
+      if (tap !== null) {
+        title += ` - Tập ${tap}`;
+      }
+
+      list.push({
+        id: `dynamic-${grade}-${subjectSlug}${tap !== null ? `-tap-${tap}` : ""}`,
+        title: title,
+        subject: subject,
+        grade: grade,
+        price: 0,
+        emoji: emoji,
+        pattern: pattern,
+        gradient: gradient,
+        owned: true,
+        cover: coverUrl,
+        isAdvanced: false,
       });
-    }
-    return list;
+    });
+
+    return list.sort((a, b) => {
+      if (a.grade !== b.grade) return a.grade - b.grade;
+      if (a.subject !== b.subject) return a.subject.localeCompare(b.subject, "vi");
+      return a.title.localeCompare(b.title, "vi");
+    });
   }, []);
 
   // Filter books based on checked subjects and search query
@@ -842,9 +1006,6 @@ function Landing() {
                   {/* Grid of books of this grade */}
                   <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4">
                     {gradeBooks.map((b) => {
-                      const isClickable = b.subject === "Khoa học" || b.subject === "Toán";
-                      const detailRoute = b.subject === "Khoa học" ? "/sach/khoa-hoc-4" : "/sach/toan-4";
-
                       const cardContent = (
                         <Card className="group p-0 border-2 hover:border-primary transition-all hover:-translate-y-1 hover:shadow-card overflow-hidden flex flex-col relative h-full">
                           {/* Custom Badge to indicate level */}
@@ -867,7 +1028,14 @@ function Landing() {
                           )}
 
                           <div className="aspect-[5/7] overflow-hidden bg-muted relative">
-                            {b.isAdvanced ? (
+                            {b.cover ? (
+                              <img
+                                src={b.cover}
+                                alt={b.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                loading="lazy"
+                              />
+                            ) : b.isAdvanced ? (
                               <BookCover
                                 book={b}
                                 badge={`Nâng cao · Lớp ${b.grade}`}
@@ -915,13 +1083,9 @@ function Landing() {
                                     <ShoppingCart className="size-3 shrink-0" /> Mua
                                   </span>
                                 )
-                              ) : isClickable ? (
+                              ) : (
                                 <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-primary hover:underline">
                                   Mở sách →
-                                </span>
-                              ) : (
-                                <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-primary opacity-60">
-                                  Sắp ra mắt
                                 </span>
                               )}
                             </div>
@@ -929,14 +1093,10 @@ function Landing() {
                         </Card>
                       );
 
-                      return isClickable ? (
-                        <Link key={b.id} to={detailRoute} className="block no-underline h-full">
+                      return (
+                        <Link key={b.id} to="/sach/$bookId" params={{ bookId: b.id }} className="block no-underline h-full">
                           {cardContent}
                         </Link>
-                      ) : (
-                        <div key={b.id} className="block opacity-65 cursor-not-allowed h-full">
-                          {cardContent}
-                        </div>
                       );
                     })}
                   </div>

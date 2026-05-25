@@ -1,8 +1,8 @@
 import { useState, useMemo } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Card } from "@/components/ui/card";
-import coverToan from "@/assets/bia-sbt-toan-4.jpg";
-import coverKH from "@/assets/bia-sbt-khoa-hoc-4.jpeg";
+import coverToan from "@/assets/bia-sach/lop-4-toan-tap-1.webp";
+import coverKH from "@/assets/bia-sach/lop-4-khoa-hoc.webp";
 import {
   ArrowLeft,
   BookOpen,
@@ -188,7 +188,8 @@ function LessonDetailPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [zoom, setZoom] = useState(100);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [isHomeworkExpanded, setIsHomeworkExpanded] = useState(true);
+  const [isHomeworkExpanded, setIsHomeworkExpanded] = useState(false);
+  const [isPdfExpanded, setIsPdfExpanded] = useState(false);
   const [isPdfFullActive, setIsPdfFullActive] = useState(false);
 
   const currentPageContent = info.pdfPages[currentPage - 1] || info.pdfPages[0];
@@ -444,44 +445,240 @@ function LessonDetailPage() {
               </Card>
             )}
 
-            {/* Hub 2: SÁCH GIÁO KHOA PDF */}
-            <Card className="p-3 md:p-4 border-2 border-border/80 rounded-2xl bg-card shadow-soft flex items-center justify-between gap-4 transition-all">
-              <div className="flex items-center gap-3">
-                <div className="size-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 animate-wiggle">
-                  <BookOpen className="size-5" />
+            {/* Hub 2: SÁCH GIÁO KHOA PDF & TÓM TẮT BÀI HỌC (Collapsible Inline Viewer) */}
+            {isPdfExpanded ? (
+              /* EXPANDED PDF & Summary View */
+              <Card className="border-2 border-border/80 rounded-3xl bg-card shadow-soft overflow-hidden flex flex-col animate-pop-in h-[580px] shrink-0">
+                {/* PDF Viewer Header Toolbar */}
+                <div className="bg-slate-50 border-b border-border/60 px-4 py-3 flex flex-wrap items-center justify-between gap-3 flex-shrink-0">
+                  {/* Mode Selector Tabs */}
+                  <div className="flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl border border-slate-200">
+                    <button
+                      onClick={() => setViewMode("pdf")}
+                      className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                        viewMode === "pdf"
+                          ? "bg-primary text-primary-foreground shadow-soft"
+                          : "hover:bg-slate-200/50 text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      <BookOpen className="size-4" />
+                      <span>Sách giáo khoa PDF</span>
+                    </button>
+                    <button
+                      onClick={() => setViewMode("summary")}
+                      className={`px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                        viewMode === "summary"
+                          ? "bg-primary text-primary-foreground shadow-soft"
+                          : "hover:bg-slate-200/50 text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      <FileText className="size-4" />
+                      <span>Tóm tắt bài học</span>
+                    </button>
+                  </div>
+
+                  {/* Mode Controls */}
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setIsPdfFullActive(true)}
+                      className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-white px-3.5 py-2 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all cursor-pointer shadow-sm"
+                      title="Toàn màn hình"
+                    >
+                      <Maximize2 className="size-3.5" />
+                      <span className="hidden sm:inline">Toàn màn hình</span>
+                    </button>
+                    <button
+                      onClick={() => setIsPdfExpanded(false)}
+                      className="px-3.5 py-2 text-xs font-bold text-destructive hover:bg-destructive/10 rounded-xl border border-destructive/20 transition-all cursor-pointer"
+                    >
+                      Thu gọn
+                    </button>
+                  </div>
+                </div>
+
+                {/* PDF Viewer Body */}
+                <div className="flex-1 min-h-0 flex flex-col bg-slate-100 relative">
+                  {viewMode === "pdf" ? (
+                    <iframe
+                      src="/Bai_08_Xu_li_bat_hoa_voi_ban_be.pdf"
+                      className="w-full h-full border-0 bg-white"
+                      title="Sách Giáo Khoa PDF"
+                    />
+                  ) : (
+                    <div className="flex-1 min-h-0 overflow-y-auto p-4 md:p-6 flex justify-center items-start">
+                      <Card className="w-full max-w-2xl bg-[#FCFAF2] border border-amber-950/15 shadow-card p-6 md:p-8 rounded-2xl relative select-none text-foreground/90 transition-all">
+                        {/* Spine Shadow Effect */}
+                        <div className="absolute top-0 bottom-0 left-0 w-4 bg-gradient-to-r from-black/5 to-transparent rounded-l-2xl pointer-events-none" />
+
+                        <div className="space-y-4">
+                          {/* Book info header */}
+                          <div className="border-b border-amber-900/10 pb-2 flex justify-between items-center text-[10px] sm:text-xs font-bold uppercase tracking-wider text-amber-800/80">
+                            <span>BỘ SÁCH GIÁO KHOA KẾT NỐI TRI THỨC VỚI CUỘC SỐNG</span>
+                            <span>Trang {currentPage + 5}</span>
+                          </div>
+
+                          {/* Lesson title inside book */}
+                          <h3 className="font-display font-black text-lg md:text-xl text-amber-950 border-l-4 border-amber-700 pl-3 leading-snug py-0.5">
+                            {currentPageContent.header}
+                          </h3>
+
+                          {/* Paragraphs */}
+                          <div className="space-y-3.5 text-sm md:text-base leading-relaxed text-amber-950/80 font-medium text-justify">
+                            {currentPageContent.paragraphs.map((p, idx) => (
+                              <p key={idx}>{p}</p>
+                            ))}
+                          </div>
+
+                          {/* Interactive workbook exercise section */}
+                          <div className="mt-4 p-3.5 rounded-xl bg-amber-50 border border-amber-200/60 shadow-inner">
+                            <h4 className="font-display font-bold text-sm text-amber-900 flex items-center gap-1.5 mb-1">
+                              <FileText className="size-3.5 text-amber-700" />
+                              Hoạt động Luyện tập trong SGK:
+                            </h4>
+                            <p className="text-sm text-amber-900/85 leading-relaxed font-medium text-justify">
+                              {currentPageContent.exercise}
+                            </p>
+                          </div>
+
+                          {/* Tip block */}
+                          <div className="mt-3.5 p-3.5 rounded-xl bg-orange-100/50 border border-orange-200/50">
+                            <p className="text-sm text-orange-950 font-semibold leading-relaxed italic text-justify">
+                              {currentPageContent.tip}
+                            </p>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+                  )}
+                </div>
+
+                {/* PDF Footer Toolbar (Pagination controls for Summary mode) */}
+                {viewMode === "summary" && (
+                  <div className="bg-card border-t border-border/60 px-4 py-3 flex items-center justify-between gap-4 flex-shrink-0">
+                    <span className="text-sm font-bold text-muted-foreground">
+                      Trang {currentPage} / {info.pdfPages.length}
+                    </span>
+
+                    {/* Navigation Buttons */}
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={handlePrevPage}
+                        disabled={currentPage === 1}
+                        className={`px-3.5 py-1.5 rounded-xl border border-border text-sm font-bold flex items-center gap-1.5 transition-all ${
+                          currentPage === 1
+                            ? "opacity-40 cursor-not-allowed text-muted-foreground"
+                            : "hover:bg-muted text-foreground cursor-pointer shadow-sm bg-white"
+                        }`}
+                      >
+                        <ChevronLeft className="size-4" /> Trang trước
+                      </button>
+                      <button
+                        onClick={handleNextPage}
+                        disabled={currentPage === info.pdfPages.length}
+                        className={`px-3.5 py-1.5 rounded-xl border border-border text-sm font-bold flex items-center gap-1.5 transition-all ${
+                          currentPage === info.pdfPages.length
+                            ? "opacity-40 cursor-not-allowed text-muted-foreground"
+                            : "hover:bg-muted text-foreground cursor-pointer shadow-sm bg-white"
+                        }`}
+                      >
+                        Trang sau <ChevronRight className="size-4" />
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </Card>
+            ) : (
+              /* COLLAPSED PDF View */
+              <Card className="p-3 md:p-4 border-2 border-border/80 rounded-2xl bg-card shadow-soft flex items-center justify-between gap-4 transition-all hover:border-primary/20">
+                <div className="flex items-center gap-3">
+                  <div className="size-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 animate-wiggle">
+                    <BookOpen className="size-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-muted-foreground block">
+                      Tài liệu tự học
+                    </span>
+                    <h3 className="font-display font-extrabold text-base text-foreground">
+                      Sách Giáo Khoa PDF &amp; Tóm tắt bài học
+                    </h3>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setIsPdfExpanded(true)}
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-xs sm:text-sm font-bold text-primary-foreground shadow-soft transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                  >
+                    <BookOpen className="size-4" /> Mở rộng đọc sách
+                  </button>
+                </div>
+              </Card>
+            )}
+
+            {/* Hub 3: SMART LEARNING AI PROMPT WIDGET - Structured Premium Checklist */}
+            <Card className="p-5 md:p-6 border-2 border-warning/30 rounded-3xl bg-warning/5 shadow-soft relative overflow-hidden flex flex-col gap-4">
+              {/* Soft ambient background glow */}
+              <div className="absolute -top-10 -right-10 w-24 h-24 bg-warning/10 rounded-full blur-2xl pointer-events-none" />
+
+              <div className="flex items-center gap-2.5">
+                <div className="size-8.5 rounded-xl bg-warning/15 text-warning-foreground flex items-center justify-center shrink-0 shadow-sm border border-warning/10">
+                  <Sparkles className="size-4.5 animate-pulse" />
                 </div>
                 <div>
-                  <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-muted-foreground block">
-                    Tài liệu tự học
-                  </span>
-                  <h3 className="font-display font-extrabold text-base text-foreground">
-                    Sách Giáo Khoa PDF &amp; Tóm tắt bài học
-                  </h3>
+                  <h4 className="font-display font-black text-sm text-warning-foreground uppercase tracking-wider leading-none">
+                    Hướng dẫn học hiệu quả
+                  </h4>
+                  <p className="text-[10px] sm:text-xs font-bold text-muted-foreground mt-0.5">
+                    Đồng hành học tập chuẩn năng lực số cùng Trợ lý Ong Chăm Chỉ
+                  </p>
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setIsPdfFullActive(true)}
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-xs sm:text-sm font-bold text-primary-foreground shadow-soft transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
-                >
-                  <BookOpen className="size-4" /> Mở rộng đọc sách
-                </button>
-              </div>
-            </Card>
 
-            {/* Hub 3: SMART LEARNING AI PROMPT WIDGET */}
-            <Card className="p-3.5 border-2 border-warning/40 rounded-3xl bg-warning/5 shadow-soft flex items-start gap-2.5">
-              <Sparkles className="size-4 text-warning shrink-0 mt-0.5 animate-pulse" />
-              <div className="space-y-0.5">
-                <h4 className="font-display font-bold text-xs sm:text-sm text-warning-foreground uppercase">
-                  Hướng dẫn học hiệu quả
-                </h4>
-                <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground font-medium">
-                  Em nên click vào **Vào làm bài tập số (phên trên)** để kiểm
-                  tra và củng cố kiến thức trước, sau đó có thể tham khảo hoặc
-                  tra cứu lý thuyết trực tiếp trong **Sách Giáo Khoa PDF (bên
-                  dưới)**. Trợ lý AI Ong Chăm Chỉ sẽ đồng hành cùng em!
-                </p>
+              {/* Step-by-Step structured workflow */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-warning/20 pt-4">
+                {/* Step 1 */}
+                <div className="space-y-1.5 p-3 rounded-2xl bg-white/40 border border-warning/10 shadow-xs flex flex-col">
+                  <div className="flex items-center gap-2">
+                    <span className="size-6 rounded-full bg-warning/20 text-warning-foreground flex items-center justify-center text-xs font-black shrink-0">
+                      1
+                    </span>
+                    <span className="text-xs sm:text-sm font-black text-slate-800">
+                      Làm bài tập số trước
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground font-medium leading-relaxed flex-1">
+                    Nhấn nút <strong className="font-bold text-slate-700">Vào làm bài tập số</strong> (phía trên) để làm các câu hỏi trắc nghiệm, kéo thả, ghép hình... AI sẽ chấm điểm và hướng dẫn giải ngay!
+                  </p>
+                </div>
+
+                {/* Step 2 */}
+                <div className="space-y-1.5 p-3 rounded-2xl bg-white/40 border border-warning/10 shadow-xs flex flex-col">
+                  <div className="flex items-center gap-2">
+                    <span className="size-6 rounded-full bg-warning/20 text-warning-foreground flex items-center justify-center text-xs font-black shrink-0">
+                      2
+                    </span>
+                    <span className="text-xs sm:text-sm font-black text-slate-800">
+                      Tra cứu lý thuyết
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground font-medium leading-relaxed flex-1">
+                    Nhấn nút <strong className="font-bold text-slate-700">Mở rộng đọc sách</strong> (bên dưới) để xem trực quan sách giáo khoa PDF gốc hoặc đọc bản <strong className="font-bold text-slate-700">Tóm tắt bài học</strong> cô đọng.
+                  </p>
+                </div>
+
+                {/* Step 3 */}
+                <div className="space-y-1.5 p-3 rounded-2xl bg-white/40 border border-warning/10 shadow-xs flex flex-col">
+                  <div className="flex items-center gap-2">
+                    <span className="size-6 rounded-full bg-warning/20 text-warning-foreground flex items-center justify-center text-xs font-black shrink-0">
+                      3
+                    </span>
+                    <span className="text-xs sm:text-sm font-black text-slate-800">
+                      Ong Chăm Chỉ gợi ý
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground font-medium leading-relaxed flex-1">
+                    Hãy xem lại các phân tích, nhắc lại kiến thức của AI sau mỗi bài làm để khắc sâu kiến thức lâu hơn và xây dựng lộ trình học tập cá nhân hóa.
+                  </p>
+                </div>
               </div>
             </Card>
           </div>

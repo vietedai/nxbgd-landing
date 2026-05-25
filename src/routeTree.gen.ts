@@ -32,6 +32,7 @@ import { Route as StudentAiRouteImport } from './routes/student/ai'
 import { Route as StudentAchievementsRouteImport } from './routes/student/achievements'
 import { Route as SachToan4RouteImport } from './routes/sach/toan-4'
 import { Route as SachKhoaHoc4RouteImport } from './routes/sach/khoa-hoc-4'
+import { Route as SachBookIdRouteImport } from './routes/sach/$bookId'
 import { Route as ManagerReportXaRouteImport } from './routes/manager/report-xa'
 import { Route as ManagerReportTruongRouteImport } from './routes/manager/report-truong'
 import { Route as ManagerReportTinhRouteImport } from './routes/manager/report-tinh'
@@ -161,6 +162,11 @@ const SachKhoaHoc4Route = SachKhoaHoc4RouteImport.update({
   path: '/sach/khoa-hoc-4',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SachBookIdRoute = SachBookIdRouteImport.update({
+  id: '/sach/$bookId',
+  path: '/sach/$bookId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ManagerReportXaRoute = ManagerReportXaRouteImport.update({
   id: '/manager/report-xa',
   path: '/manager/report-xa',
@@ -240,6 +246,7 @@ export interface FileRoutesByFullPath {
   '/manager/report-tinh': typeof ManagerReportTinhRoute
   '/manager/report-truong': typeof ManagerReportTruongRoute
   '/manager/report-xa': typeof ManagerReportXaRoute
+  '/sach/$bookId': typeof SachBookIdRoute
   '/sach/khoa-hoc-4': typeof SachKhoaHoc4Route
   '/sach/toan-4': typeof SachToan4Route
   '/student/achievements': typeof StudentAchievementsRoute
@@ -278,6 +285,7 @@ export interface FileRoutesByTo {
   '/manager/report-tinh': typeof ManagerReportTinhRoute
   '/manager/report-truong': typeof ManagerReportTruongRoute
   '/manager/report-xa': typeof ManagerReportXaRoute
+  '/sach/$bookId': typeof SachBookIdRoute
   '/sach/khoa-hoc-4': typeof SachKhoaHoc4Route
   '/sach/toan-4': typeof SachToan4Route
   '/student/achievements': typeof StudentAchievementsRoute
@@ -317,6 +325,7 @@ export interface FileRoutesById {
   '/manager/report-tinh': typeof ManagerReportTinhRoute
   '/manager/report-truong': typeof ManagerReportTruongRoute
   '/manager/report-xa': typeof ManagerReportXaRoute
+  '/sach/$bookId': typeof SachBookIdRoute
   '/sach/khoa-hoc-4': typeof SachKhoaHoc4Route
   '/sach/toan-4': typeof SachToan4Route
   '/student/achievements': typeof StudentAchievementsRoute
@@ -357,6 +366,7 @@ export interface FileRouteTypes {
     | '/manager/report-tinh'
     | '/manager/report-truong'
     | '/manager/report-xa'
+    | '/sach/$bookId'
     | '/sach/khoa-hoc-4'
     | '/sach/toan-4'
     | '/student/achievements'
@@ -395,6 +405,7 @@ export interface FileRouteTypes {
     | '/manager/report-tinh'
     | '/manager/report-truong'
     | '/manager/report-xa'
+    | '/sach/$bookId'
     | '/sach/khoa-hoc-4'
     | '/sach/toan-4'
     | '/student/achievements'
@@ -433,6 +444,7 @@ export interface FileRouteTypes {
     | '/manager/report-tinh'
     | '/manager/report-truong'
     | '/manager/report-xa'
+    | '/sach/$bookId'
     | '/sach/khoa-hoc-4'
     | '/sach/toan-4'
     | '/student/achievements'
@@ -472,6 +484,7 @@ export interface RootRouteChildren {
   ManagerReportTinhRoute: typeof ManagerReportTinhRoute
   ManagerReportTruongRoute: typeof ManagerReportTruongRoute
   ManagerReportXaRoute: typeof ManagerReportXaRoute
+  SachBookIdRoute: typeof SachBookIdRoute
   SachKhoaHoc4Route: typeof SachKhoaHoc4Route
   SachToan4Route: typeof SachToan4Route
   StudentAchievementsRoute: typeof StudentAchievementsRoute
@@ -661,6 +674,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SachKhoaHoc4RouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sach/$bookId': {
+      id: '/sach/$bookId'
+      path: '/sach/$bookId'
+      fullPath: '/sach/$bookId'
+      preLoaderRoute: typeof SachBookIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/manager/report-xa': {
       id: '/manager/report-xa'
       path: '/manager/report-xa'
@@ -768,6 +788,7 @@ const rootRouteChildren: RootRouteChildren = {
   ManagerReportTinhRoute: ManagerReportTinhRoute,
   ManagerReportTruongRoute: ManagerReportTruongRoute,
   ManagerReportXaRoute: ManagerReportXaRoute,
+  SachBookIdRoute: SachBookIdRoute,
   SachKhoaHoc4Route: SachKhoaHoc4Route,
   SachToan4Route: SachToan4Route,
   StudentAchievementsRoute: StudentAchievementsRoute,
