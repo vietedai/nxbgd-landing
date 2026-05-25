@@ -89,32 +89,44 @@ function getBookAuthors(grade: number, subjectSlug: string): string {
   if (subjectSlug === "toan") {
     return "Lê Anh Vinh (Chủ biên) - Hoàng Quế Hường - Vũ Văn Luân - Nguyễn Minh Hải - Đặng Thị Phương Anh";
   }
-  if (subjectSlug === "khoa-hoc") {
-    return "Lý Vương Ngọc Minh (Chủ biên) - Phan Thanh Hà - Nguyễn Thị Thanh Phúc";
+  if (subjectSlug === "tieng-viet" || subjectSlug === "tap-viet") {
+    if (grade === 1) return "Bùi Mạnh Hùng (Tổng chủ biên kiêm Chủ biên) - Lê Thị Lan Anh - Nguyễn Thị Ngân Hoa - Vũ Thị Thanh Hương - Vũ Thị Lan";
+    if (grade === 2) return "Bùi Mạnh Hùng (Tổng chủ biên) - Trần Thị Hiền Lương (Chủ biên) - Đỗ Hồng Dương - Nguyễn Thị Ngọc Minh - Trần Kim Phượng";
+    if (grade === 3) return "Bùi Mạnh Hùng (Tổng chủ biên) - Trần Thị Hiền Lương (Chủ biên) - Lê Thị Lan Anh - Nguyễn Lê Hằng - Đỗ Hồng Dương";
+    if (grade === 4) return "Bùi Mạnh Hùng (Tổng chủ biên) - Trần Thị Hiền Lương (Chủ biên) - Nguyễn Thị Kim Oanh - Đặng Thị Hảo Tâm - Phạm Vĩnh Lộc - Nguyễn Lương Hải Như";
+    return "Bùi Mạnh Hùng (Tổng chủ biên) - Trần Thị Hiền Lương (Chủ biên) - Lê Thị Lan Anh - Đỗ Hồng Dương - Nguyễn Thị Kim Oanh - Vũ Thị Thanh Hương - Đặng Thị Hảo Tâm";
   }
-  if (subjectSlug === "tieng-viet") {
-    return "Nguyễn Minh Thuyết (Chủ biên) - Chu Thị Thủy An - Nguyễn Thị Hạnh - Đỗ Hải Hiên";
+  if (subjectSlug === "tu-nhien-xa-hoi") {
+    if (grade === 1) return "Đỗ Xuân Hội (Tổng chủ biên) - Nguyễn Thị Thu Hằng (Chủ biên) - Phạm Phương Anh - Lưu Phương Thanh Bình - Trần Thị Thu Hiền - Lý Khánh Hoa";
+    return "Vũ Văn Hùng (Tổng chủ biên) - Nguyễn Thị Thấn (Chủ biên) - Đào Thị Hồng - Phương Hà Lan - Phạm Việt Quỳnh - Hoàng Quý Tỉnh";
+  }
+  if (subjectSlug === "khoa-hoc") {
+    if (grade === 4) return "Vũ Văn Hùng (Tổng chủ biên) - Phan Thanh Hà (Chủ biên) - Nguyễn Thị Thanh Phúc - Lý Vương Ngọc Minh";
+    return "Vũ Văn Hùng (Tổng chủ biên) - Phan Thanh Hà (Chủ biên) - Hà Thị Lan Hương - Nguyễn Thị Thanh Phúc";
+  }
+  if (subjectSlug === "lich-su-dia-li") {
+    if (grade === 4) return "Vũ Minh Giang (Tổng chủ biên) - Nghiêm Đình Vỳ - Trần Thị Hà Giang (Chủ biên) - Nguyễn Thị Thu Thủy - Đinh Ngọc Bảo";
+    return "Vũ Minh Giang (Tổng chủ biên) - Nghiêm Đình Vỳ (Chủ biên) - Đinh Ngọc Bảo - Lương Mỹ Vân - Nguyễn Minh Hằng";
+  }
+  if (subjectSlug === "dao-duc") {
+    return "Nguyễn Thị Toan (Tổng chủ biên) - Trần Thành Nam (Chủ biên) - Nguyễn Thị Hoàng Anh - Nguyễn Nam Phương";
   }
   if (subjectSlug === "tin-hoc") {
     return "Nguyễn Chí Công (Chủ biên) - Hoàng Thị Mai - Nguyễn Huy Khắc - Phùng Anh Tuấn";
   }
-  if (subjectSlug === "lich-su-dia-li") {
-    return "Nghiêm Đình Vỳ (Chủ biên) - Đinh Ngọc Bảo - Lê Mỹ Phong - Vũ Văn Quân";
+  if (subjectSlug === "cong-nghe") {
+    if (grade === 3) return "Lê Huy Hoàng (Tổng chủ biên) - Đặng Văn Nghĩa (Chủ biên) - Dương Giáng Thiên Hương - Nguyễn Thị Mai Lan";
+    if (grade === 4) return "Lê Huy Hoàng (Tổng chủ biên) - Đặng Văn Nghĩa (Chủ biên) - Bùi Thị Hải Yến - Nguyễn Thị Mai Lan";
+    return "Lê Huy Hoàng (Tổng chủ biên) - Đặng Văn Nghĩa (Chủ biên) - Dương Giáng Thiên Hương - Bùi Thị Hải Yến";
   }
   if (subjectSlug === "hoat-dong-trai-nghiem") {
-    return "Phó Đức Hòa (Chủ biên) - Nguyễn Hữu Hợp - Bùi Ngọc Diệp - Nguyễn Hà My";
-  }
-  if (subjectSlug === "dao-duc") {
-    return "Trần Văn Thắng (Chủ biên) - Lâm Thị Thanh Quỳnh - Nguyễn Thị Hồng - Đặng Ngọc Tú";
+    return "Bùi Ngọc Diệp (Chủ biên) - Phó Đức Hòa - Nguyễn Hữu Hợp - Nguyễn Hà My";
   }
   if (subjectSlug === "am-nhac") {
-    return "Đỗ Thanh Hiên (Chủ biên) - Nguyễn Đăng Bửu - Lương Diệu Linh - Trịnh Hoài Thu";
+    return "Đỗ Thanh Hiên (Chủ biên) - Lương Diệu Linh - Nguyễn Đăng Bửu - Trịnh Hoài Thu";
   }
   if (subjectSlug === "mi-thuat") {
     return "Nguyễn Xuân Tiên (Chủ biên) - Nguyễn Hữu Hạnh - Trần Huy Thắng - Phan Minh Trí";
-  }
-  if (subjectSlug === "cong-nghe") {
-    return "Nguyễn Thị Mai Hoa (Chủ biên) - Hoàng Xuân Khang - Vũ Thị Thu Hằng - Lê Thị Hồng";
   }
   if (subjectSlug === "tieng-anh") {
     return "Hoàng Văn Vân (Chủ biên) - Phan Hà - Nguyễn Thị Chi - Lương Quỳnh Trang";
