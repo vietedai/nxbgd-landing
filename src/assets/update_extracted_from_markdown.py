@@ -181,6 +181,25 @@ def main():
             
     print(f"Successfully overridden {overridden_count} books in database!")
     
+    # Copy TOC from VBT Tiếng Việt to corresponding Vở tập viết
+    tap_viet_mappings = {
+        "vo-tap-viet-1-tap-1.pdf": "vbt-tieng-viet-1-1.pdf",
+        "vo-tap-viet-1-tap-2.pdf": "vbt-tieng-viet-1-tap2.pdf",
+        "vo-tap-viet-lop2-tap1-filein-full.pdf": "vbt-tieng-viet-2-1.pdf",
+        "vo-tap-viet-lop2-tap2-filein-full.pdf": "vbt-tieng-viet-2-2.pdf",
+        "vo-tap-viet-3-tap-1.pdf": "vbt-tieng-viet-3-1.pdf",
+        "vo-tap-viet-lop3-tap2-filein-full.pdf": "vbt-tieng-viet-3-2.pdf",
+    }
+    
+    copied_count = 0
+    for tv_key, tv_source in tap_viet_mappings.items():
+        if tv_key in db and tv_source in db:
+            db[tv_key]['toc'] = db[tv_source]['toc']
+            copied_count += 1
+            print(f"  [Tập Viết] Copied TOC from {tv_source} to {tv_key} ({len(db[tv_key]['toc'])} items)")
+            
+    print(f"Successfully copied TOC for {copied_count} Tập viết books!")
+    
     # Save the updated database JSON
     with open("src/lib/extracted-contents.json", "w", encoding="utf-8") as f:
         json.dump(db, f, ensure_ascii=False, indent=2)
