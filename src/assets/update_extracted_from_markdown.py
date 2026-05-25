@@ -7,7 +7,7 @@ def clean_markdown_bold(s):
     s = s.replace("**", "").replace("\\", "").strip()
     # Replace markdown italics (*word*) with standard text
     s = s.replace("*", "")
-    return s
+    return s.strip()
 
 def parse_md_file(path):
     with open(path, 'r', encoding='utf-8') as f:
@@ -57,6 +57,20 @@ def parse_md_file(path):
                         if col1.startswith('---') or col2.startswith('---'):
                             continue
                         
+                        toc_items.append({
+                            "chapter": col1,
+                            "title": col2,
+                            "page": col3
+                        })
+                else:
+                    # Parse list-based TOC lines (e.g. "* Bài 1. Title — Trang 4" or "1. Title — Trang 4")
+                    cleaned_line = clean_markdown_bold(line)
+                    # Matches "Bài 1", "Chương 1", or "1" followed by optional dot, then title, then dash, then "Trang 4"
+                    match = re.match(r'^([Bb]ài\s+\d+|[Cc]hương\s+\d+|\d+)\.?\s*(.*?)\s*[-—–]\s*[Tt]rang\s*(\d+)$', cleaned_line)
+                    if match:
+                        col1 = match.group(1).strip()
+                        col2 = match.group(2).strip()
+                        col3 = match.group(3).strip()
                         toc_items.append({
                             "chapter": col1,
                             "title": col2,
