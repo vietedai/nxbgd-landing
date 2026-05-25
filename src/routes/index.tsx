@@ -488,6 +488,53 @@ const LogoSVG = () => (
   </svg>
 );
 
+// High-fidelity SVG Logos for Book Distributors
+function SedidcoLogo() {
+  return (
+    <div className="flex-shrink-0 flex flex-col items-center gap-1 bg-white p-1.5 rounded-xl border border-emerald-100 shadow-sm w-16 h-16 justify-center">
+      <svg viewBox="0 0 100 85" className="h-8 w-8 drop-shadow-xs" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 75 C10 40 28 15 48 5 C45 22 35 55 35 75 Z" fill="#2E7D32" />
+        <path d="M38 75 C35 38 52 18 68 8 C62 25 54 58 54 75 Z" fill="#4CAF50" />
+        <path d="M58 75 C55 45 70 25 85 15 C78 32 72 62 72 75 Z" fill="#81C784" />
+        <ellipse cx="52" cy="46" rx="14" ry="11" fill="#FBC02D" />
+        <text x="52" y="50" fill="#1B5E20" fontSize="10" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">GD</text>
+      </svg>
+      <span className="text-[7.5px] font-black text-[#2E7D32] tracking-wider leading-none">SEDIDCO</span>
+    </div>
+  );
+}
+
+function CuuLongLogo() {
+  return (
+    <div className="flex-shrink-0 flex flex-col items-center gap-1 bg-white p-1.5 rounded-xl border border-red-100 shadow-sm w-16 h-16 justify-center">
+      <svg viewBox="0 0 100 85" className="h-8 w-8 drop-shadow-xs" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="12" y="5" width="76" height="76" rx="12" fill="#D32F2F" />
+        <path d="M25 60 C35 58 45 58 50 64 C55 58 65 58 75 60 L75 66 C65 64 55 64 50 68 C45 64 35 64 25 66 Z" fill="white" />
+        <text x="50" y="46" fill="white" fontSize="24" fontWeight="900" textAnchor="middle" fontFamily="sans-serif" letterSpacing="-1">GD</text>
+      </svg>
+      <span className="text-[7.5px] font-black text-[#D32F2F] tracking-wider leading-none">CỬU LONG</span>
+    </div>
+  );
+}
+
+function SobeeLogo() {
+  return (
+    <div className="flex-shrink-0 flex flex-col items-center gap-1 bg-white p-1.5 rounded-xl border border-blue-100 shadow-sm w-16 h-16 justify-center">
+      <svg viewBox="0 0 100 85" className="h-8 w-8 drop-shadow-xs" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="58" cy="45" r="32" fill="#BBDEFB" stroke="#1565C0" strokeWidth="2.5" />
+        <path d="M26 45 H90" stroke="#1565C0" strokeWidth="1.5" />
+        <path d="M30 31 C45 39 71 39 86 31" stroke="#1565C0" strokeWidth="1.5" fill="none" />
+        <path d="M30 59 C45 51 71 51 86 59" stroke="#1565C0" strokeWidth="1.5" fill="none" />
+        <path d="M58 13 C45 28 45 62 58 77" stroke="#1565C0" strokeWidth="1.5" fill="none" />
+        <path d="M58 13 C71 28 71 62 58 77" stroke="#1565C0" strokeWidth="1.5" fill="none" />
+        <rect x="10" y="20" width="24" height="24" rx="4" fill="#D32F2F" />
+        <text x="22" y="37" fill="white" fontSize="12" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">GD</text>
+      </svg>
+      <span className="text-[7.5px] font-black text-[#1565C0] tracking-wider leading-none">SOBEE</span>
+    </div>
+  );
+}
+
 function Landing() {
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([]);
   const [selectedGrade, setSelectedGrade] = useState<number | "all">("all");
@@ -727,12 +774,12 @@ function Landing() {
           {/* Cột bên phải: Danh sách 5 lớp, mỗi lớp 1 hàng */}
           <div className="lg:col-span-3 space-y-8">
             {/* Horizontal Grade Filter Row */}
-            <div className="p-3 rounded-3xl bg-card/60 backdrop-blur border-2 border-border/80 shadow-soft">
-              <div className="flex items-center gap-2 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-1 px-1">
+            <div className="p-3.5 rounded-full bg-card/60 backdrop-blur border-2 border-border/80 shadow-soft">
+              <div className="flex items-center gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-1 px-1">
                 <button
                   onClick={() => setSelectedGrade("all")}
                   className={`
-                    px-4 py-2 rounded-xl text-xs font-bold font-display transition-all duration-300 flex items-center gap-1.5 cursor-pointer whitespace-nowrap
+                    px-6 py-3 rounded-full text-sm sm:text-base font-black font-display transition-all duration-300 flex items-center justify-center cursor-pointer whitespace-nowrap
                     ${
                       selectedGrade === "all"
                         ? "bg-gradient-to-r from-primary to-fun text-white scale-105 shadow-soft border-transparent"
@@ -740,7 +787,6 @@ function Landing() {
                     }
                   `}
                 >
-                  <span className="text-sm">🌐</span>
                   <span>Tất cả lớp</span>
                 </button>
 
@@ -751,7 +797,7 @@ function Landing() {
                       key={g.value}
                       onClick={() => setSelectedGrade(g.value)}
                       className={`
-                        px-4 py-2 rounded-xl text-xs font-bold font-display transition-all duration-300 flex items-center gap-1.5 cursor-pointer whitespace-nowrap
+                        px-6 py-3 rounded-full text-sm sm:text-base font-black font-display transition-all duration-300 flex items-center justify-center cursor-pointer whitespace-nowrap
                         ${
                           isActive
                             ? "bg-gradient-to-r from-primary to-fun text-white scale-105 shadow-soft border-transparent transform -translate-y-0.5 animate-pop-in"
@@ -759,7 +805,6 @@ function Landing() {
                         }
                       `}
                     >
-                      <span className="text-sm">{g.emoji}</span>
                       <span>{g.label}</span>
                     </button>
                   );
@@ -785,7 +830,6 @@ function Landing() {
                   {/* Grade row header */}
                   <div className="flex items-center justify-between border-b border-border/60 pb-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-2xl">{g.emoji}</span>
                       <h3 className="font-display font-extrabold text-xl md:text-2xl text-foreground">
                         {g.label}
                       </h3>
@@ -797,103 +841,104 @@ function Landing() {
 
                   {/* Grid of books of this grade */}
                   <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {gradeBooks.map((b) => (
-                      <Card
-                        key={b.id}
-                        className="group p-0 border-2 hover:border-primary transition-all hover:-translate-y-1 hover:shadow-card overflow-hidden flex flex-col relative"
-                      >
-                        {/* Custom Badge to indicate level */}
-                        <div className="absolute top-2.5 left-2.5 z-10 flex flex-wrap gap-1">
-                          <span
-                            className={`px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider shadow-soft text-white ${
-                              b.isAdvanced
-                                ? "bg-gradient-to-r from-primary to-fun"
-                                : "bg-success"
-                            }`}
-                          >
-                            {b.isAdvanced ? "Nâng cao" : "Cơ bản"}
-                          </span>
-                        </div>
+                    {gradeBooks.map((b) => {
+                      const isClickable = b.subject === "Khoa học" || b.subject === "Toán";
+                      const detailRoute = b.subject === "Khoa học" ? "/sach/khoa-hoc-4" : "/sach/toan-4";
 
-                        {b.owned && (
-                          <div className="absolute top-2.5 right-2.5 z-10 inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-success text-success-foreground text-[8px] font-bold shadow-soft">
-                            ✓ Đã mua
-                          </div>
-                        )}
-
-                        <div className="aspect-[5/7] overflow-hidden bg-muted relative">
-                          {b.isAdvanced ? (
-                            <BookCover
-                              book={b}
-                              badge={`Nâng cao · Lớp ${b.grade}`}
-                            />
-                          ) : (
-                            <div
-                              className={`relative w-full h-full bg-gradient-to-br ${b.gradient} overflow-hidden flex items-center justify-center`}
+                      const cardContent = (
+                        <Card className="group p-0 border-2 hover:border-primary transition-all hover:-translate-y-1 hover:shadow-card overflow-hidden flex flex-col relative h-full">
+                          {/* Custom Badge to indicate level */}
+                          <div className="absolute top-2.5 left-2.5 z-10 flex flex-wrap gap-1">
+                            <span
+                              className={`px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider shadow-soft text-white ${
+                                b.isAdvanced
+                                  ? "bg-gradient-to-r from-primary to-fun"
+                                  : "bg-success"
+                              }`}
                             >
-                              <PatternSvg pattern={b.pattern} />
-                              <div className="absolute top-0 left-0 right-0 h-1 bg-white/20" />
-                              <div className="absolute top-0 left-1.5 bottom-0 w-0.5 bg-white/10" />
-                              <div className="size-16 md:size-20 rounded-full bg-white/95 backdrop-blur shadow-card flex items-center justify-center text-3xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
-                                {b.emoji}
-                              </div>
-                              <div className="absolute inset-x-0 bottom-0 px-2 py-1.5 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end">
-                                <div className="text-white text-[9px] font-bold tracking-wide">
-                                  SÁCH BÀI TẬP SGK
-                                </div>
-                                <div className="text-white/80 text-[8px]">
-                                  NXB Giáo dục Việt Nam
-                                </div>
-                              </div>
+                              {b.isAdvanced ? "Nâng cao" : "Cơ bản"}
+                            </span>
+                          </div>
+
+                          {b.owned && (
+                            <div className="absolute top-2.5 right-2.5 z-10 inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-success text-success-foreground text-[8px] font-bold shadow-soft">
+                              ✓ Đã mua
                             </div>
                           )}
-                        </div>
 
-                        <div className="p-3 flex flex-col flex-1">
-                          <div className="text-[9px] uppercase tracking-wider text-muted-foreground font-bold">
-                            {b.subject}
-                          </div>
-                          <div className="font-bold text-xs md:text-sm leading-snug mt-1 line-clamp-2 min-h-[2.5rem] text-foreground">
-                            {b.title}
-                          </div>
-                          <div className="mt-2.5 flex items-center justify-between gap-1 flex-wrap pt-2 border-t border-border/40">
-                            <span className="font-display font-bold text-primary text-sm">
-                              {b.isAdvanced ? formatVND(b.price) : "Miễn phí"}
-                            </span>
+                          <div className="aspect-[5/7] overflow-hidden bg-muted relative">
                             {b.isAdvanced ? (
-                              b.owned ? (
-                                <button className="inline-flex items-center gap-0.5 text-[10px] font-bold text-success hover:underline">
-                                  Mở sách →
-                                </button>
-                              ) : (
-                                <button className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-primary/10 text-primary text-[10px] font-bold hover:bg-primary hover:text-primary-foreground transition-colors">
-                                  <ShoppingCart className="size-3" /> Mua
-                                </button>
-                              )
-                            ) : b.subject === "Khoa học" ||
-                              b.subject === "Toán" ? (
-                              <Link
-                                to={
-                                  b.subject === "Khoa học"
-                                    ? "/sach/khoa-hoc-4"
-                                    : "/sach/toan-4"
-                                }
-                                className="inline-flex items-center gap-0.5 text-[10px] font-bold text-primary hover:underline"
-                              >
-                                Mở sách →
-                              </Link>
+                              <BookCover
+                                book={b}
+                                badge={`Nâng cao · Lớp ${b.grade}`}
+                              />
                             ) : (
-                              <button
-                                className="inline-flex items-center gap-0.5 text-[10px] font-bold text-primary hover:underline opacity-60 cursor-not-allowed"
-                                disabled
+                              <div
+                                className={`relative w-full h-full bg-gradient-to-br ${b.gradient} overflow-hidden flex items-center justify-center`}
                               >
-                                Sắp ra mắt
-                              </button>
+                                <PatternSvg pattern={b.pattern} />
+                                <div className="absolute top-0 left-0 right-0 h-1 bg-white/20" />
+                                <div className="absolute top-0 left-1.5 bottom-0 w-0.5 bg-white/10" />
+                                <div className="size-16 md:size-20 rounded-full bg-white/95 backdrop-blur shadow-card flex items-center justify-center text-3xl group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                                  {b.emoji}
+                                </div>
+                                <div className="absolute inset-x-0 bottom-0 px-2 py-1.5 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end">
+                                  <div className="text-white text-[9px] font-bold tracking-wide">
+                                    SÁCH BÀI TẬP SGK
+                                  </div>
+                                  <div className="text-white/80 text-[8px]">
+                                    NXB Giáo dục Việt Nam
+                                  </div>
+                                </div>
+                              </div>
                             )}
                           </div>
+
+                          <div className="p-3 flex flex-col flex-1">
+                            <div className="text-[9px] uppercase tracking-wider text-muted-foreground font-bold">
+                              {b.subject}
+                            </div>
+                            <div className="font-bold text-xs md:text-sm leading-snug mt-1 line-clamp-2 min-h-[2.5rem] text-foreground">
+                              {b.title}
+                            </div>
+                            <div className="mt-2.5 flex items-center justify-between gap-1 flex-wrap pt-2 border-t border-border/40">
+                              <span className="font-display font-bold text-primary text-sm">
+                                {b.isAdvanced ? formatVND(b.price) : "Miễn phí"}
+                              </span>
+                              {b.isAdvanced ? (
+                                b.owned ? (
+                                  <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-success hover:underline">
+                                    Mở sách →
+                                  </span>
+                                ) : (
+                                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-primary/10 text-primary text-[10px] font-bold hover:bg-primary hover:text-primary-foreground transition-colors">
+                                    <ShoppingCart className="size-3 shrink-0" /> Mua
+                                  </span>
+                                )
+                              ) : isClickable ? (
+                                <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-primary hover:underline">
+                                  Mở sách →
+                                </span>
+                              ) : (
+                                <span className="inline-flex items-center gap-0.5 text-[10px] font-bold text-primary opacity-60">
+                                  Sắp ra mắt
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </Card>
+                      );
+
+                      return isClickable ? (
+                        <Link key={b.id} to={detailRoute} className="block no-underline h-full">
+                          {cardContent}
+                        </Link>
+                      ) : (
+                        <div key={b.id} className="block opacity-65 cursor-not-allowed h-full">
+                          {cardContent}
                         </div>
-                      </Card>
-                    ))}
+                      );
+                    })}
                   </div>
                 </div>
               );
@@ -922,9 +967,15 @@ function Landing() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="border-t-2 border-border bg-card mt-auto pt-12 pb-6">
         <div className="max-w-7xl mx-auto px-4 w-full">
+          {/* Premium Blue Pill Banner */}
+          <div className="flex justify-center mb-10">
+            <div className="bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 text-white font-display font-black text-xs sm:text-sm px-8 py-3 rounded-full border-2 border-white shadow-xl tracking-wider uppercase flex items-center justify-center gap-1.5 transform hover:scale-105 transition-transform duration-300">
+              <span>Bộ sách được phát hành tại:</span>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-border/60">
             {/* Cột 1: Thông tin NXBGDVN */}
             <div className="space-y-4">
@@ -972,95 +1023,119 @@ function Landing() {
               </div>
             </div>
 
-            {/* Cột 2: Đơn vị phát hành Miền Bắc */}
+            {/* Cột 2: SEDIDCO */}
             <div className="space-y-4">
-              <h4 className="font-display font-bold text-sm tracking-tight text-primary uppercase pb-1 border-b border-border/40">
-                Phát hành Miền Bắc
-              </h4>
-              <div className="space-y-3">
-                <h5 className="font-bold text-xs text-foreground/90">
-                  Công ty CP Sách & Thiết bị Giáo dục Miền Bắc
-                </h5>
-                <div className="space-y-2 text-xs text-muted-foreground">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="size-3.5 text-muted-foreground/60 shrink-0 mt-0.5" />
-                    <span>232 Tây Sơn, Đống Đa, Hà Nội</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="size-3.5 text-muted-foreground/60 shrink-0" />
-                    <span>024.3852.1706</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Mail className="size-3.5 text-muted-foreground/60 shrink-0" />
-                    <a
-                      href="mailto:mienbac@nxbgd.vn"
-                      className="hover:text-primary transition-colors"
-                    >
-                      mienbac@nxbgd.vn
-                    </a>
-                  </div>
+              <div className="flex items-center gap-3">
+                <SedidcoLogo />
+                <div>
+                  <h4 className="font-display font-black text-sm tracking-tight text-foreground uppercase">
+                    SEDIDCO
+                  </h4>
+                  <span className="text-[10px] font-bold text-emerald-600 uppercase">
+                    Phát hành Phương Nam
+                  </span>
+                </div>
+              </div>
+              <h5 className="font-bold text-xs text-[#2c3e50] leading-snug">
+                CÔNG TY CỔ PHẦN ĐẦU TƯ VÀ PHÁT TRIỂN GIÁO DỤC PHƯƠNG NAM
+              </h5>
+              <div className="space-y-2.5 text-xs text-foreground/80">
+                <div className="flex items-start gap-2">
+                  <MapPin className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>231 Nguyễn Văn Cừ, phường Chợ Quán, TP. Hồ Chí Minh</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="size-4 text-primary shrink-0" />
+                  <span>(028)73 035 556</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Globe className="size-4 text-primary shrink-0" />
+                  <a
+                    href="https://phuongnam.edu.vn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors font-semibold"
+                  >
+                    phuongnam.edu.vn
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Cột 3: Đơn vị phát hành Miền Trung */}
+            {/* Cột 3: CỬU LONG */}
             <div className="space-y-4">
-              <h4 className="font-display font-bold text-sm tracking-tight text-primary uppercase pb-1 border-b border-border/40">
-                Phát hành Miền Trung
-              </h4>
-              <div className="space-y-3">
-                <h5 className="font-bold text-xs text-foreground/90">
-                  Công ty CP Sách & Thiết bị Giáo dục Miền Trung
-                </h5>
-                <div className="space-y-2 text-xs text-muted-foreground">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="size-3.5 text-muted-foreground/60 shrink-0 mt-0.5" />
-                    <span>78 Pasteur, Hải Châu, Đà Nẵng</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="size-3.5 text-muted-foreground/60 shrink-0" />
-                    <span>0236.382.1157</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Mail className="size-3.5 text-muted-foreground/60 shrink-0" />
-                    <a
-                      href="mailto:mientrung@nxbgd.vn"
-                      className="hover:text-primary transition-colors"
-                    >
-                      mientrung@nxbgd.vn
-                    </a>
-                  </div>
+              <div className="flex items-center gap-3">
+                <CuuLongLogo />
+                <div>
+                  <h4 className="font-display font-black text-sm tracking-tight text-foreground uppercase">
+                    CỬU LONG
+                  </h4>
+                  <span className="text-[10px] font-bold text-red-600 uppercase">
+                    Phát hành Cửu Long
+                  </span>
+                </div>
+              </div>
+              <h5 className="font-bold text-xs text-[#2c3e50] leading-snug">
+                CÔNG TY CỔ PHẦN SÁCH VÀ THIẾT BỊ GIÁO DỤC CỬU LONG
+              </h5>
+              <div className="space-y-2.5 text-xs text-foreground/80">
+                <div className="flex items-start gap-2">
+                  <MapPin className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>162D Đường 3/2, phường Ninh Kiều, TP. Cần Thơ</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="size-4 text-primary shrink-0" />
+                  <span>0292 629 2661</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Globe className="size-4 text-primary shrink-0" />
+                  <a
+                    href="https://stbcuulong.edu.vn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors font-semibold"
+                  >
+                    stbcuulong.edu.vn
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Cột 4: Đơn vị phát hành Miền Nam */}
+            {/* Cột 4: SOBEE */}
             <div className="space-y-4">
-              <h4 className="font-display font-bold text-sm tracking-tight text-primary uppercase pb-1 border-b border-border/40">
-                Phát hành Miền Nam
-              </h4>
-              <div className="space-y-3">
-                <h5 className="font-bold text-xs text-foreground/90">
-                  Công ty CP Sách & Thiết bị Giáo dục Miền Nam
-                </h5>
-                <div className="space-y-2 text-xs text-muted-foreground">
-                  <div className="flex items-start gap-2">
-                    <MapPin className="size-3.5 text-muted-foreground/60 shrink-0 mt-0.5" />
-                    <span>240 Trần Bình Trọng, Quận 5, TP. Hồ Chí Minh</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="size-3.5 text-muted-foreground/60 shrink-0" />
-                    <span>028.3835.3448</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Mail className="size-3.5 text-muted-foreground/60 shrink-0" />
-                    <a
-                      href="mailto:miennam@nxbgd.vn"
-                      className="hover:text-primary transition-colors"
-                    >
-                      miennam@nxbgd.vn
-                    </a>
-                  </div>
+              <div className="flex items-center gap-3">
+                <SobeeLogo />
+                <div>
+                  <h4 className="font-display font-black text-sm tracking-tight text-foreground uppercase">
+                    SOBEE
+                  </h4>
+                  <span className="text-[10px] font-bold text-blue-600 uppercase">
+                    Phát hành Miền Nam
+                  </span>
+                </div>
+              </div>
+              <h5 className="font-bold text-xs text-[#2c3e50] leading-snug">
+                CÔNG TY CỔ PHẦN SÁCH VÀ THIẾT BỊ GIÁO DỤC MIỀN NAM
+              </h5>
+              <div className="space-y-2.5 text-xs text-foreground/80">
+                <div className="flex items-start gap-2">
+                  <MapPin className="size-4 text-primary shrink-0 mt-0.5" />
+                  <span>231 Nguyễn Văn Cừ, phường Chợ Quán, TP. Hồ Chí Minh</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="size-4 text-primary shrink-0" />
+                  <span>0283 830 0312 - 0283 830 0648</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Globe className="size-4 text-primary shrink-0" />
+                  <a
+                    href="https://sobee.vn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors font-semibold"
+                  >
+                    sobee.vn
+                  </a>
                 </div>
               </div>
             </div>
@@ -1072,6 +1147,27 @@ function Landing() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Interactive Bee Mascot */}
+      <div className="fixed bottom-6 right-6 z-50 group cursor-pointer">
+        {/* Glow effect */}
+        <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full blur-md opacity-30 group-hover:opacity-50 transition-opacity duration-300 animate-pulse" />
+        
+        {/* Speech Bubble */}
+        <div className="absolute bottom-full right-2 mb-3 bg-white text-foreground text-xs font-black px-3.5 py-2 rounded-2xl shadow-xl border-2 border-primary/20 whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
+          Học cùng Ong Vàng nhé! 🐝
+          <div className="absolute top-full right-6 w-3 h-3 bg-white border-r-2 border-b-2 border-primary/20 transform rotate-45 -translate-y-1.5" />
+        </div>
+
+        {/* Mascot Circle Wrapper */}
+        <div className="relative size-16 sm:size-20 rounded-full bg-gradient-to-br from-amber-100 to-yellow-300 p-1.5 border-4 border-white shadow-2xl flex items-center justify-center overflow-hidden transition-all duration-500 hover:scale-110 active:scale-95 group-hover:rotate-3">
+          <img
+            src={mascot}
+            alt="Mascot Bee"
+            className="w-full h-full object-contain group-hover:animate-wiggle"
+          />
+        </div>
+      </div>
     </div>
   );
 }
