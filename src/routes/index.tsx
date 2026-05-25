@@ -890,9 +890,56 @@ function Landing() {
           </p>
         </div>
 
+        {/* Mobile Filters (Select boxes - Only visible on mobile/phone) */}
+        <div className="lg:hidden block mb-6 space-y-4 bg-card/80 backdrop-blur p-5 rounded-3xl border-2 border-border/80 shadow-soft animate-pop-in">
+          {/* Class Filter (Lọc theo lớp - On top) */}
+          <div className="space-y-2">
+            <label className="text-xs font-black text-slate-400 uppercase tracking-widest block leading-none">
+              Chọn Lớp học
+            </label>
+            <select
+              value={selectedGrade}
+              onChange={(e) => {
+                const val = e.target.value;
+                setSelectedGrade(val === "all" ? "all" : parseInt(val, 10));
+              }}
+              className="w-full h-11 px-3.5 rounded-2xl border-2 border-border bg-white text-sm font-bold focus:border-primary focus:outline-none transition-all text-slate-800 shadow-sm cursor-pointer"
+            >
+              <option value="all">Tất cả lớp</option>
+              {GRADES.map((g) => (
+                <option key={g.value} value={g.value}>
+                  {g.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Subject Filter (Lọc theo môn - Below) */}
+          <div className="space-y-2">
+            <label className="text-xs font-black text-slate-400 uppercase tracking-widest block leading-none">
+              Chọn Môn học
+            </label>
+            <select
+              value={selectedSubjects[0] || "all"}
+              onChange={(e) => {
+                const val = e.target.value;
+                setSelectedSubjects(val === "all" ? [] : [val]);
+              }}
+              className="w-full h-11 px-3.5 rounded-2xl border-2 border-border bg-white text-sm font-bold focus:border-primary focus:outline-none transition-all text-slate-800 shadow-sm cursor-pointer"
+            >
+              <option value="all">📚 Tất cả môn học</option>
+              {FILTER_SUBJECTS.map((sub) => (
+                <option key={sub} value={sub}>
+                  {sub}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Cột bên trái: Bộ lọc môn học */}
-          <div className="lg:col-span-1">
+          {/* Cột bên trái: Bộ lọc môn học (Chỉ hiện trên desktop) */}
+          <div className="lg:col-span-1 hidden lg:block">
             <Card className="p-6 border-2 border-border/80 rounded-3xl bg-card/85 backdrop-blur shadow-soft sticky top-20">
               <h3 className="font-display font-bold text-lg text-foreground border-b-2 border-border pb-3 mb-4 flex items-center gap-2">
                 <span>📚</span> Môn học
@@ -937,8 +984,8 @@ function Landing() {
 
           {/* Cột bên phải: Danh sách 5 lớp, mỗi lớp 1 hàng */}
           <div className="lg:col-span-3 space-y-8">
-            {/* Horizontal Grade Filter Row */}
-            <div className="p-3.5 rounded-full bg-card/60 backdrop-blur border-2 border-border/80 shadow-soft">
+            {/* Horizontal Grade Filter Row (Chỉ hiện trên desktop) */}
+            <div className="p-3.5 rounded-full bg-card/60 backdrop-blur border-2 border-border/80 shadow-soft hidden lg:block">
               <div className="flex items-center gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] py-1 px-1">
                 <button
                   onClick={() => setSelectedGrade("all")}
